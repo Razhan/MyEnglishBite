@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" >
+    <rotate
+        android:duration="1000"
+        android:fromDegrees="-5"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:repeatCount="infinite"
+        android:repeatMode="reverse"
+        android:interpolator="@android:anim/linear_interpolator"
+        android:toDegrees="5" />
+    <translate 
+	    android:fromXDelta="0" android:toXDelta="2" 
+	    android:fromYDelta="0" android:toYDelta="3" 
+	    android:duration="500" android:startOffset="0"
+	    android:repeatCount="infinite"
+        android:repeatMode="reverse"
+	    android:interpolator="@android:anim/linear_interpolator"/>
+	<translate 
+	    android:fromXDelta="0" android:toXDelta="-3" 
+	    android:fromYDelta="0" android:toYDelta="4" 
+	    android:duration="500" android:startOffset="500"
+	    android:repeatCount="infinite"
+        android:repeatMode="reverse"
+	    android:interpolator="@android:anim/linear_interpolator"/>
+	<translate 
+	    android:fromXDelta="0" android:toXDelta="-4" 
+	    android:fromYDelta="0" android:toYDelta="-2" 
+	    android:duration="500" android:startOffset="1000"
+	    android:repeatCount="infinite"
+        android:repeatMode="reverse"
+	    android:interpolator="@android:anim/linear_interpolator"/>
+	<translate 
+	    android:fromXDelta="0" android:toXDelta="3" 
+	    android:fromYDelta="0" android:toYDelta="-4" 
+	    android:duration="500" android:startOffset="1500"
+	    android:repeatCount="infinite"
+        android:repeatMode="reverse"
+	    android:interpolator="@android:anim/linear_interpolator"/>
+</set>

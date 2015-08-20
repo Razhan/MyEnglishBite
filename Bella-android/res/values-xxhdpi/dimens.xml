@@ -1,0 +1,8 @@
+<resources>
+    
+	<dimen name="audioplayerview_lage_thinkness">12dp</dimen>
+	<dimen name="audioplayerview_small_thinkness">4dp</dimen>
+	<!-- 气球上的文字size -->
+	<dimen name="balloon_label_size">20sp</dimen>
+	<dimen name="balloon_thorn_max_width">25dp</dimen>
+</resources>

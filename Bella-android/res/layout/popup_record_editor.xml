@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:background="@color/bella_color_black_dark" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/popup_avatar_editor_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ios_like_dialog_item_bg"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/popup_avatar_editor_title"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/setting_avatar_dialog_item_height"
+                android:alpha="0.7"
+                android:gravity="center"
+                android:text="@string/report_text"
+                android:textColor="@color/bella_color_black_dark" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:alpha="0.5"
+                android:background="@color/bella_color_black_dark" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:alpha="0.5"
+                android:background="@color/bella_color_black_dark" />
+
+            <TextView
+                android:id="@+id/popup_report_editor"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/setting_avatar_dialog_item_height"
+                android:gravity="center"
+                android:text="@string/report_button"
+                android:textColor="@color/ios_like_dialog_item_text"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/popup_record_editor_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/setting_avatar_dialog_item_height"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ios_like_dialog_item_bg"
+            android:gravity="center"
+            android:text="@string/settings_avatar_edit_cancel"
+            android:textColor="@color/ios_like_dialog_item_text"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</RelativeLayout>

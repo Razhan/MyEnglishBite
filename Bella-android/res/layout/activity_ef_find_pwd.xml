@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bella_chunk_background" >
+	<com.ef.bite.widget.ActionbarLayout
+	    android:id="@+id/login_ef_actionbar"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    />
+	<ScrollView 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/login_ef_actionbar"
+	    >
+	    <LinearLayout
+		        android:id="@+id/login_ef_findpwd_first_layout"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical"
+		        android:gravity="center"
+		        android:padding="20dp" >
+				<com.ef.bite.widget.LoginInputLayout
+			        android:id="@+id/login_ef_findpwd_phone"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        />
+		         <Button
+			        android:id="@+id/login_ef_findpwd_getcode"
+			        android:layout_width="match_parent"
+			        android:layout_height="50dp"
+			        android:layout_gravity="center_horizontal"
+			        android:layout_marginTop="30dp"
+			        android:text="@string/foget_pwd_ef_get_verifycode_btn" 
+			        android:textColor="@color/white"
+			        android:background="@drawable/button_message_windows_background"/>
+		         
+		        <TextView
+		            android:id="@+id/textView2"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_gravity="center_horizontal"
+		            android:layout_margin="20dp"
+		            android:text="@string/foget_pwd_ef_enter_phone_to_get_code" />
+		    </LinearLayout>
+    </ScrollView>
+    <ScrollView 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/login_ef_actionbar" >
+        <LinearLayout 
+            android:id="@+id/login_ef_findpwd_second_layout"
+            android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:gravity="center"
+	        android:padding="20dp"
+	        android:visibility="gone" >
+            <com.ef.bite.widget.LoginInputLayout
+		        android:id="@+id/login_ef_findpwd_verify_code"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        />
+	        <com.ef.bite.widget.LoginInputLayout
+		        android:id="@+id/login_ef_findpwd_reset_pwd"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        />
+	        <com.ef.bite.widget.LoginInputLayout
+		        android:id="@+id/login_ef_findpwd_confirm_pwd"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        />
+             <Button
+		        android:id="@+id/login_ef_findpwd_submit"
+		        android:layout_width="match_parent"
+		        android:layout_height="50dp"
+		        android:layout_gravity="center_horizontal"
+		        android:layout_marginTop="30dp"
+		        android:text="@string/foget_pwd_ef_Reset_button" 
+		        android:textColor="@color/white"
+		        android:background="@drawable/button_message_windows_background"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

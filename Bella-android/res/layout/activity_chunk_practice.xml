@@ -1,0 +1,132 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chunk_practice_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/chunk_practice_header"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:background="@color/bella_color_cellobrate_yellow"
+        android:orientation="vertical" >
+
+        <View
+            android:id="@+id/chunk_practice_limit_animation"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:alpha="0.5"
+            android:background="@color/bella_color_orange_light" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/chunk_choice_bg_l2" />
+
+        <com.ef.bite.widget.HeaderView
+                android:id="@+id/chunk_practice_top_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/chunk_practice_bottom_layout"
+            android:layout_below="@+id/chunk_practice_top_layout"
+            android:layout_centerInParent="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" >
+
+            <TextView
+                android:id="@+id/chunk_practice_choice_question"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="IF YOU ORDER YOUR BURGER WELL DONE, HOW PINK WILL THE MEAT BE INSIDE?"
+                android:textColor="@color/bella_color_black_dark"
+                android:textSize="22sp"
+                android:visibility="gone" />
+
+            <com.ef.bite.widget.AudioPlayerView
+                android:id="@+id/chunk_practice_audioplayer_big"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/chunk_practice_score_increasing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:text="+19"
+                android:textSize="@dimen/score_increasing_text_smaller_size"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/chunk_practice_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" >
+
+            <!--
+                 <com.ef.bite.widget.CirclePageIndicator
+                android:id="@+id/chunk_practice_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true" />
+            -->
+
+            <LinearLayout
+                android:id="@+id/chunk_practice_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                    android:visibility="gone">
+            </LinearLayout>
+
+            <com.ef.bite.widget.AudioPlayerView
+                android:id="@+id/chunk_practice_audioplayer_small"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/chunk_practice_choice_info"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/bella_color_pink_light"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/chunk_practice_choose_appropriate_answer"
+            android:textSize="15sp" />
+
+        <ListView
+            android:id="@+id/chunk_practice_choice_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#00000000" />
+    </LinearLayout>
+
+</LinearLayout>

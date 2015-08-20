@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General -->
+    <string name="app_name">English Bite</string>
+    <string name="app_preview_name">Phrase preview</string>
+    <string name="error_check_network_available">Please ensure that your mobile is connected to the network.</string>
+    <string name="loading_data">Loading data...</string>
+    <string name="initializing_data">Initializing app data, please wait...</string>
+    <string name="network_not_available">Your network is not available !</string>
+    <string name="service_not_available">Service address is not available !</string>
+    <string name="fail_to_get_result">Failed to retrieve results. Please check your network connection.</string>
+    <string name="app_crash_title">Sorry, the app has crashed.</string>
+    <string name="app_issue_happen">Some issue happen!</string>
+    <string name="app_exist_click_again">Click again to exit the app.</string>
+
+    <!-- Walkthrough/Splash -->
+    <string name="walkthrough_button_start">Next</string>
+    <string name="walkthrough_content_first">Learn a useful English phrase</string>
+    <string name="walkthrough_content_second">Practice new phrase in different activities</string>
+    <string name="walkthrough_content_third">Connect and learn English with your friends and people from around the world</string>
+    <string name="splash_loading">Loading...</string>
+
+    <!-- Login/Register -->
+    <string name="login_main_appname">English Bite</string>
+    <string name="login_name_zh_appname">一口英语</string>
+    <string name="login_main_5_min_day">5 minutes of \nEnglish everyday!</string>
+    <string name="login_main_sign_in">Sign in</string>
+    <string name="login_main_not_registered_yet">Not yet registered?</string>
+    <string name="login_main_already_have_an_account">Already have an acconunt?</string>
+    <string name="login_main_sign_up">Sign up</string>
+    <string name="login_main_login_in">Login in</string>
+    <string name="login_ef_login">LOGIN</string>
+    <string name="login_ef_forget_password">Forgot Password ?</string>
+    <string name="login_ef_username_hint">Mobile Number</string>
+    <string name="login_ef_password_hint">Password</string>
+    <string name="login_ef_login_button">Login</string>
+    <string name="loging">Logging in...</string>
+    <string name="loging_getting_profile">Getting user profile...</string>
+    <string name="loging_getting_checking_update">Checking resource for update...</string>
+    <string name="loging_getting_downloading_resource">downloading resource</string>
+    <string name="login_error_username_empty">Please type in mobile number</string>
+    <string name="login_error_password_empty">Please type in password</string>
+    <string name="login_get_progress">Synchronizing with the server, please wait...</string>
+    <string name="register_ef_register_title">SIGN UP</string>
+    <string name="register_ef_email_hint">Email</string>
+    <string name="register_ef_password_hint">Password</string>
+    <string name="register_ef_confirm_password_hint">Confirm Password</string>
+    <string name="register_ef_sign_up_button">Sign up</string>
+    <string name="register_ef_success">Register Success!</string>
+    <string name="register_ef_registering">Registering</string>
+    <string name="regisetr_ef_error_firstname_null">Your first name is required</string>
+    <string name="register_ef_error_lastname_null">Your last name is required.</string>
+    <string name="register_ef_error_username_null">You need to enter a name to log in.</string>
+    <string name="regisetr_ef_error_username_invalid">invalid phone number</string>
+    <string name="regisetr_ef_error_username_length">Phone number must be 10 digit long</string>
+    <string name="register_ef_error_password_null">Please create a password.</string>
+    <string name="register_ef_error_confirm_password_null">Please confirm your password.</string>
+    <string name="register_ef_error_password_not_match">The passwords don\'t match</string>
+    <string name="register_ef_first_name">First Name</string>
+    <string name="register_ef_last_name">Last Name</string>
+    <string name="register_ef_phone">Mobile Number</string>
+    <string name="register_ef_enter_your_name">Enter your first name \n and last name so people can find you.</string>
+    <string name="register_ef_use_phone">To create an account or sign in, \n use your mobile number.</string>
+    <string name="register_ef_next">Next</string>
+    <string name="register_ef_back">Back</string>
+    <string name="register_ef_accept_terms">I agree with the &lt;h>Terms and conditions&lt;/h></string>
+    <string name="register_ef_accept_call">I agree to get phone call from EF</string>
+    <string name="register_ef_not_accept_terms">Please accept the terms and conditions to continue</string>
+    <string name="foget_pwd_ef_title">FORGOT PASSWORD?</string>
+    <string name="foget_pwd_ef_email_hint">Email</string>
+    <string name="foget_pwd_ef_submit_button">Submit</string>
+    <string name="foget_pwd_ef_phone_hint">Mobile Number</string>
+    <string name="foget_pwd_ef_verify_code_hint">Verification Code</string>
+    <string name="foget_pwd_ef_reset_pwd_hint">New Password</string>
+    <string name="foget_pwd_ef_confirm_pwd_hint">Confirm Password</string>
+    <string name="foget_pwd_ef_Reset_button">Reset password</string>
+    <string name="foget_pwd_ef_get_verifycode_btn">Get verification code</string>
+    <string name="foget_pwd_ef_enter_phone_to_get_code">Enter your mobile number below and we’ll send you the verification code.</string>
+    <string name="foget_pwd_ef_get_verify_code_success">A verification code is sent to you via SMS. Please check.</string>
+    <string name="foget_pwd_ef_phone_null">Please enter your mobile number</string>
+    <string name="foget_pwd_ef_verify_code_null">Please enter the verification code.</string>
+    <string name="foget_pwd_ef_reset_pwd_null">Please create a new password.</string>
+    <string name="foget_pwd_ef_confirm_pwd_null">Please confirm your password.</string>
+    <string name="foget_pwd_ef_password_not_match">The passwords don\'t match.</string>
+    <string name="foget_pwd_ef_progress_get_verify_code">Sending you the verification code...</string>
+    <string name="foget_pwd_ef_progress_reset_password">Reset password...</string>
+    <string name="foget_pwd_ef_progress_reset_pwd_success">Resetting the password was successful</string>
+    <string name="change_pwd_ef_title">CHANGE PASSWORD</string>
+    <string name="change_pwd_ef_old_pwd_hint">Old Password</string>
+    <string name="change_pwd_ef_new_pwd_hint">New Password</string>
+    <string name="change_pwd_ef_confirm_new_pwd_hint">Confirm Password</string>
+    <string name="change_pwd_ef_change_button">Change password</string>
+    <string name="change_pwd_ef_error_no_pwd">Please create a password.</string>
+    <string name="change_pwd_ef_changing_pwd">Changing password...</string>
+    <string name="change_pwd_ef_error_pwd_not_match">The passwords don\'t match.</string>
+    <string name="change_pwd_ef_success">Changing password was successful.</string>
+    <string name="rate_others">Rate others</string>
+
+    <!-- Home Screen -->
+    <string name="home_screen_learn_title">Learn</string>
+    <string name="home_screen_practice_title">Practice</string>
+    <string name="home_screen_mastered_title">Mastered</string>
+    <string name="home_screen_leaderboard_title">Leaderboard</string>
+    <string name="home_screen_learn_available_now">available now</string>
+    <string name="home_screen_learn_available_minutes">available %1$d minutes</string>
+    <string name="home_screen_learn_available_hours">available in %1$d hours</string>
+    <string name="home_screen_learn_available_tomorrow">available tomorrow</string>
+    <string name="home_screen_practice_available_now">available to practice now</string>
+    <string name="home_screen_practice_available_minutes">available to practice in %1$d minutes</string>
+    <string name="home_screen_practice_available_hour">available to practice in %1$d hours</string>
+    <string name="home_screen_practice_available_tomorrow">available to practice tomorrow</string>
+    <string name="home_screen_everyday_learn_new">learn a new phrase \nevery day</string>
+    <string name="home_screen_practice_3_times_to_master">Practice 3 times to master each phrase</string>
+    <string name="home_screen_friends">Friends</string>
+    <string name="home_screen_invite">Invite</string>
+    <string name="home_screen_no_new_chunks">No new phrase available!</string>
+    <string name="home_screen_no_rehearse_chunks">No available phrases to practice!</string>
+    <string name="home_screen_no_marstered_chunks">No mastered phrases!</string>
+    <string name="home_screen_all_done_good_job">Good job!</string>
+    <string name="home_screen_all_done_stay_tuned">you have learned all the phrases available in this version, stayed tuned!</string>
+    <string name="home_screen_done_for_today_stay_tuned">You have learned all available phrases for today, stay tuned</string>
+    <string name="home_screen_all_done_avaiable_soon">available soon</string>
+
+    <!-- Chunk Learning/Practice -->
+    <string name="chunk_learn_lets_learn_new_chunk">Let\'s learn\n a new phrase!</string>
+    <string name="chunk_practice_choose_appropriate_answer">Choose an appropriate answer</string>
+    <string name="chunk_learn_detail_translation">中</string>
+    <string name="chunk_learn_detail_status_title">mastery level</string>
+    <string name="chunk_learn_detail_status_descript">available to practice in %1$d day</string>
+    <string name="chunk_learn_detail_status_descripts">available to practice in %1$d days</string>
+    <string name="chunk_learn_detail_status_mastered">phrase has been mastered</string>
+
+    <!-- Chunk List -->
+    <string name="chunk_list_actionbar_title">PHRASES</string>
+    <string name="chunk_list_to_rehearse">To practice</string>
+    <string name="chunk_list_mastered">Mastered</string>
+    <string name="chunk_list_rehearse_available_text"> are available to practice.</string>
+    <string name="chunk_list_rehearse_future_text"> more to practice in the future.</string>
+    <string name="chunk_list_master_no_phrase">Successfully practice a phrase three times to master it</string>
+    <string name="chunk_search_to_rehearse">to practice</string>
+    <string name="chunk_search_mastered">mastered</string>
+    <string name="chunk_search_button_done">Done</string>
+    <string name="chunk_search_button_cancel">Cancel</string>
+
+    <!-- Balloon -->
+    <string name="balloon_description">Description</string>
+    <string name="balloon_tips">To be easy to understand or logical.</string>
+    <string name="balloon_drag_info">Drag the balloon below the line in the correct order!</string>
+    <string name="balloon_good_job">Good Job!</string>
+    <string name="balloon_drag_start">Start</string>
+
+    <!-- LeaderBoard -->
+    <string name="leaderboard_title">LEADERBOARD</string>
+    <string name="leaderboard_friends">Friends</string>
+    <string name="leaderboard_global">Global</string>
+    <string name="leaderboard_fail_to_load">Failed to update the leaderboard.</string>
+
+    <!-- Profile -->
+    <string name="profile_phrasses">Phrases</string>
+    <string name="profile_earn_more_to_level_up">Earn 500 more to level up</string>
+    <string name="profile_earn">Earn</string>
+    <string name="profile_more_to_level_up">more to level up</string>
+    <string name="profile_xp">xp</string>
+    <string name="profile_friends">Friends</string>
+    <string name="profile_no_friend">No friends found!</string>
+    <string name="recording_key">Recordings</string>
+
+    <!-- Friend -->
+    <string name="add_friend_actionbar_title">ADD FRIENDS</string>
+    <string name="add_friend_wechat">Wechat</string>
+    <string name="add_friend_search_id">Search Friends</string>
+    <string name="add_friend_result">results</string>
+    <string name="add_friend_search_hint">Searching...</string>
+    <string name="add_friend_search_result">Results</string>
+    <string name="add_friend_search_error_no_key">Please enter user id to search</string>
+    <string name="add_frend_failed">Failed to add the friend.</string>
+    <string name="add_friend_success">New friend added.</string>
+    <string name="friend_list_my_friend">MY FRIENDS</string>
+    <string name="friend_list_s_friends">\'s FRIENDS</string>
+    <string name="friend_list_loading_friends">Loading friends...</string>
+    <string name="friend_list_fail_loaded">Failed to update the list of friends.</string>
+    <string name="friend_notification_added_you">added you</string>
+    <string name="friend_notification_time_ago">hours ago</string>
+    <string name="friend_notification_ads_online_teacher">EF Online Teacher</string>
+    <string name="friend_notification_ads_online_school">7 day free trial of the Online School</string>
+    <string name="friend_notification_loading">Loading notifications...</string>
+    <string name="friend_notification_fail_to_get">Fail to update notifications!</string>
+    <string name="friend_notification_minutes_ago">minutes ago</string>
+    <string name="friend_notification_hours_ago">hours ago</string>
+    <string name="friend_notification_days_ago">days ago</string>
+    <string name="friend_notification_day_ago">day ago</string>
+    <string name="friend_notification_months_ago">months ago</string>
+    <string name="friend_notification_years_ago">years ago</string>
+    <string name="upsell_title">想开始你的第一堂口语课吗？</string>
+    <string name="upsell_learn_more">了解更多 ></string>
+
+    <!-- Seetings 页面 -->
+    <string name="setings_page_title">Settings</string>
+    <string name="settings_logout">Log Out</string>
+    <string name="settings_picture">Avatar</string>
+    <string name="settings_user_id">User ID</string>
+    <string name="settings_nickname">Nick name</string>
+    <string name="settings_firstname">First name</string>
+    <string name="settings_lastname">Last name</string>
+    <string name="settings_phone_number">Mobile number</string>
+    <string name="settings_password">Password</string>
+    <string name="settings_email">Email</string>
+    <string name="settings_location">Location</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_notification">Notification</string>
+    <string name="settings_sound_effect">Sound effect</string>
+    <string name="settings_reset_tutorial">Tutorial</string>
+    <string name="settings_terms_service">Terms and conditions</string>
+    <string name="settings_about">About English Bite</string>
+    <string name="settings_avatar_edit_title">Change profile picture</string>
+    <string name="settings_avatar_edit_cancel">Cancel</string>
+    <string name="settings_avatar_take_from_gallery">Add from gallery</string>
+    <string name="settings_avatar_take_from_camera">Add from camera</string>
+    <string name="settings_avatar_fail_to_upload">Failed to update profile picture.</string>
+    <string name="settings_avatar_success_to_upload">Profile picture updated.</string>
+    <string name="settings_avatar_uploading">Updating profile picture, please wait...</string>
+    <string name="settings_edit_item_title">Edit</string>
+    <string name="settings_edit_item_value">value</string>
+    <string name="settings_item_fail_to_edit">Failed updating the nickname due to network problems.</string>
+    <string name="settings_item_value_null">Please enter setting value!</string>
+    <string name="settings_select_wrong_item">Something went wrong. Please try again.</string>
+    <string name="settings_logout_dialog_title">Log out</string>
+    <string name="settings_logout_dialog_content">Do you want to log out?</string>
+    <string name="settings_language_edit_title">Language</string>
+    <string name="settings_language_default">Default</string>
+    <string name="settings_language_english">English</string>
+    <string name="settings_language_chinese">简体中文</string>
+    <string name="settings_language_update_success">Language updated.</string>
+    <string name="settings_android_version">Android Version:</string>
+    <string name="settings_location_edit_title">Location</string>
+    <string name="settings_location_progress_changing">Change your location...</string>
+    <string name="settings_location_change_success">Location updated.</string>
+    <string name="settings_logout_dialog_ok">OK</string>
+    <string name="settings_logout_dialog_cancel">Cancel</string>
+
+    <!-- Pop up页面 -->
+    <string name="chunk_practice_error_popup_missed">Incorrect!</string>
+    <string name="chunk_practice_error_popup_selection"> We don\'t say: </string>
+    <string name="chunk_practice_error_popup_learn">Learn</string>
+    <string name="chunk_practice_error_popup_tryagain">Try Again</string>
+    <string name="chunk_practice_error_popup_timeout">Sorry, times up!</string>
+    <string name="chunk_level_up_title">Level Up !</string>
+    <string name="chunk_level_up_yeah">Yeah!</string>
+    <string name="chunk_level_up_share">Share</string>
+    <string name="popup_social_share_title">Let My Friends Know</string>
+    <string name="popup_social_share_wechat">WeChat friends</string>
+    <string name="popup_social_share_sina">Sina</string>
+    <string name="popup_social_share_wechat_moments">WeChat moments</string>
+    <string name="popup_social_share_facebook">Facebook好友</string>
+    <string name="popup_social_share_cancel">Cancel</string>
+    <string name="popup_rehearsal_result_title_keep_trying">Keep Trying!</string>
+    <string name="popup_rehearsal_result_title_not_bad">Not Bad!</string>
+    <string name="popup_rehearsal_result_title_very_good">Very Good!</string>
+    <string name="popup_rehearsal_result_title_great">Great!</string>
+    <string name="popup_rehearsal_result_title_awesome">Awesome!</string>
+    <string name="popup_rehearsal_result_descrip_you_got">You got</string>
+    <string name="popup_rehearsal_result_descrip_right_answer">right anwser!</string>
+    <string name="popup_rehearsal_result_descrip_right_answers">right anwsers!</string>
+    <string name="popup_score_up_title">Scores Up!</string>
+    <string name="popup_practice_quit_title">Quit Practicing?</string>
+    <string name="popup_practice_quit_info">If you quit now, your progress in this practice sesion will not be saved. Are you sure you want to quit?</string>
+    <string name="popup_practice_quit_no">NO</string>
+    <string name="popup_practice_quit_quit">Quit</string>
+    <string name="popup_rehearsal_quit_title">Quit Practicing?</string>
+    <string name="popup_rehearsal_quit_info">If you quit now, your progress in this practice sesion will be saved. Are you sure you want to quit?</string>
+    <string name="popup_chunk_done_well_done">Well Done!</string>
+    <string name="popup_chunk_done_continue">Continue</string>
+    <string name="popup_chunk_done_learn_new_phrase">You\'ve learned a new phrase!</string>
+    <string name="popup_chunk_done_brag_friend">Brag to friends</string>
+    <string name="popup_term_service_title">English BITE \nTerms &amp; Conditions </string>
+    <string name="popup_term_service_content">Welcome to EF Englishtown("EF Englishtown"), the premier service for people around the world to learn English. This agreement represents the entire contract between you and EF Englishtown with respect to the Site and, if applicable, the fee-based subscription services therein. You may want to print this page for your reference. By visiting, becoming a member of, purchasing a gift subscription from, or subscribing to EF Englishtown, you agree, without qualification, to be bound by the terms and conditions of use set out below.\n1. Your rights \n2. Term </string>
+    <string name="popup_term_service_btn_agree">Agree</string>
+    <string name="popup_term_Service_btn_not_agree">Don\'t agree</string>
+    <string name="report_text">Are you sure you want to report this recording</string>
+    <string name="report_button">Report the recording</string>
+    <string name="popup_record_editor_report_message_succeed">succeed</string>
+    <string name="user_recording_delete_header">Do you want to delete your recording?</string>
+    <string name="user_recording_delete_body">If you delete now,your recording and comments will not be saved.Are you sure you want to delete?</string>
+    <string name="user_recording_delete_button">Delete</string>
+    <string name="popup_rating_activity_sorry">Sorry!</string>
+    <string name="rating_view_no_more">No more user content is available for the moment,please come back later.</string>
+
+    <!-- Share Text -->
+    <string name="share_text_input_hint">say something</string>
+    <string name="share_text_invite_friend">I use English Bite to learn English. You should try it! </string>
+    <string name="share_text_new_chunk">I just learned a new English Bite. Do you know it?</string>
+    <string name="share_text_level_reach_X">I reached level </string>
+    <string name="share_text_level_catch_up">. Catch up, if you can.</string>
+    <string name="share_text_badge">I just earned [badge name]. Can you do that?</string>
+    <string name="share_text_generating_link">Generating share link...</string>
+    <string name="share_text_link_genrate_failed">Fail to generate the share link!</string>
+
+    <!-- Notification Text -->
+    <string name="notify_text_new_phrase">One new phrase available</string>
+    <string name="notify_text_to_rehearse">Click here to practice</string>
+    <string name="notify_fail_to_hand">Fail to hand the notification!</string>
+    <string name="notify_phrase_already_practiced">The phrase have already been  practiced!</string>
+    <string name="notify_phrase_already_learned">The phrase have already been learned!</string>
+    <string name="notification_rating">just gave you a rating.</string>
+
+    <!-- welcome/Tutorial -->
+    <string name="tutorial_1">Welcome to English Bite. \nLearn one useful English \nphrase per day.</string>
+    <string name="tutorial_2">Next you will learn your first \nphrase, through a dialogue \nand some activities.</string>
+    <string name="tutorial_3">Congratulation you \njust learned your first phrase.</string>
+    <string name="tutorial_4">Next is your home screen. \nLearn more or practice what \nyou\'ve learnt in the past.</string>
+    <string name="tutorial_5">Here you practice what \nyou\'ve learnt in the past.</string>
+    <string name="tutorial_6">When you\'ve successfully \npracticed a phrase three \ntimes you have mastered it.</string>
+    <string name="tutorial7">In the next section you will first review a few other members recordings, using today\'s phrase, and then try yourself.</string>
+    <string name="title_activity_term_condition">TermConditionActivity</string>
+    <string name="hello_world">Hello world!</string>
+
+    <!-- reviewvoice -->
+    <string name="reviewvoice_recording_like_soso">what do you think of this recording?</string>
+    <string name="reviewvoice_reminder">please listen to the audio in order to  rate it.</string>
+    <string name="reviewvoice_fail_to_get_result">Failed to retrieve results</string>
+    <string name="reviewvoice_refresh">Refresh</string>
+    <string name="user_recoring_review">review</string>
+    <string name="user_recoring_reviews">reviews</string>
+    <string name="user_recording_no_rating">no ratings yet!</string>
+    <string name="userrecording_reminder_no_ratings_yet">No ratings yet,Invite your friends to rate you!</string>
+    <string name="user_recoding_has_rates">These people have rated you. Invite more friends to rate you!</string>
+    <string name="report_confirm">This user has now been reported. We will investigate</string>
+
+
+    <!--Facebook id-->
+    <string name="fb_app_id">840080019363949</string>
+    <string name="fb_app_name">EFID</string>
+
+    <string-array name="array_spinner_registerage">
+        <item>0&#8211;18</item>
+        <item>19&#8211;22</item>
+        <item>23&#8211;26</item>
+        <item>27&#8211;35</item>
+        <item>36&#8211;40</item>
+        <item>41&#8211;50</item>
+        <item>50&#8211;</item>
+    </string-array>
+
+</resources>

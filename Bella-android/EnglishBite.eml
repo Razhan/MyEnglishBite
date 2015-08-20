@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component jdk="Android API 19 Platform" jdk_type="Android SDK">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="adobeMobileLibrary.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/adobeMobileLibrary.jar!/"/>
+	</lib>
+	<lib name="adobeMobileScene7.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/adobeMobileScene7.jar!/"/>
+	</lib>
+	<lib name="android-support-v4.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/android-support-v4.jar!/"/>
+	</lib>
+	<lib name="blurbenind.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/blurbenind.jar!/"/>
+	</lib>
+	<lib name="bolts-android-1.1.2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/bolts-android-1.1.2.jar!/"/>
+	</lib>
+	<lib name="crittercism_v5_0_6_sdkonly.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/crittercism_v5_0_6_sdkonly.jar!/"/>
+	</lib>
+	<lib name="google-play-services.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/google-play-services.jar!/"/>
+	</lib>
+	<lib name="gson-2.2.4.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/gson-2.2.4.jar!/"/>
+	</lib>
+	<lib name="httpclient-4.3.5.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/httpclient-4.3.5.jar!/"/>
+	</lib>
+	<lib name="httpcore-4.3.2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/httpcore-4.3.2.jar!/"/>
+	</lib>
+	<lib name="httpmime-4.3.5.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/httpmime-4.3.5.jar!/"/>
+	</lib>
+	<lib name="liteasynclib.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/liteasynclib.jar!/"/>
+	</lib>
+	<lib name="mframework.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/mframework.jar!/"/>
+	</lib>
+	<lib name="mp3Recorder.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/mp3Recorder.jar!/"/>
+	</lib>
+	<lib name="mta-sdk-1.0.0.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/mta-sdk-1.0.0.jar!/"/>
+	</lib>
+	<lib name="Parse-1.9.1.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/Parse-1.9.1.jar!/"/>
+	</lib>
+	<lib name="picasso-2.5.2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/picasso-2.5.2.jar!/"/>
+	</lib>
+	<lib name="pinyin4j-2.5.0.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/pinyin4j-2.5.0.jar!/"/>
+	</lib>
+	<lib name="ShareSDK-Core-2.3.12.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/ShareSDK-Core-2.3.12.jar!/"/>
+	</lib>
+	<lib name="ShareSDK-Facebook-2.3.12.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/ShareSDK-Facebook-2.3.12.jar!/"/>
+	</lib>
+	<lib name="ShareSDK-QQ-2.3.12.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/ShareSDK-QQ-2.3.12.jar!/"/>
+	</lib>
+	<lib name="ShareSDK-QZone-2.3.12.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/ShareSDK-QZone-2.3.12.jar!/"/>
+	</lib>
+	<lib name="ShareSDK-SinaWeibo-2.3.12.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/ShareSDK-SinaWeibo-2.3.12.jar!/"/>
+	</lib>
+	<lib name="ShareSDK-Twitter-2.3.12.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/ShareSDK-Twitter-2.3.12.jar!/"/>
+	</lib>
+	<lib name="ShareSDK-Wechat-2.3.12.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/ShareSDK-Wechat-2.3.12.jar!/"/>
+	</lib>
+	<lib name="ShareSDK-Wechat-Core-2.3.12.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/ShareSDK-Wechat-Core-2.3.12.jar!/"/>
+	</lib>
+	<lib name="ShareSDK-Wechat-Moments-2.3.12.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/ShareSDK-Wechat-Moments-2.3.12.jar!/"/>
+	</lib>
+	<lib name="trineacommon.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/trineacommon.jar!/"/>
+	</lib>
+	<lib name="umeng-analytics-v5.2.4.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/umeng-analytics-v5.2.4.jar!/"/>
+	</lib>
+</component>

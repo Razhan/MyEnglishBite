@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.7"
+        android:background="@color/bella_color_black_dark" />
+
+    <LinearLayout
+        android:id="@+id/popup_chunk_practice_quit_layout"
+        android:layout_width="@dimen/popup_window_width"
+        android:layout_height="@dimen/popup_window_height"
+        android:layout_centerInParent="true"
+        android:background="@drawable/popup_window_round_corner_bg"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/popup_chunk_practice_title"
+            android:layout_width="172dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/user_recording_delete_header"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/popup_chunk_practice_info"
+            android:layout_width="172dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="@string/user_recording_delete_body"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/popup_recording_cancel"
+                android:layout_width="104dp"
+                android:layout_height="46dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_message_windows_background"
+                android:text="@string/popup_practice_quit_no"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/popup_recording_delete"
+                android:layout_width="104dp"
+                android:layout_height="46dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_message_windows_black_background"
+                android:text="@string/user_recording_delete_button"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

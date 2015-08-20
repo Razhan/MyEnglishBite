@@ -1,0 +1,163 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bella_chunk_background" >
+
+    <com.ef.bite.widget.ActionbarLayout
+        android:id="@+id/register_ef_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_ef_actionbar" >
+
+        <LinearLayout
+            android:id="@+id/register_ef_name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp" >
+
+            <com.ef.bite.widget.LoginInputLayout
+                android:id="@+id/register_ef_firstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.ef.bite.widget.LoginInputLayout
+                android:id="@+id/register_ef_lastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:id="@+id/register_age_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/register_ef_btn_next"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_message_windows_background"
+                android:text="@string/register_ef_next"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/register_ef_name_text_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/register_ef_enter_your_name"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_ef_actionbar" >
+
+        <LinearLayout
+            android:id="@+id/register_ef_phone_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:visibility="gone" >
+
+            <com.ef.bite.widget.LoginInputLayout
+                android:id="@+id/register_ef_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.ef.bite.widget.LoginInputLayout
+                android:id="@+id/register_ef_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.ef.bite.widget.LoginInputLayout
+                android:id="@+id/register_ef_password_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/register_terms_service_layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="left" >
+
+                <CheckBox
+                    android:id="@+id/register_terms_service_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/register_terms_service_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="@string/register_ef_accept_terms" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/register_is_call_allowed_layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="left" >
+
+                <CheckBox
+                    android:id="@+id/register_is_call_allowed_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/register_is_call_allowed_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="@string/register_ef_accept_call" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <Button
+                    android:id="@+id/register_ef_btn_back"
+                    android:layout_width="0dip"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_message_windows_background"
+                    android:text="@string/register_ef_back"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/register_ef_btn_register"
+                    android:layout_width="0dip"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_message_windows_background"
+                    android:text="@string/register_ef_sign_up_button"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/register_ef_phone_text_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/register_ef_use_phone"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

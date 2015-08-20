@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <com.ef.bite.widget.RoundedImageView 
+	         android:id="@+id/friend_notification_list_item_avatar"
+	         android:layout_width="50dp"
+	         android:layout_height="50dp"
+	         android:layout_centerInParent="true"
+	         android:layout_alignParentLeft="true"
+	         android:layout_marginLeft = "20dp"
+	         android:src="@drawable/default_avatar"
+	         />
+	    <LinearLayout 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_toRightOf="@+id/friend_notification_list_item_avatar"
+	        android:layout_toLeftOf="@+id/friend_notification_list_item_add"
+	        android:layout_centerInParent="true"
+	        android:layout_marginLeft = "10dp"
+	        android:layout_marginRight="10dp"
+	        android:gravity="left"
+	        android:orientation="vertical">
+	        <TextView 
+	            android:id="@+id/friend_notification_list_item_name"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="Sissy added you"
+	            android:textColor="@color/bella_color_black_dark"
+	            android:alpha="0.7"
+	            android:textSize="16sp"
+	            />
+	        <TextView 
+	            android:id="@+id/friend_notification_list_item_time"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="24 hours ago"
+	            android:textColor="@color/bella_color_black_dark"
+	            android:alpha="0.7"
+	            android:textSize="15sp"
+	            />
+	    </LinearLayout>
+	    <ImageView 
+	        android:id="@+id/friend_notification_list_item_add"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight = "20dp"
+	        android:src="@drawable/friend_to_add"
+	        />
+	    
+	     <ImageView 
+	        android:id="@+id/friend_list_item_line"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:src="@drawable/chunk_line"
+	        android:layout_marginLeft="20dp"
+	        android:layout_marginRight="20dp"
+	        android:layout_marginTop="70dp"
+	        android:layout_alignParentBottom="true"
+	        />
+
+</RelativeLayout>

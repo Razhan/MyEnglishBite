@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_switcher_total_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/widget_switcher_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/leaderboard_switcher_layout_height"
+        android:background="@color/bella_color_cellobrate_yellow" >
+
+        <LinearLayout
+            android:id="@+id/widget_switcher_left"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/widget_switcher_left_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/leaderboard_friends_i" />
+
+            <TextView
+                android:id="@+id/widget_switcher_left_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="10"
+                android:textSize="35sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/widget_switcher_left_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/leaderboard_friends"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="80dp"
+                android:background="@color/bella_color_black_dark" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/widget_switcher_right"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/widget_switcher_right_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/leaderboard_global" />
+
+            <TextView
+                android:id="@+id/widget_switcher_right_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textSize="35sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/widget_switcher_right_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/leaderboard_global"
+                android:textColor="@color/bella_color_black_dark"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/widget_switcher_left_corner"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/widget_switcher_layout"
+        android:layout_marginLeft="50dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/chunk_list_selected_corner" />
+
+    <ImageView
+        android:id="@+id/widget_switcher_right_corner"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/widget_switcher_layout"
+        android:layout_marginRight="50dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/chunk_list_selected_corner"
+        android:visibility="gone" />
+
+</RelativeLayout>

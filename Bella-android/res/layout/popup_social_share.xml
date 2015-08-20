@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:gravity="center"
+    android:background="@drawable/popup_window_round_corner_bg">
+    
+    <TextView
+        android:id="@+id/popup_share_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+ 		android:layout_centerHorizontal="true"
+ 		android:gravity="center"
+ 		android:textSize="22sp"
+        android:text="@string/popup_social_share_title" />
+
+    <LinearLayout 
+        android:layout_width="match_parent" 
+        android:layout_height="match_parent" 
+        android:orientation="vertical" 
+        android:layout_below="@+id/popup_share_title_text"
+        android:layout_above="@+id/popup_share_cancel"
+        android:gravity="center">
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center">
+            <LinearLayout
+                android:id="@+id/popup_share_wechat"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/popup_social_share_wechat"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:drawableTop="@drawable/share_wechat_icon"
+	                android:drawablePadding="5dp"
+	                android:gravity="center"
+	                android:text="@string/popup_social_share_wechat"/>
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/popup_share_weibo"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+	            <TextView
+	                android:id="@+id/popup_social_share_sina"
+	               android:layout_width="wrap_content"
+                	android:layout_height="wrap_content"
+	                android:drawableTop="@drawable/share_weobo_icon"
+	                android:drawablePadding="5dp"
+	                android:text="@string/popup_social_share_sina"/>
+            </LinearLayout>
+        </LinearLayout>
+        
+         <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center">
+            <LinearLayout
+                android:id="@+id/popup_share_pengyouquan"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+	            <TextView 
+	                android:id="@+id/popup_social_share_wechat_moments"
+	                android:layout_width="wrap_content"
+                	android:layout_height="wrap_content"
+	                android:drawableTop="@drawable/share_pengyouquan_icon"
+	                android:drawablePadding="5dp"
+	                android:gravity="center"
+	                android:text="@string/popup_social_share_wechat_moments"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/popup_share_qq"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+	            <TextView
+	                android:id="@+id/share_qq_icon"
+	                android:layout_width="wrap_content"
+                	android:layout_height="wrap_content"
+	                android:drawableTop="@drawable/share_qq_icon"
+	                android:drawablePadding="5dp"
+	                android:gravity="center"
+	                android:text="QQ"/>
+            </LinearLayout>
+        </LinearLayout>
+        
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="0dip"
+              android:layout_weight="1"
+              android:visibility="gone" >
+
+            <LinearLayout
+                android:id="@+id/popup_share_twitter"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content" 
+	                android:gravity="center"
+	                android:drawableTop="@drawable/share_twitter_icon"
+	                android:drawablePadding="5dp"
+	                android:text="twitter"/>
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/popup_share_facebook"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:drawablePadding="5dp"
+	                android:drawableTop="@drawable/share_facebook_icon"
+	                android:text="facebook" />
+
+            </LinearLayout>
+        </LinearLayout>
+        
+    </LinearLayout>
+    
+    <TextView 
+        android:id="@+id/popup_share_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:textSize="20sp"
+        android:text="@string/popup_social_share_cancel"
+        />
+</RelativeLayout>

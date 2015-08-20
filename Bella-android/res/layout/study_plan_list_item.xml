@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout 
+        style="@style/View.Horizontal"
+        android:orientation="horizontal"
+        android:minHeight="50dp"
+        android:padding="10dp"
+	    android:gravity="center_vertical">
+        <View 
+            android:layout_width="5dp"
+            android:layout_height="20dp"
+            android:background="@color/bella_color_cellobrate_yellow"
+            />
+        <TextView 
+	         android:id="@+id/preview_list_item_title"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         android:gravity="center"
+	         android:layout_marginLeft="10dp"
+	         android:text="HINT"
+	         android:textSize="20sp"
+             android:singleLine="true"
+             android:ellipsize="marquee"
+	         android:textColor="@color/bella_color_black_light"
+	         />
+    </LinearLayout>
+
+</LinearLayout>

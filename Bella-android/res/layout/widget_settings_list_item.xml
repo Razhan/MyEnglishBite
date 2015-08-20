@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/setting_item_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:background="@drawable/setting_item_bg">
+    
+    <TextView 
+        android:id="@+id/setting_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/bella_color_black_dark"
+        android:alpha="0.5"
+        android:layout_centerVertical="true"
+        android:text="@string/settings_picture"
+        />
+    
+    <TextView 
+        android:id="@+id/setting_item_text_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/bella_color_black_dark"
+        android:layout_centerVertical="true"
+        android:gravity="right"
+        android:layout_toLeftOf="@+id/setting_item_arraw"
+        android:layout_toRightOf="@+id/setting_item_name"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:text="haley"
+        />
+    
+    <com.ef.bite.widget.RoundedImageView
+        android:id="@+id/setting_item_image_value"
+        android:layout_width="@dimen/setting_item_height_avatar"
+        android:layout_height="@dimen/setting_item_height_avatar"
+        android:src="@drawable/default_avatar"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/setting_item_arraw"
+        android:layout_margin="10dp"
+        android:visibility="gone"/>
+    
+    <ImageView 
+        android:id="@+id/setting_item_arraw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/setting_arrow_goahead"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        />
+    
+    <ImageView 
+        android:id="@+id/setting_item_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/setting_switch_on"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone"/>
+
+    <ImageView 
+        android:id="@+id/setting_item_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/chunk_line"
+        />
+</RelativeLayout>

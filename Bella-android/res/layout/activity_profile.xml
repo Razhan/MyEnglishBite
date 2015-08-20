@@ -1,0 +1,262 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="2"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:background="@color/bella_color_cellobrate_yellow" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="0.9"
+            android:background="@color/white" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/profile_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_height"
+        android:background="@color/bella_color_pink_light" >
+
+        <ImageButton
+            android:id="@+id/profile_actionbar_home"
+            android:layout_width="@dimen/action_bar_goback_width"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="@drawable/button_action_bar_pink_background"
+            android:src="@drawable/arrow_goback_black" />
+
+        <ImageView
+            android:id="@+id/profile_actionbar_teacher"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:padding="10dp"
+            android:src="@drawable/map_roboto" />
+
+        <ImageButton
+            android:id="@+id/profile_actionbar_setting"
+            android:layout_width="@dimen/action_bar_goback_width"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/button_action_bar_pink_background"
+            android:src="@drawable/profile_setting" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/profile_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/profile_actionbar"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/profile_person_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:text=""
+                android:textColor="@color/bella_color_black_dark"
+                android:textSize="30sp" />
+
+            <RelativeLayout
+                    android:id="@+id/country"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:visibility="invisible"
+                    >
+                <ImageView
+                        android:id="@+id/country_flag"
+                        android:layout_width="42dp"
+                        android:layout_height="26dp"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical|right"
+                        android:layout_marginRight="5dp"
+                        android:background="@color/white"
+                        android:scaleType="centerCrop"
+                        />
+
+                <TextView
+                        android:id="@+id/country_name"
+                        android:layout_width="70dp"
+                        android:layout_height="26dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical|center"
+                        android:layout_toRightOf="@+id/country_flag"
+                        android:maxLines="1"
+                        android:text="China"
+                        android:textSize="16sp" />
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <com.ef.bite.widget.RoundedImageView
+                    android:id="@+id/profile_person_avatar"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/default_avatar" />
+
+                <ImageView
+                    android:id="@+id/profile_avatar_edit"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="30dp"
+                    android:layout_toRightOf="@+id/profile_person_avatar" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="4"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/profile_score_level_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center" >
+
+                    <com.ef.bite.widget.UserLevelView
+                        android:id="@+id/profile_level"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/profile_level_points"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0xp"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/profile_level_up_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center_vertical"
+                        android:scrollHorizontally="false"
+                        android:text="@string/profile_earn_more_to_level_up" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--<ImageView-->
+                <!--android:id="@+id/profile_line"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dip"-->
+                <!--android:layout_weight="1"-->
+                <!--android:src="@drawable/chunk_line" />-->
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_marginTop="20dp"
+                android:layout_weight="5" >
+
+                <LinearLayout
+                    android:id="@+id/profile_phrase_layout"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/profile_chunks_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="281"
+                        android:textColor="@color/bella_color_orange_light"
+                        android:textSize="32sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/profile_phrasses" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/profile_friends_layout"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/profile_objects_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/bella_color_orange_light"
+                        android:textSize="32sp" />
+
+                    <TextView
+                        android:id="@+id/profile_friends"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/profile_friends" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

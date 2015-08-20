@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General -->
+    <string name="app_name">一口英语</string>
+    <string name="app_preview_name">短语预览</string>
+    <string name="error_check_network_available">请检查网络状态！</string>
+    <string name="loading_data">努力加载中...</string>
+    <string name="initializing_data">初始化系统数据，请耐心等待...</string>
+    <string name="network_not_available">您的网络不可用 ！</string>
+    <string name="service_not_available">服务地址不可用 ！</string>
+    <string name="fail_to_get_result">获取结果失败！请检查您的网络情况！</string>
+    <string name="app_crash_title">抱歉，程序崩溃了！</string>
+    <string name="app_exist_click_again">双击退出一口英语！</string>
+
+    <!-- Walkthrough/Splash -->
+    <string name="walkthrough_button_start">下一步</string>
+    <string name="walkthrough_content_first">每天5分钟轻松学习\n一些地道的英语短语\n加强你的英语口语技巧</string>
+    <string name="walkthrough_content_second">提供一系列\n学习和练习计划</string>
+    <string name="walkthrough_content_third">加入你的朋友\n一起学英语</string>
+    <string name="splash_loading">努力加载中...</string>
+
+    <!-- Login/Register -->
+    <string name="login_main_sign_in">登录</string>
+    <string name="login_main_not_registered_yet">还没注册吗？</string>
+    <string name="login_main_5_min_day">每天5分钟，\n轻松学短语！</string>
+    <string name="login_main_sign_up">注册</string>
+    <string name="login_ef_login">登录</string>
+    <string name="login_ef_forget_password">忘记密码怎么办？</string>
+    <string name="login_ef_username_hint">手机号</string>
+    <string name="login_ef_password_hint">密码</string>
+    <string name="login_ef_login_button">登录</string>
+    <string name="loging">登录中...</string>
+    <string name="loging_getting_profile">获取用户信息。。。</string>
+    <string name="loging_getting_checking_update">查看资源升级。。。</string>
+    <string name="loging_getting_downloading_resource">下载资源中。。。</string>
+    <string name="login_error_username_empty">请输入手机号！</string>
+    <string name="login_error_password_empty">请输入密码！</string>
+    <string name="login_get_progress">同步服务器中...</string>
+    <string name="register_ef_register_title">注册</string>
+    <string name="register_ef_email_hint">邮箱</string>
+    <string name="register_ef_password_hint">密码</string>
+    <string name="register_ef_confirm_password_hint">确认密码</string>
+    <string name="register_ef_sign_up_button">注册</string>
+    <string name="register_ef_success">注册成功!</string>
+    <string name="register_ef_registering">注册中...</string>
+    <string name="regisetr_ef_error_firstname_null">请输入名字</string>
+    <string name="register_ef_error_lastname_null">请输入姓</string>
+    <string name="register_ef_error_username_null">请输入邮箱地址！</string>
+    <string name="regisetr_ef_error_username_invalid">号码不正确</string>
+    <string name="regisetr_ef_error_username_length">号码必须大于10位</string>
+    <string name="register_ef_accept_call">同意收到电话</string>
+    <string name="register_ef_error_password_null">请输入密码！</string>
+    <string name="register_ef_error_confirm_password_null">请输入确认密码！</string>
+    <string name="register_ef_error_password_not_match">密码不匹配！</string>
+    <string name="register_ef_first_name">名字</string>
+    <string name="register_ef_last_name">姓</string>
+    <string name="register_ef_phone">手机号</string>
+    <string name="register_ef_enter_your_name">请输入姓名，\n方便大家找到你哦。</string>
+    <string name="register_ef_use_phone">用你的手机号 \n来注册或登录</string>
+    <string name="register_ef_next">下一步</string>
+    <string name="register_ef_back">上一步</string>
+    <string name="register_ef_accept_terms">我接受 &lt;h>英孚的服务条款&lt;/h></string>
+    <string name="register_ef_not_accept_terms">请接受服务条款！</string>
+    <string name="foget_pwd_ef_title">忘记密码怎么办？</string>
+    <string name="foget_pwd_ef_email_hint">邮箱</string>
+    <string name="foget_pwd_ef_submit_button">提交</string>
+    <string name="foget_pwd_ef_phone_hint">手机号码</string>
+    <string name="foget_pwd_ef_verify_code_hint">验证码</string>
+    <string name="foget_pwd_ef_reset_pwd_hint">新密码</string>
+    <string name="foget_pwd_ef_confirm_pwd_hint">确认密码</string>
+    <string name="foget_pwd_ef_Reset_button">重设密码</string>
+    <string name="foget_pwd_ef_get_verifycode_btn">获得验证码</string>
+    <string name="foget_pwd_ef_enter_phone_to_get_code">输入你的手机号，我们会发送验证码给你重设密码.</string>
+    <string name="foget_pwd_ef_get_verify_code_success">获得验证码成功！</string>
+    <string name="foget_pwd_ef_phone_null">请输入手机号码！</string>
+    <string name="foget_pwd_ef_verify_code_null">请填写手机短信收到的验证码！</string>
+    <string name="foget_pwd_ef_reset_pwd_null">请输入重设密码！</string>
+    <string name="foget_pwd_ef_confirm_pwd_null">请输入确认密码！</string>
+    <string name="foget_pwd_ef_password_not_match">密码不匹配</string>
+    <string name="foget_pwd_ef_progress_get_verify_code">获取验证码中...</string>
+    <string name="foget_pwd_ef_progress_reset_password">重设密码中...</string>
+    <string name="foget_pwd_ef_progress_reset_pwd_success">重设密码成功！</string>
+    <string name="change_pwd_ef_title">更改密码</string>
+    <string name="change_pwd_ef_old_pwd_hint">旧密码</string>
+    <string name="change_pwd_ef_new_pwd_hint">新密码</string>
+    <string name="change_pwd_ef_confirm_new_pwd_hint">确认密码</string>
+    <string name="change_pwd_ef_change_button">更改密码</string>
+    <string name="change_pwd_ef_error_no_pwd">请输入密码!</string>
+    <string name="change_pwd_ef_changing_pwd">密码更改中...</string>
+    <string name="change_pwd_ef_error_pwd_not_match">密码不匹配!</string>
+    <string name="change_pwd_ef_success">更改密码成功!</string>
+
+    <!-- Home Screen -->
+    <string name="home_screen_learn_title">学习</string>
+    <string name="home_screen_practice_title">练习</string>
+    <string name="home_screen_mastered_title">已掌握</string>
+    <string name="home_screen_leaderboard_title">排行榜</string>
+    <string name="home_screen_learn_available_now">即刻开始学习短语</string>
+    <string name="home_screen_learn_available_minutes">%1$d 分钟内可以学习短语</string>
+    <string name="home_screen_learn_available_hours">%1$d 小时内可以学习短语</string>
+    <string name="home_screen_learn_available_tomorrow">即将可以学习的短语</string>
+    <string name="home_screen_practice_available_now">即刻开始练习短语</string>
+    <string name="home_screen_practice_available_minutes">%1$d 分钟内可以练习短语</string>
+    <string name="home_screen_practice_available_hour">%1$d 小时内可以练习短语</string>
+    <string name="home_screen_practice_available_tomorrow">即将可以练习的短语</string>
+    <string name="home_screen_everyday_learn_new">每天学习一个新短语</string>
+    <string name="home_screen_practice_3_times_to_master">练习3次即可掌握短语</string>
+    <string name="home_screen_friends">朋友</string>
+    <string name="home_screen_invite">邀请朋友</string>
+    <string name="home_screen_no_new_chunks">没有新的短语</string>
+    <string name="home_screen_no_rehearse_chunks">没有待练习的短语</string>
+    <string name="home_screen_no_marstered_chunks">没有已掌握的短语</string>
+    <string name="home_screen_all_done_good_job">厉害！</string>
+    <string name="home_screen_all_done_stay_tuned">你已经掌握了所有的短语。\n别走开，马上有更多的短语！</string>
+    <string name="home_screen_done_for_today_stay_tuned">你已经掌握今天的短语。别走开，马上有更多的短语！</string>
+    <string name="home_screen_all_done_avaiable_soon">新的短语即将推出！</string>
+
+    <!-- Chunk Learning/Practice -->
+    <string name="chunk_learn_lets_learn_new_chunk">开始学习\n1个新短语吧！</string>
+    <string name="chunk_practice_choose_appropriate_answer">选择正确答案</string>
+    <string name="chunk_learn_detail_translation">英</string>
+    <string name="chunk_learn_detail_status_title">已掌握程度</string>
+    <string name="chunk_learn_detail_status_descript"> %1$d天后可以练习</string>
+    <string name="chunk_learn_detail_status_descripts"> %1$d天后可以练习</string>
+    <string name="chunk_learn_detail_status_mastered">短语已掌握</string>
+
+    <!-- Chunk List -->
+    <string name="chunk_list_actionbar_title">短语</string>
+    <string name="chunk_list_to_rehearse">待练习</string>
+    <string name="chunk_list_mastered">已掌握</string>
+    <string name="chunk_list_rehearse_available_text"> 个可以练习的短语</string>
+    <string name="chunk_list_rehearse_future_text"> 个即将可练习的短语</string>
+    <string name="chunk_list_master_no_phrase">练习3次即可掌握该短语</string>
+    <string name="chunk_search_to_rehearse">个待练习的短语</string>
+    <string name="chunk_search_mastered">个已掌握的短语</string>
+    <string name="chunk_search_button_done">完成</string>
+    <string name="chunk_search_button_cancel">取消</string>
+
+    <!-- Balloon -->
+    <string name="balloon_description">描述</string>
+    <string name="balloon_tips">为易于理解.</string>
+    <string name="balloon_drag_info">按正确的顺序把正确的单词拖拽到这里！</string>
+    <string name="balloon_good_job">厉害！</string>
+    <string name="balloon_drag_start">马上开始</string>
+
+    <!-- LeaderBoard -->
+    <string name="leaderboard_title">排行榜</string>
+    <string name="leaderboard_friends">我的朋友</string>
+    <string name="leaderboard_global">世界各地</string>
+    <string name="leaderboard_fail_to_load">加载排行榜失败！</string>
+
+    <!-- Profile -->
+    <string name="profile_phrasses">短语</string>
+    <string name="profile_earn_more_to_level_up">还有 500分就可以升级啦</string>
+    <string name="profile_earn">还有</string>
+    <string name="profile_more_to_level_up">分就可以升级啦</string>
+    <string name="profile_xp">分</string>
+    <string name="profile_friends">朋友</string>
+    <string name="profile_no_friend">没有任何好友!</string>
+    <string name="recording_key">录音</string>
+
+
+    <!-- Friend -->
+    <string name="add_friend_actionbar_title">添加朋友</string>
+    <string name="add_friend_wechat">微信</string>
+    <string name="add_friend_search_id">搜索朋友</string>
+    <string name="add_friend_result">结果</string>
+    <string name="add_friend_search_hint">搜索</string>
+    <string name="add_friend_search_result">个朋友符合你的搜索</string>
+    <string name="add_friend_search_error_no_key">请输入关键字搜索！</string>
+    <string name="add_frend_failed">添加朋友失败！</string>
+    <string name="add_friend_success">添加朋友成功</string>
+    <string name="friend_list_my_friend">我的朋友</string>
+    <string name="friend_list_s_friends">的朋友</string>
+    <string name="friend_list_loading_friends">加载朋友列表中...</string>
+    <string name="friend_list_fail_loaded">加载朋友列表失败！</string>
+    <string name="friend_notification_added_you">加你为朋友</string>
+    <string name="friend_notification_time_ago">小时前</string>
+    <string name="friend_notification_ads_online_teacher">EF Online Teacher</string>
+    <string name="friend_notification_ads_online_school">Online School for free 7 days</string>
+    <string name="friend_notification_loading">加载通知中...</string>
+    <string name="friend_notification_fail_to_get">获得通知失败！</string>
+    <string name="friend_notification_minutes_ago">分钟前</string>
+    <string name="friend_notification_hours_ago">小时前</string>
+    <string name="friend_notification_days_ago">天前</string>
+    <string name="friend_notification_day_ago">天前</string>
+    <string name="friend_notification_months_ago">月前</string>
+    <string name="friend_notification_years_ago">年前</string>
+
+    <!-- Seetings 页面 -->
+    <string name="setings_page_title">设置</string>
+    <string name="settings_logout">退出登录</string>
+    <string name="settings_picture">头像</string>
+    <string name="settings_user_id">用户ID</string>
+    <string name="settings_nickname">昵称</string>
+    <string name="settings_firstname">名</string>
+    <string name="settings_lastname">姓</string>
+    <string name="settings_phone_number">手机号</string>
+    <string name="settings_password">密码</string>
+    <string name="settings_email">邮箱</string>
+    <string name="settings_location">位置</string>
+    <string name="settings_language">多语言</string>
+    <string name="settings_notification">提醒消息</string>
+    <string name="settings_sound_effect">音效</string>
+    <string name="settings_reset_tutorial">使用说明</string>
+    <string name="settings_terms_service">服务条款</string>
+    <string name="settings_about">关于一口英语</string>
+    <string name="settings_avatar_edit_title">修改头像</string>
+    <string name="settings_avatar_edit_cancel">取消</string>
+    <string name="settings_avatar_take_from_gallery">上传手机中的照片</string>
+    <string name="settings_avatar_take_from_camera">拍照上传</string>
+    <string name="settings_avatar_fail_to_upload">上传头像失败！</string>
+    <string name="settings_avatar_success_to_upload">上传头像成功</string>
+    <string name="settings_avatar_uploading">上传头像中...</string>
+    <string name="settings_edit_item_title">编辑</string>
+    <string name="settings_edit_item_value">的值</string>
+    <string name="settings_item_fail_to_edit">保存编辑设置项失败！</string>
+    <string name="settings_item_value_null">请输入设置修改值！</string>
+    <string name="settings_select_wrong_item">选项错误，请从新设置！</string>
+    <string name="settings_logout_dialog_title">退出</string>
+    <string name="settings_logout_dialog_content">您确定要退出登录？</string>
+    <string name="settings_language_edit_title">语言</string>
+    <string name="settings_language_default">跟随系统</string>
+    <string name="settings_language_update_success">系统语言更新！</string>
+    <string name="settings_android_version">Android版本:</string>
+    <string name="settings_location_edit_title">位置</string>
+    <string name="settings_location_progress_changing">更新位置信息...</string>
+    <string name="settings_location_change_success">位置信息更改成功！</string>
+    <string name="settings_logout_dialog_ok">确定</string>
+    <string name="settings_logout_dialog_cancel">取消</string>
+
+    <!-- Pop up页面 -->
+    <string name="chunk_practice_error_popup_missed">错啦！</string>
+    <string name="chunk_practice_error_popup_selection">我们不这样用： </string>
+    <string name="chunk_practice_error_popup_learn">学习</string>
+    <string name="chunk_practice_error_popup_tryagain">再选一次</string>
+    <string name="chunk_practice_error_popup_timeout">抱歉，时间到了！</string>
+    <string name="chunk_level_up_title">升级啦！</string>
+    <string name="chunk_level_up_yeah">好棒!</string>
+    <string name="chunk_level_up_share">分享</string>
+    <string name="popup_social_share_title">忍不住分享朋友</string>
+    <string name="popup_social_share_wechat">微信朋友</string>
+    <string name="popup_social_share_sina">新浪微博</string>
+    <string name="popup_social_share_wechat_moments">微信朋友圈</string>
+    <string name="popup_social_share_facebook">Facebook好友</string>
+    <string name="popup_social_share_cancel">取消</string>
+    <string name="popup_rehearsal_result_title_keep_trying">继续努力！</string>
+    <string name="popup_rehearsal_result_title_not_bad">不错哦！</string>
+    <string name="popup_rehearsal_result_title_very_good">非常好！</string>
+    <string name="popup_rehearsal_result_title_great">好极了！</string>
+    <string name="popup_rehearsal_result_title_awesome">真棒！</string>
+    <string name="popup_rehearsal_result_descrip_you_got">您答对了</string>
+    <string name="popup_rehearsal_result_descrip_right_answer">个正确答案！</string>
+    <string name="popup_rehearsal_result_descrip_right_answers">个正确答案！</string>
+    <string name="popup_score_up_title">加分！</string>
+    <string name="popup_practice_quit_title">退出学习？</string>
+    <string name="popup_practice_quit_info">如果你现在退出，你的学习进度不会被保存，确定要退出吗？</string>
+    <string name="popup_practice_quit_no">取消</string>
+    <string name="popup_practice_quit_quit">退出</string>
+    <string name="popup_rehearsal_quit_title">退出练习？</string>
+    <string name="popup_rehearsal_quit_info">如果你现在退出，已经练习的进度将会被保存，确定要退出吗？</string>
+    <string name="popup_chunk_done_well_done">做的好！</string>
+    <string name="popup_chunk_done_continue">继续</string>
+    <string name="popup_chunk_done_learn_new_phrase">你学习了一个新的短语！</string>
+    <string name="popup_chunk_done_brag_friend">炫耀</string>
+    <string name="popup_term_service_title">一口英语 \n服务条款</string>
+    <string name="popup_term_service_content">Welcome to EF Englishtown("EF Englishtown"), the premier service for people around the world to learn English. This agreement represents the entire contract between you and EF Englishtown with respect to the Site and, if applicable, the fee-based subscription services therein. You may want to print this page for your reference. By visiting, becoming a member of, purchasing a gift subscription from, or subscribing to EF Englishtown, you agree, without qualification, to be bound by the terms and conditions of use set out below.\n1. Your rights \n2. Term </string>
+    <string name="popup_term_service_btn_agree">同意</string>
+    <string name="popup_term_Service_btn_not_agree">不同意</string>
+
+    <!-- Share Text -->
+    <string name="share_text_input_hint">说点什么</string>
+    <string name="share_text_invite_friend">I use English Bite to learn English. You should try it! </string>
+    <string name="share_text_new_chunk">我刚掌握了一个英语短语，你认识吗？</string>
+    <string name="share_text_level_reach_X">我已经达到 </string>
+    <string name="share_text_level_catch_up">级了。快来追我吧~</string>
+    <string name="share_text_badge">I just earned [badge name]. Can you do that?</string>
+    <string name="share_text_generating_link">生成分享内容...</string>
+    <string name="share_text_link_genrate_failed">生成分享内容失败！</string>
+
+    <!-- Notification Text -->
+    <string name="notify_text_new_phrase">有一个新的英语短语可以学习啦！</string>
+    <string name="notify_text_to_rehearse">点击进入练习！</string>
+    <string name="notify_fail_to_hand">通知处理失败!</string>
+    <string name="notify_phrase_already_practiced">短语已学习!</string>
+    <string name="notify_phrase_already_learned">短语已练习!</string>
+
+    <!-- welcome/Tutorial -->
+    <string name="tutorial_1">一口英语欢迎你！\n每天轻松学习一个\n地道的英语短语。</string>
+    <string name="tutorial_2">接下来你会学习第一个短语，先听一段对话、了解该短语的意思和用法，然后再做3个练习。</string>
+    <string name="tutorial_3">恭喜！\n你刚学习了第一个短语！</string>
+    <string name="tutorial_4">这是你的主页，\n你可以点击学习更多短语\n或练习已经学习过的短语。</string>
+    <string name="tutorial_5">练习你已经学习过的短语。\n你的练习做得越好，\n重复练习也会相应地减少。</string>
+    <string name="tutorial_6">练习3次，\n你就可以掌握一个新短语了。</string>
+
+</resources>

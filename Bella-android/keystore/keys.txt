@@ -1,0 +1,4 @@
+key.store=bite.keystore
+key.alias=bite
+key.store.password=efef@123
+key.alias.password=efef@123

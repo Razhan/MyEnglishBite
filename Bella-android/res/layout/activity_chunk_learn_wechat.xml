@@ -1,0 +1,146 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chunk_presentation_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bella_chunk_background" >
+
+    <RelativeLayout
+        android:id="@+id/chunk_lesson_slide_mid_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        android:background="@color/bella_color_cellobrate_yellow"
+        android:clickable="false" >
+
+        <com.ef.bite.widget.HeaderView android:id="@+id/header"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/chunk_lesson_collapse"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/chunk_lesson_dialogue_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/header"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:divider="#00000000"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="none" >
+
+        </ListView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/chunk_lesson_slide_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="80dp" >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:scrollbars="none"
+            android:visibility="visible" >
+
+            <RelativeLayout
+                android:id="@+id/chunk_lesson_side_top_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:background="@color/bella_chunk_background"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/chunk_lesson_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="40dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/chunk_learn_lets_learn_new_chunk"
+                    android:textSize="27sp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/chunk_line" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/chunk_lesson_side_bottom_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="2"
+                android:background="@color/bella_chunk_background"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="30dp"
+                android:paddingTop="60dp"
+                android:visibility="gone" >
+
+                <com.ef.bite.widget.AudioPlayerView
+                    android:id="@+id/chunk_lesson_audioplayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="visible" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/chunk_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/chunk_presentation_bottom" />
+
+        <ImageButton
+            android:id="@+id/chunk_bottom_go_ahead"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/button_go_ahead_enable"
+            android:src="@drawable/arrow_goahead" />
+    </RelativeLayout>
+
+    <com.ef.bite.widget.ExpandButtonView
+        android:id="@+id/chunk_lesson_expand"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/chunk_expand_i"
+        android:visibility="gone" />
+
+    <com.ef.bite.widget.AudioPlayerView
+        android:id="@+id/chunk_bottom_audioplayer"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="5dp"
+        android:visibility="visible" />
+
+</RelativeLayout>

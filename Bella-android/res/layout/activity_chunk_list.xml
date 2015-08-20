@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+        >
+    <LinearLayout
+            android:id="@+id/chunk_list_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <com.ef.bite.widget.ActionbarLayout
+                android:id="@+id/chunk_list_actionbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bella_chunk_background"
+                android:orientation="vertical">
+            <com.ef.bite.widget.SelectSwitcherLayout
+                    android:id="@+id/chunk_list_switcher"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/chunk_list_rehearse_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="50dp"
+                            android:background="@color/bella_chunk_background">
+                <TextView android:id="@+id/chunk_list_rehearse_available_text"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_centerVertical="true"
+                          android:layout_marginLeft="20dp"
+                          android:text="@string/chunk_list_rehearse_available_text"/>
+                <ImageButton android:id="@+id/chunk_list_rehearse_available_go"
+                             android:layout_width="30dp"
+                             android:layout_height="30dp"
+                             android:layout_alignParentRight="true"
+                             android:layout_centerInParent="true"
+                             android:layout_marginRight="20dp"
+                             android:src="@drawable/arrow_goahead"
+                             android:background="@drawable/button_go_ahead_enable"/>
+            </RelativeLayout>
+            <ScrollView
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    >
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                              android:orientation="vertical">
+                    <com.ef.bite.widget.NoScrollListView android:id="@+id/chunk_list_rehearse_available_listview"
+                                                         android:layout_width="match_parent"
+                                                         android:layout_height="wrap_content"
+                                                         android:divider="#00000000" android:background="@color/white"/>
+
+                    <TextView android:id="@+id/chunk_list_rehearse_future_text"
+                              android:layout_width="match_parent"
+                              android:layout_height="50dp"
+                              android:text="@string/chunk_list_rehearse_future_text"
+                              android:gravity="center_vertical"
+                              android:paddingLeft="20dp"
+                              android:background="@color/bella_chunk_background"
+                              />
+                    <com.ef.bite.widget.NoScrollListView android:id="@+id/chunk_list_rehearse_future_listview"
+                                                         android:layout_width="match_parent"
+                                                         android:layout_height="wrap_content"
+                                                         android:divider="#00000000" android:background="@color/white"/>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/chunk_list_marstered_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:background="@color/bella_chunk_background">
+            <TextView android:id="@+id/chunk_list_marstered_no_phrase"
+                      android:layout_width="match_parent"
+                      android:layout_height="50dp"
+                      android:text="@string/chunk_list_master_no_phrase"
+                      android:gravity="center_vertical"
+                      android:paddingLeft="20dp"
+                      android:visibility="gone"
+                      android:background="@color/bella_chunk_background"/>
+            <ListView android:id="@+id/chunk_list_marstered_listview" android:layout_width="match_parent"
+                      android:layout_height="match_parent" android:divider="#00000000"
+                      android:background="@color/white"/>
+        </LinearLayout>
+    </LinearLayout>
+    <include layout="@layout/activity_chunk_list_search"
+             android:id="@+id/chunk_search_layout"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:visibility="gone"/>"
+</RelativeLayout>

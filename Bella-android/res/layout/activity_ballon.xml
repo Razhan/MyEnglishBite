@@ -1,0 +1,251 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/balloon_activity_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bella_color_cellobrate_yellow" >
+
+    <View
+        android:id="@+id/balloon_flash_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/balloon_flash_bg"
+        android:visibility="gone" />
+
+    <com.ef.bite.ui.balloon.ThornDownView
+        android:id="@+id/balloon_thorn_down"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/balloon_top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1" >
+
+            <com.ef.bite.widget.ActionbarLayout
+                android:id="@+id/balloon_actionbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/balloon_success_text_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/balloon_top_line"
+                android:layout_below="@+id/balloon_actionbar"
+                android:gravity="center_horizontal|bottom"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/balloon_good_job"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:text="@string/balloon_good_job"
+                    android:textColor="@color/bella_color_black_dark"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/balloon_title_description_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/balloon_top_line"
+                android:layout_below="@+id/balloon_actionbar"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/balloon_chunk_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center"
+                    android:maxLines="3"
+                    android:scrollHorizontally="false"
+                    android:scrollbars="vertical"
+                    android:text="@string/balloon_tips"
+                    android:textColor="@color/bella_color_black_dark"
+                    android:textSize="20sp" />
+
+                <!--
+                     <com.ef.bite.widget.CirclePageIndicator
+                    android:id="@+id/balloon_pager_indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/circle_page_indicator_height"
+                    android:visibility="visible" />
+                -->
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/balloon_top_line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="3"
+            android:visibility="visible" >
+
+            <LinearLayout
+                android:id="@+id/balloon_workspace_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="visible" >
+
+                <LinearLayout
+                    android:id="@+id/pageindicat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                        android:layout_marginBottom="5dp"
+                        android:visibility="gone">
+                </LinearLayout>
+
+                <!--
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/bella_chunk_background"
+                    android:visibility="visible" >
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/balloon_intro" />
+
+                    <TextView
+                        android:id="@+id/balloon_drag_text_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imageView1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="14dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/balloon_drag_info_new"
+                        android:textColor="@color/bella_color_black_dark"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:id="@+id/balloon_ef_start"
+                        android:layout_width="@dimen/navigation_drawer_width"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_below="@+id/balloon_drag_text_new"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/button_message_windows_background"
+                        android:text="@string/register_ef_next"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+                -->
+
+                <com.ef.bite.ui.balloon.BalloonSetLayout
+                    android:id="@+id/balloon_content_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="2"
+                    android:visibility="invisible" />
+
+                <RelativeLayout
+                    android:id="@+id/balloon_result_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_weight="1"
+                    android:visibility="visible" >
+
+                    <TextView
+                        android:id="@+id/balloon_drag_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/bella_color_black_dark"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:paddingLeft="18dp"
+                        android:paddingRight="18dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/chunk_interline" />
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/imageView2"
+                        android:background="@color/bella_color_cellobrate_yellow" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/balloon_success_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" >
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/balloon_chunk_startLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bella_chunk_background"
+                android:gravity="center"
+                android:visibility="visible" >
+
+                <ImageView
+                    android:id="@+id/balloon_chunk_intro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/balloon_intro" />
+
+                <TextView
+                    android:id="@+id/balloon_chunk_intro_text"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/balloon_chunk_intro"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:text="@string/balloon_drag_info"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/balloon_chunk_start"
+                    android:layout_width="200dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_below="@+id/balloon_chunk_intro_text"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/button_message_windows_background"
+                    android:text="@string/balloon_drag_start"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

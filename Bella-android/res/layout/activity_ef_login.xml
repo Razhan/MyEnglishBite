@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.ef.bite.widget.ActionbarLayout
+        android:id="@+id/login_ef_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_ef_actionbar"
+        android:orientation="vertical"
+        android:padding="20dp" >
+
+        <com.ef.bite.widget.LoginInputLayout
+            android:id="@+id/login_ef_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.ef.bite.widget.LoginInputLayout
+            android:id="@+id/login_ef_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/login_ef_login"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_message_windows_background"
+            android:text="@string/login_ef_login_button"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/login_ef_forgot_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="@string/login_ef_forget_password"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/login_ef_signup_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp" >
+
+        <TextView
+            android:id="@+id/login_main_not_registered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_main_not_registered_yet" />
+
+        <TextView
+            android:id="@+id/login_ef_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:text="@string/login_main_sign_up"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>

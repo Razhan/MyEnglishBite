@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <com.ef.bite.widget.HeaderView android:id="@+id/header"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/header"
+        android:background="@color/android_color_blue_light" >
+
+        <ImageView
+            style="@style/View.Horizontal"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dashboard_highlight" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/View.Match"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:padding="18dp"
+            android:text="Create your own sentence using &apos;&apos;"
+            android:textSize="25dp" />
+
+        <com.ef.bite.widget.PagesIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/tv_title"
+            android:layout_marginBottom="10dp"
+                android:visibility="gone"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_tips"
+        style="@style/View.Horizontal"
+        android:layout_below="@id/titleView"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Record now!"
+        android:textSize="18dp" />
+
+    <RelativeLayout
+        android:id="@+id/recorderView"
+        style="@style/View.Horizontal"
+        android:layout_below="@id/tv_tips"
+        android:layout_marginTop="10dp" >
+
+        <com.ef.bite.widget.DonutProgress
+            android:id="@+id/recorder_progress"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:rotation="-90"
+            app:donut_finished_color="#F06438"
+            app:donut_finished_stroke_width="5dp"
+            app:donut_max="360"
+            app:donut_unfinished_color="#FCE0D5"
+            app:donut_unfinished_stroke_width="5dp" />
+
+        <Button
+            android:id="@+id/btn_rec"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/mic_active" />
+
+        <Button
+            android:id="@+id/btn_play"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50dp"
+            android:layout_toLeftOf="@id/btn_rec"
+            android:background="@drawable/ic_play"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_audio"
+            android:layout_width="28dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:layout_toRightOf="@id/btn_rec"
+            android:background="@drawable/ic_audio" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_post"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/recorderView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/btn_round_orange"
+        android:text="Post recording"
+        android:textColor="@color/white"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/tv_skip"
+        style="@style/View.Match"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:text="SKIP"
+        android:textColor="@color/gray"
+        android:textSize="21dp" />
+
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_post"
+        android:layout_alignRight="@id/btn_post"
+        android:layout_marginBottom="-20dp"
+        android:layout_marginTop="10dp"
+        android:text="+15"
+        android:textSize="@dimen/score_increasing_text_smaller_size"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:id="@+id/chunk_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/chunk_presentation_bottom" />
+
+        <ImageButton
+            android:id="@+id/chunk_bottom_go_ahead"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/button_go_ahead_enable"
+            android:src="@drawable/arrow_goahead" />
+    </RelativeLayout>
+
+</RelativeLayout>

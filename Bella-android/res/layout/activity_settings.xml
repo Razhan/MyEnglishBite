@@ -1,0 +1,141 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <com.ef.bite.widget.ActionbarLayout
+        android:id="@+id/settings_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/settings_actionbar" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 个人信息设置 -->
+
+            <LinearLayout
+                android:id="@+id/settings_person_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_person_avatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_avatar" />
+
+                <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_person_userid"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_general"
+                    android:visibility="gone" />
+
+                <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_person_nickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_general" />
+
+                <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_person_firstname"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_general" />
+
+                <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_person_lastname"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_general" />
+
+                <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_person_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_general" />
+
+                <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_person_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_general" />
+
+                <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_person_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_general"
+                    android:visibility="gone" />
+
+                <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_person_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_general"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+            <!-- App信息设置 -->
+
+            <LinearLayout
+                android:id="@+id/settings_app_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical" >
+
+                <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_app_language"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_general"
+                    android:visibility="gone" />
+
+                <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_app_notification"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_general" />
+
+                <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_app_sound_effect"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_general" />
+
+                <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_app_reset"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_general" />
+            </LinearLayout>
+            <!-- App about信息 -->
+
+            <LinearLayout
+                android:id="@+id/settings_about_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical" >
+
+                <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_app_terms"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_general" />
+
+                <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_app_about"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_general" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/settings_log_out"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="20dp"
+                android:background="@drawable/button_message_windows_background"
+                android:text="@string/settings_logout"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

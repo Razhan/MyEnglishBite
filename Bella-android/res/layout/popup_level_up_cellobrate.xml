@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/level_up_left_image"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/level_up_title_left" />
+
+    <ImageView
+        android:id="@+id/level_up_right_image"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/level_up_title_right" />
+
+    <RelativeLayout
+        android:id="@+id/level_up_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_toLeftOf="@+id/level_up_right_image"
+        android:layout_toRightOf="@+id/level_up_left_image"
+        android:background="@drawable/popup_window_round_corner_bg" >
+
+        <LinearLayout
+            android:id="@+id/level_up_title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/bella_color_cellobrate_yellow"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/bella_color_black_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chunk_level_up_title"
+                android:textColor="@color/bella_color_black_dark"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/level_up_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/level_up_btn_yeah"
+            android:layout_below="@+id/level_up_title_layout"
+            android:layout_centerVertical="true"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="L"
+                android:textColor="@color/bella_color_orange_light"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="v."
+                android:textColor="@color/bella_color_orange_light"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/level_up_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="3"
+                android:textColor="@color/bella_color_orange_light"
+                android:textSize="90sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/level_up_btn_yeah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/level_up_btn_share"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/button_message_windows_background"
+            android:text="Yeah!"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/level_up_btn_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="30dp"
+            android:drawableLeft="@drawable/popup_social_share_icon"
+            android:drawablePadding="10dp"
+            android:text="@string/chunk_level_up_share"
+            android:textColor="@color/black"
+            android:textSize="20sp" >
+        </TextView>
+    </RelativeLayout>
+
+</RelativeLayout>

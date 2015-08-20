@@ -1,0 +1,36 @@
+{
+  "lastModified": "2014-12-04T08:34:00.935Z",
+  "marketingCloud": {
+    "org": ""
+  },
+  "target": {
+    "clientCode": "",
+    "timeout": 5
+  },
+  "audienceManager": {
+    "server": ""
+  },
+  "acquisition": {
+    "server": "c00.adobe.com",
+    "appid": "cb45247373b324425d001e63e6a79a617d64dbb65e7687aa2ca41c862a2ef0ab"
+  },
+  "analytics": {
+    "rsids": "efenglishtownlabmobileapps",
+    "server": "efenglishtown.sc.omtrdc.net",
+    "ssl": false,
+    "offlineEnabled": false,
+    "charset": "UTF-8",
+    "lifecycleTimeout": 300,
+    "privacyDefault": "optedin",
+    "batchLimit": 0,
+    "timezone": "GMT+8",
+    "timezoneOffset": 480,
+    "referrerTimeout": 0,
+    "poi": []
+  },
+  "messages": [],
+  "remotes": {
+    "analytics.poi": "https://assets.adobedtm.com/b213090c5204bf94318f4ef0539a38b487d10368/scripts/satellite-5487ab2e61396500181a0000.json",
+    "messages": "https://assets.adobedtm.com/b213090c5204bf94318f4ef0539a38b487d10368/scripts/satellite-5487ab2e3733310018010000.json"
+  }
+}

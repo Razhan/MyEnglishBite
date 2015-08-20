@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <com.ef.bite.widget.ActionbarLayout
+	    android:id="@+id/change_pwd_actionbar"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    />
+    <ScrollView 
+         android:layout_width="match_parent"
+		 android:layout_height="wrap_content"
+		 android:layout_below="@+id/change_pwd_actionbar">
+	    <LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical"
+		    android:padding="20dp">
+	    
+	        <com.ef.bite.widget.LoginInputLayout
+		        android:id="@+id/change_pwd_old_pwd"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        />
+	        <com.ef.bite.widget.LoginInputLayout
+		        android:id="@+id/change_pwd_new_pwd"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        />
+	        <com.ef.bite.widget.LoginInputLayout
+		        android:id="@+id/change_pwd_confirm_new_pwd"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        />
+	        <Button
+		        android:id="@+id/change_pwd_change"
+		        android:layout_width="match_parent"
+		        android:layout_height="50dp"
+		        android:layout_gravity="center_horizontal"
+		        android:layout_marginTop="10dp"
+		        android:text="@string/change_pwd_ef_change_button" 
+		        android:textColor="@color/white"
+		        android:background="@drawable/button_message_windows_background"/>
+	        
+	    </LinearLayout>
+	</ScrollView>
+</RelativeLayout>

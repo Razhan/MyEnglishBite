@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/terms_condition_layout"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="${relativePackage}.${activityClass}" >
+		<ImageButton 
+                android:id="@+id/popup_terms_cancel"
+                android:layout_width="40dp"
+                android:layout_height = "40dp"  
+                android:src="@drawable/chunk_multichoice_cancel"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/button_action_bar_pink_background"
+             />
+            <TextView 
+                    android:id="@+id/popup_terms_title"
+                    android:layout_width = "wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/popup_term_service_title"
+                    android:textColor="@color/bella_color_black_dark"
+                    android:textSize="18sp"
+                    />
+            <WebView 
+                    android:id="@+id/popup_terms_webview"
+                    android:layout_below="@+id/popup_terms_title"
+                    android:layout_width = "match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/popup_terms_button_bar"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/bella_chunk_background"/>
+            <LinearLayout 
+                    android:id="@+id/popup_terms_button_bar"
+                    android:layout_width="match_parent"
+            		android:layout_height="wrap_content"
+            		android:layout_alignParentBottom="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp">
+                    <Button 
+			            android:id="@+id/popup_terms_btn_agree"
+			            android:layout_width="0dip"
+			            android:layout_weight="1"
+			            android:layout_height="wrap_content"
+			            android:textColor="@color/white"
+			            android:text="@string/popup_term_service_btn_agree"
+			            android:layout_marginRight="15dp"
+			            android:background="@drawable/button_message_windows_background"
+			            />
+                    <Button 
+			            android:id="@+id/popup_terms_btn_notagree"
+			            android:layout_width="0dip"
+			            android:layout_weight="1"
+			            android:layout_height="wrap_content"
+			            android:textColor="@color/white"
+			            android:text="@string/popup_term_Service_btn_not_agree"
+			            android:layout_marginLeft="15dp"
+			            android:background="@drawable/button_message_windows_background"
+			            />
+                </LinearLayout>
+    
+</RelativeLayout>

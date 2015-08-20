@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context=".ui.record.UserRecordingActivity">
+
+    <RelativeLayout
+            android:id="@+id/chunk_actionbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar_height"
+            android:background="@color/bella_chunk_background">
+
+        <ImageButton
+                android:id="@+id/chunk_actionbar_goback"
+                android:layout_width="@dimen/action_bar_goback_width"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:background="@color/bella_chunk_background"
+                android:src="@drawable/arrow_goback_black"/>
+
+        <ImageView
+                android:id="@+id/chunk_actionbar_teacher"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/map_roboto"/>
+
+        <com.ef.bite.widget.UserLevelView
+                android:id="@+id/chunk_actionbar_level"
+                android:layout_width="@dimen/user_level_small_width"
+                android:layout_height="@dimen/user_level_small_width"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+            android:id="@+id/userrecording_chunk_all"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/bella_color_cellobrate_yellow"
+                android:orientation="vertical"
+                android:gravity="center">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+
+                <TextView
+                        android:id="@+id/userrecording_name_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textSize="25dp"
+                        android:gravity="center"
+                        android:text=""/>
+
+                <LinearLayout
+                        android:id="@+id/userrecording_voice_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                    <LinearLayout
+                            android:id="@+id/userrecording_left_light"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:gravity="center">
+                        <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/left_light"/>
+                    </LinearLayout>
+
+                    <com.ef.bite.widget.RoundedImageView
+                            android:id="@+id/userrecording_avatar"
+                            android:layout_width="70dp"
+                            android:layout_height="fill_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/userrecording_left_light"/>
+
+                    <RelativeLayout
+                            android:id="@+id/relativeLayout1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_alignParentTop="true"
+                            android:layout_toRightOf="@+id/userrecording_avatar"
+                           >
+
+                        <WebView
+                                android:id="@+id/userrecording_playvoice"
+                                android:layout_width="match_parent"
+                                android:layout_height="55dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"/>
+
+                        <com.ef.bite.widget.GifImageView
+                                android:id="@+id/gifvoice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="16dp"
+                                android:src="@drawable/wechat_audio"
+                                android:visibility="invisible"/>
+
+                        <TextView
+                                android:id="@+id/time_textview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/gifvoice"
+                                android:text="15"
+                                android:textSize="12sp"
+                                android:visibility="invisible"/>
+
+                        <ImageView
+                                android:id="@+id/userrecording_delete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginTop="40dp"
+                                android:src="@drawable/delete"/>
+
+                    </RelativeLayout>
+                    <LinearLayout
+                            android:id="@+id/userrecording_right_light"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:gravity="center">
+
+                        <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/right_light"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                        android:id="@+id/relativeLayout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp">
+
+                    <TextView
+                            android:id="@+id/userrecording_coursename"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="...on the side..."/>
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp">
+
+                <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/likerecording"/>
+
+                <TextView
+                        android:id="@+id/like_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:text="0"
+                        android:textColor="@color/white"/>
+
+                <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/white"/>
+
+                <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="("
+                        android:textColor="@color/white"/>
+
+                <TextView
+                        android:id="@+id/review_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/white"/>
+
+                <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=")"
+                        android:textColor="@color/white"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.4">
+
+                    <TextView
+                            android:id="@+id/reminder_textview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="50dp"
+                            android:layout_marginRight="50dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="30dp"
+                            android:gravity="center"
+                            android:text="@string/userrecording_reminder_no_ratings_yet"/>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_below="@+id/reminder_textview"
+                            android:orientation="vertical">
+
+                        <com.ef.bite.widget.HorizontalListView
+                                android:id="@+id/review_voice_list"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginRight="30dp">
+                        </com.ef.bite.widget.HorizontalListView>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6">
+
+                    <Button
+                            android:id="@+id/rate_others_btn"
+                            android:layout_width="160dp"
+                            android:layout_height="@dimen/button_height"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="16dp"
+                            android:background="@drawable/button_message_windows_background"
+                            android:text="@string/rate_others"
+                            android:textColor="@color/white"
+                            android:textSize="17dp"/>
+                    <RelativeLayout
+                            android:id="@+id/invite_friends_btn"
+                            android:layout_width="160dp"
+                            android:layout_height="@dimen/button_height"
+                            android:layout_alignBottom="@+id/rate_others_btn"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="16dp">
+                        <Button
+                                android:id="@+id/btn_share"
+                                android:layout_width="160dp"
+                                android:layout_height="@dimen/button_height"
+                                android:background="@drawable/button_message_windows_background"/>
+                        <LinearLayout android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                      android:layout_centerInParent="true"
+                                      android:gravity="center">
+                            <ImageView android:layout_width="wrap_content"
+                                       android:layout_height="wrap_content"
+                                    android:src="@drawable/shareiconrecord"
+                                    android:layout_marginRight="10dp"/>
+                            <TextView android:id="@+id/tv_btn_invite"
+                                      android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content"
+                                    android:text="@string/chunk_level_up_share"
+                                      android:textColor="@color/white"
+                                      android:textSize="17dp"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:id="@+id/chunk_bottom_go_ahead_lay"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.6">
+
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/chunk_presentation_bottom"/>
+
+                    <ImageButton
+                            android:id="@+id/chunk_bottom_go_ahead"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/button_go_ahead_enable"
+                            android:src="@drawable/arrow_goahead"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/userrecording_chunk_null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+        <TextView
+                android:id="@+id/userrecording_chunk_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+        <Button
+                android:id="@+id/userrecording_chunk_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button"/>
+    </LinearLayout>
+
+</LinearLayout>

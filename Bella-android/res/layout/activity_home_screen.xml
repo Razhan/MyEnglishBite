@@ -1,0 +1,128 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/home_screen_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_height"
+        android:background="@color/bella_chunk_background" >
+
+        <RelativeLayout android:id="@+id/inbox_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+        <ImageView
+            android:id="@+id/home_screen_teacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:src="@drawable/map_roboto" />
+
+        <RelativeLayout
+            android:id="@+id/home_screen_notification_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/home_screen_teacher"
+            android:visibility="gone" >
+
+            <ImageView
+                android:id="@+id/home_screen_notification_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/notification_toast" />
+
+            <TextView
+                android:id="@+id/home_screen_notification_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+        </RelativeLayout>
+        <ImageButton
+            android:id="@+id/home_screen_setting"
+            android:layout_width="@dimen/action_bar_goback_width"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/button_action_bar_pink_background"
+            android:src="@drawable/profile_setting" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="36dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/eflogo" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/home_screen_chunk_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="4"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="2"
+            android:background="@color/bella_chunk_background"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/home_screen_leaderboard_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:alpha="0.8"
+                android:text="@string/home_screen_leaderboard_title"
+                android:textColor="@color/bella_color_black_dark"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/home_screen_friend_layout"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:orientation="horizontal" >
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/home_screen_friend_more"
+                    android:layout_width="0dip"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_action_bar_pink_background"
+                    android:src="@drawable/arrow_goahead_black" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

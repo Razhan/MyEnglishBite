@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/bella_chunk_background"
+              android:orientation="vertical"
+              android:padding="20dp"
+        >
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="5"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/walkthrough_viewpager_line_bottom"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/walkthroughs_bg">
+            <View
+                    android:id="@+id/walkthrough_viewpager_line_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/bella_color_black_dark"/>
+            <View
+                    android:id="@+id/walkthrough_viewpager_line_left"
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_alignParentLeft="true"
+                    android:background="@color/bella_color_black_dark"
+                    />
+            <View
+                    android:id="@+id/walkthrough_viewpager_line_right"
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/bella_color_black_dark"
+                    />
+
+            <ImageView
+                    android:id="@+id/iv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/walkthrough_viewpager_line_top"
+                    android:layout_toRightOf="@+id/walkthrough_viewpager_line_left"
+                    android:layout_toLeftOf="@+id/walkthrough_viewpager_line_right"
+                    />
+        </RelativeLayout>
+        <View
+                android:id="@+id/walkthrough_viewpager_line_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/bella_color_black_dark"
+                android:layout_alignParentBottom="true"
+                />
+
+    </RelativeLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1.2"
+            android:gravity="center">
+
+        <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/walkthrough_content_first"
+                android:textColor="@color/bella_color_black_dark"
+                android:textSize="18sp"/>
+    </LinearLayout>
+
+    <RelativeLayout
+            android:id="@+id/walkthrough_button_layout"
+            android:layout_width="match_parent"
+            android:layout_weight="0.8"
+            android:layout_height="0dip"
+            >
+
+        <Button
+                android:id="@+id/btn_next"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:text="@string/popup_chunk_done_continue"
+                android:background="@drawable/button_message_windows_background"
+                />
+    </RelativeLayout>
+</LinearLayout>
+   

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:id="@+id/friend_list_item_avatar_layout"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true" >
+
+        <com.ef.bite.widget.RoundedImageView
+            android:id="@+id/friend_list_item_avatar_bg"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/yellow_background" />
+
+        <ImageView
+            android:id="@+id/friend_list_item_no1_ribbon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/no1_medal_yellow" />
+
+        <com.ef.bite.widget.RoundedImageView
+            android:id="@+id/friend_list_item_avatar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/default_avatar" />
+
+        <com.ef.bite.widget.UserLevelView
+            android:id="@+id/friend_list_item_level"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/friend_list_item_level_bg" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/friend_list_item_index"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/friend_list_item_avatar_layout"
+        android:layout_centerHorizontal="true"
+        android:alpha="0.8"
+        android:text="#1"
+        android:textColor="@color/bella_color_black_dark"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/friend_list_item_name"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/friend_list_item_index"
+        android:layout_centerHorizontal="true"
+        android:alpha="0.8"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="@color/bella_color_black_dark"
+        android:textSize="16sp" />
+
+</RelativeLayout>

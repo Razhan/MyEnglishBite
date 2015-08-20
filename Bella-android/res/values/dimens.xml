@@ -1,0 +1,59 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--
+         Per the design guidelines, navigation drawers should be between 240dp and 320dp:
+         https://developer.android.com/design/patterns/navigation-drawer.html
+    -->
+    <dimen name="navigation_drawer_width">240dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+
+    <!-- 导航栏默认高度 -->
+    <dimen name="action_bar_height">70dp</dimen>
+    <dimen name="action_bar_goback_width">60dp</dimen>
+    <dimen name="action_bar_title_size">21sp</dimen>
+    <!-- 音频播放器大图标的直径 -->
+    <dimen name="audioplayerview_lage_diameter">140dp</dimen>
+    <!-- 音频播放器小图标的直径 -->
+    <dimen name="audioplayerview_small_diameter">50dp</dimen>
+    <!-- 用户级别视图的高度 -->
+    <dimen name="userlevelview_height">50dp</dimen>
+    <!-- 左右切换控件的高度 -->
+    <dimen name="leaderboard_switcher_layout_height">140dp</dimen>
+    <!-- Notification页面底层广告高度 -->
+    <dimen name="notification_bottom_ads_height">120dp</dimen>
+    <dimen name="circle_page_indicator_height">20dp</dimen>
+    <dimen name="popup_window_width">300dp</dimen>
+    <dimen name="popup_window_height">400dp</dimen>
+    <dimen name="popup_window_single_button_width">200dp</dimen>
+    <dimen name="chunk_detail_title_bigger_height">120dp</dimen>
+    <dimen name="chunk_detail_title_smaller_height">90dp</dimen>
+    <dimen name="chunk_detail_text_bigger_size">30sp</dimen>
+    <dimen name="chunk_detail_text_smaller_size">20sp</dimen>
+    <dimen name="user_level_small_width">30dp</dimen>
+    <dimen name="level_circle_thickness">2dp</dimen>
+    <dimen name="level_circle_increase_thickness">5dp</dimen>
+    <!-- 首页的Phrase layout的count textsize -->
+    <dimen name="home_screen_highlight_text_size">110sp</dimen>
+    <dimen name="home_screen_non_highlite_text_size">32sp</dimen>
+    <!-- 通用的listview一项的高度 -->
+    <dimen name="list_item_height">80dp</dimen>
+    <!-- 分数动态增加的显示textsize -->
+    <dimen name="score_increasing_text_smaller_size">15sp</dimen>
+    <dimen name="score_increasing_text_bigger_size">30sp</dimen>
+    <!-- 气球上的文字size -->
+    <dimen name="balloon_label_size">18sp</dimen>
+    <dimen name="balloon_thorn_max_width">20dp</dimen>
+    <!-- 设置项的高度 -->
+    <dimen name="setting_item_height_general">50dp</dimen>
+    <dimen name="setting_item_height_avatar">80dp</dimen>
+    <dimen name="setting_avatar_dialog_item_height">55dp</dimen>
+
+    <!-- 欢迎登陆页面 -->
+    <dimen name="welcome_app_info_en_size">18sp</dimen>
+    <dimen name="welcome_app_info_zh_size">25sp</dimen>
+
+</resources>

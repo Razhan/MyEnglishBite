@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants"
+                android:orientation="horizontal">
+
+    <ImageView
+            android:id="@+id/dialogue_list_item_speakera"
+            android:layout_width="54dp"
+            android:layout_height="90dp"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/dialogue_speaker_a"/>
+
+    <TextView
+            android:id="@+id/dialogue_list_item_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/dialogue_list_item_speakerb"
+            android:layout_toRightOf="@+id/dialogue_list_item_speakera"
+            android:focusable="false"
+            android:text="M: I’m so confused!  I’m trying to figure out how this thing works. "
+            android:textColor="@color/bella_chunk_text_dark"
+            android:textSize="16sp"
+            android:visibility="gone"/>
+
+    <ImageView
+            android:id="@+id/dialogue_list_item_speakerb"
+            android:layout_width="54dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/dialogue_speaker_b"/>
+
+    <RelativeLayout
+            android:id="@+id/dialogue_list_item_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toLeftOf="@+id/dialogue_list_item_speakerb"
+            android:layout_toRightOf="@+id/dialogue_list_item_speakera">
+
+        <ImageView
+                android:id="@+id/left_talk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/left_talk"/>
+
+        <ImageView
+                android:id="@+id/right_talk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/right_talk"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingRight="25dp"
+                android:layout_toLeftOf="@+id/right_talk"
+                android:layout_toRightOf="@+id/left_talk"
+                android:background="@drawable/bg_talk"
+                android:orientation="horizontal">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:orientation="vertical">
+            <TextView
+                    android:id="@+id/dialogue_list_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17dp"/>
+
+            <ImageView
+                    android:id="@+id/imageview_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:src="@drawable/more"/>
+
+            <TextView
+                    android:id="@+id/textView_source"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="17dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+            <com.ef.bite.widget.GifMovieView
+                    android:id="@+id/voicegifplay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/wechat_audio"/>
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

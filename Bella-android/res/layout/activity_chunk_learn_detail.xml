@@ -1,0 +1,154 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <com.ef.bite.widget.HeaderView android:id="@+id/header"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/chunk_detail_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/chunk_detail_title_bigger_height"
+        android:layout_marginTop="70dp"
+        android:background="@color/bella_color_cellobrate_yellow"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/chunk_detail_chunk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:maxLines="2"
+            android:scrollbars="vertical"
+            android:text="figure out"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/bella_color_black_dark"
+            android:textSize="@dimen/chunk_detail_text_bigger_size" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:baselineAligned="false" >
+
+            <LinearLayout
+                android:id="@+id/chunk_detail_pronunce_layout"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="2"
+                android:gravity="center|left" >
+
+                <ImageView
+                    android:id="@+id/chunk_detail_pronunce_player"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/chunk_pronunce" />
+
+                <TextView
+                    android:id="@+id/chunk_detail_pronunce_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="[meik sens]"
+                    android:textColor="@color/bella_color_orange_light"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/chunk_detail_translate_layout"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|right"
+                    android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/chunk_detail_translation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:text="@string/chunk_learn_detail_translation"
+                    android:textColor="@color/bella_color_orange_light"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/chunk_detail_content_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/chunk_bottom_layout"
+        android:layout_below="@+id/chunk_detail_title_layout" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/chunk_detail_status_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/action_bar_height"
+                android:background="@color/bella_chunk_background"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:id="@+id/chunk_detail_definition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="To think about or work on something until you understand or are able to do it"
+                android:textColor="@color/bella_chunk_text_dark"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:id="@+id/chunk_detail_hint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical" >
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/chunk_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/chunk_presentation_bottom" />
+
+        <ImageButton
+            android:id="@+id/chunk_bottom_go_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/button_go_ahead_enable"
+            android:src="@drawable/chunk_conversation_back" />
+
+        <ImageButton
+            android:id="@+id/chunk_bottom_go_ahead"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/button_go_ahead_enable"
+            android:src="@drawable/arrow_goahead" />
+    </RelativeLayout>
+
+</RelativeLayout>

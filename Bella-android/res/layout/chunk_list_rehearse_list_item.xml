@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Modified by yang-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:paddingLeft="10dp"
+                  android:paddingRight="10dp"
+                  android:paddingTop="5dp"
+                  android:paddingBottom="5dp"
+                  android:gravity="center_vertical">
+        <!--progress-->
+        <ImageView
+                android:id="@+id/chunk_list_mastered_list_item_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/chunk_choice_correct"
+                android:visibility="gone"
+                />
+        <com.ef.bite.widget.RehearseProgressView
+                android:id="@+id/chunk_list_rehearse_list_item_progress"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/chunk_choice_correct"
+                />
+        <!--content text-->
+        <TextView
+                android:id="@+id/chunk_list_rehearse_list_item_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:text="test test test test"
+                android:textColor="@color/bella_color_black_dark"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+        <!--vertical line-->
+        <ImageView android:layout_width="1px"
+                   android:layout_height="match_parent"
+                   android:background="@color/gray"/>
+        <!--like view created by yang-->
+        <LinearLayout android:layout_width="50dp"
+                      android:layout_height="50dp"
+                      android:gravity="center">
+            <!--mic icon-->
+            <ImageView style="@style/View.Full"
+                       android:id="@+id/iv_recording"
+                       android:src="@drawable/ic_mic"
+                       android:padding="5dp"
+                       android:scaleType="centerInside"
+                       android:visibility="gone"/>
+            <!--inside like & percent view-->
+            <LinearLayout style="@style/View.Full"
+                          android:id="@+id/ll_like"
+                          android:orientation="vertical"
+                          android:padding="5dp"
+                          android:gravity="center">
+                <ImageView android:layout_height="40dp"
+                           android:layout_width="40dp"
+                           android:layout_weight="1"
+                           android:src="@drawable/ic_like"/>
+                <TextView style="@style/View.Full"
+                          android:id="@+id/tv_percent"
+                          android:gravity="center"
+                          android:layout_weight="1"
+                          android:text="0%"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+            android:id="@+id/chunk_list_rehearse_list_item_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/chunk_line"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+
+</LinearLayout>
