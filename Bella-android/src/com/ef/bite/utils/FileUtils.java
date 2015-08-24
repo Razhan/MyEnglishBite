@@ -1,6 +1,9 @@
 package com.ef.bite.utils;
 
 import android.content.Context;
+import android.os.Environment;
+
+import com.ef.bite.AppConst;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -616,6 +619,40 @@ public class FileUtils {
 		File file = new File(path);
 		return (file.exists() && file.isFile() ? file.length() : -1);
 	}
+
+
+	//创建新下载APK文件
+	public static boolean createFile(String path) {
+		boolean isCreateFileSuccess = false;
+
+		if (android.os.Environment.MEDIA_MOUNTED.equals(android.os.Environment.getExternalStorageState())) {
+            File temp = android.os.Environment.getExternalStorageDirectory();
+            File updateDir = new File(android.os.Environment.getExternalStorageDirectory() + File.separator + AppConst.CacheKeys.RootStorage);
+            File updateFile = new File(path);
+
+			if (!updateDir.exists()) {
+				updateDir.mkdirs();
+			}
+
+			if (updateFile.exists()) {
+                updateFile.delete();
+			}
+
+            try {
+                updateFile.createNewFile();
+                isCreateFileSuccess = true;
+            } catch (IOException e) {
+                isCreateFileSuccess = false;
+                e.printStackTrace();
+            }
+
+		} else {
+			isCreateFileSuccess = false;
+		}
+
+        return isCreateFileSuccess;
+	}
+
 
 
 }

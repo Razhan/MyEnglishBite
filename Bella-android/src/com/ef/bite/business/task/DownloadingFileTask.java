@@ -20,7 +20,7 @@ public class DownloadingFileTask extends BaseAsyncTask<String, Void, String> {
 	}
 
 	public DownloadingFileTask(Context context, FileStorage storage,
-			String key, PostExecuting<String> executing) {
+							   String key, PostExecuting<String> executing) {
 		super(context, executing);
 		this.storage = storage;
 		this.key = key;

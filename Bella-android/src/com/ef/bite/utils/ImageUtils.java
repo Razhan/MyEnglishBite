@@ -27,26 +27,26 @@ public class ImageUtils {
 	 * @param imageView
 	 * @param imageUri
 	 */
-	public static void loadImageByUri(final ImageView imageView, String imageUri){
-		try{
-			final Context context = imageView.getContext();
-			final FileStorage storage = new FileStorage(context,AppConst.CacheKeys.Storage_Cache);
-			DownloadingFileTask task = new DownloadingFileTask(context,new PostExecuting<String>(){
-				@Override
-				public void executing(String result) {
-					if(result != null && !result.isEmpty()){
-						Bitmap bitmap = storage.getBitmap(result);
-						if(bitmap!=null)
-							imageView.setImageBitmap(bitmap);
-					}
-				}
-			});
-			task.execute(new String[]{ imageUri });
-		}catch (Exception e) {
-			e.printStackTrace();
-			Log.v(TAG, "getbitmap bmp fail---");
-		}
-	}
+//	public static void loadImageByUri(final ImageView imageView, String imageUri){
+//		try{
+//			final Context context = imageView.getContext();
+//			final FileStorage storage = new FileStorage(context,AppConst.CacheKeys.Storage_Cache);
+//			DownloadingFileTask task = new DownloadingFileTask(context,new PostExecuting<String>(){
+//				@Override
+//				public void executing(String result) {
+//					if(result != null && !result.isEmpty()){
+//						Bitmap bitmap = storage.getBitmap(result);
+//						if(bitmap!=null)
+//							imageView.setImageBitmap(bitmap);
+//					}
+//				}
+//			});
+//			task.execute(new String[]{ imageUri });
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//			Log.v(TAG, "getbitmap bmp fail---");
+//		}
+//	}
 	
 	/**
 	 * Convert Bitmap to InputStream

@@ -164,4 +164,37 @@ public class LoginServerAPI extends BaseServerAPI {
 			return null;
 		}
 	}
+
+
+	//获取版本信息
+	public HttpVersionCheckResponse getAppVersion(HttpVersionCheckRequest versionRequest) {
+		try {
+			String resource = JsonSerializeHelper
+					.JsonSerializer(versionRequest);
+			String version = HttpRestfulClient.JsonPost(AppConst.EFAPIs.BaseAddress + "2/appresource", resource, headerMap);
+
+			HttpVersionCheckResponse httpVersionCheckResponse = (HttpVersionCheckResponse) JsonSerializeHelper
+					.JsonDeserialize(version, HttpVersionCheckResponse.class);
+			Log.i("version", version);
+
+			return httpVersionCheckResponse;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

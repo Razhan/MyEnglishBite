@@ -1,5 +1,7 @@
 package com.ef.bite.ui.main;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,6 +17,7 @@ import com.ef.bite.AppSession;
 import com.ef.bite.R;
 import com.ef.bite.business.LocalDashboardBLL;
 import com.ef.bite.business.UserScoreBiz;
+import com.ef.bite.business.VersionUpdateBLL;
 import com.ef.bite.business.action.UserProfileOpenAction;
 import com.ef.bite.business.task.*;
 import com.ef.bite.dataacces.AchievementCache;
@@ -70,6 +73,7 @@ public class MainActivity extends BaseActivity {
 		setContentView(R.layout.activity_home_screen);
 		setupViews();
 		saveUserProfileForPush();
+//		showUpdateDialog();
 	}
 
 	private void init(){
@@ -430,5 +434,32 @@ public class MainActivity extends BaseActivity {
 		}
 	}
 
+	private void showUpdateDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("检测到新版本");
+		builder.setMessage("是否下载更新?");
+		builder.setPositiveButton("下载", new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				final String appName = "EnglishBite";
+				final String downUrl = "http://gdown.baidu.com/data/wisegame/bd47bd249440eb5f/shenmiaotaowang2.apk";
+
+				Intent intent = new Intent(MainActivity.this,VersionUpdateBLL.class);
+				intent.putExtra("Key_App_Name",appName);
+				intent.putExtra("Key_Down_Url", downUrl);
+				startService(intent);
+			}
+		}).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		builder.show();
+	}
 
 }

@@ -63,6 +63,10 @@
 
         <uses-library android:name="android.test.runner" />
 
+        <service
+            android:name=".business.VersionUpdateBLL" >
+        </service>
+
         <activity
             android:name=".ui.main.SplashActivity"
             android:label="@string/app_name"
@@ -329,6 +333,7 @@
                 <category android:name="com.ef.bite" />
             </intent-filter>
         </receiver>
+
     </application>
 
 </manifest>
