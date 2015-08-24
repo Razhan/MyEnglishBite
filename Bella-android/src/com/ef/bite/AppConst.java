@@ -219,7 +219,7 @@ public class AppConst {
 		public final static String Storage_DownloadChunk = "download";
 		public final static String Storage_Course = "course";
 		public final static String Storage_Course_Preview = "course_preview";
-		public final static String Storage_Language = "language";
+		public final static String Storage_Language = "resource";
         public final static String Storage_LanguageMaping = "language_mapping";
 
         public final static String Default_Avatart = "default_avatar";

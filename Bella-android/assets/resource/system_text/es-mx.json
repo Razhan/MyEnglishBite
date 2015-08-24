@@ -299,6 +299,7 @@
     "user_recording_delete_cancel": "Suspender",
     "report_confirm": "Este usuario ha sido denunciado. Vamos a investigar el caso.",
     "popup_rating_activity_sorry": "¡Lo sentimos!",
+    "popup_rating_quit_title": "¿Estás seguro que deseas salir?",
     "rating_view_no_more": "No hay más grabaciones disponibles en estos momentos. Por favor, vuelve más tarde.",
     "tutorial8": "Ahora te toca probar a ti. Crea tu propia frase aplicando lo que acabas de aprender. Grábala y los demás puntuarán tu pronunciación y tu creatividad.",
     "recording_view_instruction": "Graba tu propia frase con \"...%@...\"",

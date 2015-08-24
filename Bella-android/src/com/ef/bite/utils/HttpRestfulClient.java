@@ -210,6 +210,9 @@ public class HttpRestfulClient {
 			if (jsonParams != null)
 				httpPost.setEntity(new StringEntity(jsonParams, HTTP.UTF_8));
 			response = httpClient.execute(httpPost, localContext);
+
+			sendToParse(response.getStatusLine().getStatusCode(), url);
+
 			HttpEntity entity = response.getEntity();
 			return getUTF8ContentFromEntity(entity);
 		} catch (Exception e) {

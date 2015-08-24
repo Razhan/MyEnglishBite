@@ -262,8 +262,7 @@ public class SplashActivity extends BaseActivity {
 
         String sys_language = AppLanguageHelper.getSystemLaunguage(mContext);
         sys_language = CountryBLL.countryMapping(sys_language);
-        String country = CountryBLL.getCountryCode(languageStorage, sys_language);
-        AppLanguageHelper.loadLanguageFromStorage(mContext, languageStorage.getStorageFolder() + "/system_text/", country);
+        AppLanguageHelper.loadLanguageFromStorage(mContext, languageStorage.getStorageFolder() + "/system_text/", sys_language);
     }
 
     private String getTranslationVersion(){
@@ -289,8 +288,6 @@ public class SplashActivity extends BaseActivity {
             return "";
         }
     }
-
-
 
 
     private void loginCheck() {

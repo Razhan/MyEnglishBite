@@ -71,6 +71,11 @@ public class CountryBLL {
     public static Bitmap getLoacalBitmap(String country, String path) {
         try {
             String url = path + "image" + File.separator + country + ".png";
+
+            if (! (new File(url).exists())) {
+                url = path + "image" + File.separator + "uk" + ".png";
+            }
+
             FileInputStream fis = new FileInputStream(url);
             return BitmapFactory.decodeStream(fis);
 

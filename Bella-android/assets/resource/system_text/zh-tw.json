@@ -302,6 +302,7 @@
     "user_recording_delete_cancel": "取消",
     "report_confirm": "現已回報此使用者。我們將進行調查。",
     "popup_rating_activity_sorry": "對不起！",
+    "popup_rating_quit_title": "你確定你要放棄嗎？",
     "rating_view_no_more": "目前無法提供任何錄音。請稍後再回來。",
     "tutorial8": "現在輪到您來試試了。運用您剛學習的字詞造句。把句子錄下來，讓其他人根據您的發音和創意提出評價。",
     "recording_view_instruction": "運用 \"...%@...\" 錄下您的句子",

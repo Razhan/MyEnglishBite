@@ -73,14 +73,14 @@ public class QuitPracticePopWindow extends BasePopupWindow {
 			mInfo.setText(JsonSerializeHelper.JsonLanguageDeserialize(
 					mActivity, "popup_rehearsal_quit_info"));
 		} else if (mCurrentQuitType == Quit_Rate) {
-            String title = JsonSerializeHelper.JsonLanguageDeserialize(mActivity, "popup_rate_quit_title");
-            String info = JsonSerializeHelper.JsonLanguageDeserialize(mActivity, "popup_rate_quit_info");
+            String title = "Quit Rating";
+            String info = JsonSerializeHelper.JsonLanguageDeserialize(mActivity, "popup_rating_quit_title");
 
             if (title.isEmpty()) {
-                title = "Quit Rate";
+                title = "Quit Rating";
             }
             if (info.isEmpty()) {
-                info = "Are you sure that you want to quit?";
+                info = "Are you sure that you want to quit????";
             }
 
             mTitle.setText(title);

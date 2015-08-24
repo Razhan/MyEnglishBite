@@ -302,6 +302,7 @@
     "user_recording_delete_cancel": "取消",
     "report_confirm": "此用户现已被举报。我们将进行调查。",
     "popup_rating_activity_sorry": "很抱歉！",
+    "popup_rating_quit_title": "您确定要退出吗？",
     "rating_view_no_more": "目前没有更多的录音可用。请稍后再回来。",
     "tutorial8": "现在该您尝试了。用您刚才学到的知识造句。进行录音，以便让其他人对您的发音和创造力打分。",
     "recording_view_instruction": "用\"...%@...\"来录制自己的句子",

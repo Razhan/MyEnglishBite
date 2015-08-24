@@ -110,7 +110,6 @@ public class GetGlobalLanguageTask extends
                             .definedLog("DownloadCoursesTask -> Fail to decrompress the download course!");
                     return false;
                 }
-                AppLanguageHelper.loadLanguageFromStorage(mContext, languageStorage.getStorageFolder());
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
