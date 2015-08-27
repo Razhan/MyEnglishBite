@@ -16,5 +16,6 @@ public class HttpLogin extends HttpBaseMessage {
 		public String family_name;
 		public String given_name;
 		public String phone;
-	}
+		public boolean is_new_user;
+    }
 }

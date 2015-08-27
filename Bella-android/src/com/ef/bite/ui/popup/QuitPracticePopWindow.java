@@ -80,7 +80,7 @@ public class QuitPracticePopWindow extends BasePopupWindow {
                 title = "Quit Rating";
             }
             if (info.isEmpty()) {
-                info = "Are you sure that you want to quit????";
+                info = "Are you sure that you want to quit?";
             }
 
             mTitle.setText(title);

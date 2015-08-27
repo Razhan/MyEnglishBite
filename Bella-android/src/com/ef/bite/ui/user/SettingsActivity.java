@@ -246,20 +246,24 @@ public class SettingsActivity extends BaseActivity {
 					@Override
 					public void onSwitch(boolean value) {
 						// 保存通知设置状态
+
+						if (value) {
+                            MobclickTracking.OmnitureTrack.ActionSettings(2, 1);
+                        } else {
+                            MobclickTracking.OmnitureTrack.ActionSettings(2, 2);
+                        }
+
 						AppConst.GlobalConfig.Notification_Enable = value;
 						ConfigModel appConfig = configbll.getConfigModel();
 						if (appConfig != null) {
 							if (appConfig.IsNotificationOn != value) {
 								appConfig.IsNotificationOn = value;
 								configbll.setConfigModel(appConfig);
-								MobclickTracking.OmnitureTrack.ActionSettings(
-										2, 1);
 							}
 						} else {
 							appConfig = new ConfigModel();
 							appConfig.IsNotificationOn = value;
 							configbll.setConfigModel(appConfig);
-							MobclickTracking.OmnitureTrack.ActionSettings(2, 2);
 						}
 					}
 				});

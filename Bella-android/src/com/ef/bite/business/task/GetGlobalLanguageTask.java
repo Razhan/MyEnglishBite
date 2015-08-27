@@ -103,11 +103,19 @@ public class GetGlobalLanguageTask extends
                     return false;
                 }
 
+//                RecursionDeleteFile(new File(languageStorage.getStorageFolder()));
+//                new File(languageStorage.getStorageFolder()).mkdir();
+
                 // 解压课程
+
+//                android.os.Environment.getExternalStorageDirectory(),
+//                        AppConst.CacheKeys.RootStorage
+
+
                 if (!ZipUtil.decompress(saveFile.getAbsolutePath(),
-                        languageStorage.getStorageFolder(), "utf-8")) {
-                    LogManager
-                            .definedLog("DownloadCoursesTask -> Fail to decrompress the download course!");
+                        android.os.Environment.getExternalStorageDirectory() + File.separator +
+                        AppConst.CacheKeys.RootStorage, "utf-8")) {
+                    LogManager.definedLog("DownloadCoursesTask -> Fail to decrompress the download course!");
                     return false;
                 }
                 return true;
@@ -132,6 +140,25 @@ public class GetGlobalLanguageTask extends
             return jsonObject.optString("language_code");
         } catch (JSONException e) {
             return "";
+        }
+    }
+
+
+    public static void RecursionDeleteFile(File file){
+        if(file.isFile()){
+            file.delete();
+            return;
+        }
+        if(file.isDirectory()){
+            File[] childFile = file.listFiles();
+            if(childFile == null || childFile.length == 0){
+                file.delete();
+                return;
+            }
+            for(File f : childFile){
+                RecursionDeleteFile(f);
+            }
+            file.delete();
         }
     }
 

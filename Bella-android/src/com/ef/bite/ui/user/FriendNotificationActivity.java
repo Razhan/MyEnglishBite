@@ -237,7 +237,8 @@ public class FriendNotificationActivity extends BaseActivity {
 
 	private void link(String link) {
 		// Add tracing
-		TraceHelper.tracingADsUpsell(mContext);
+		TraceHelper.tracingADsCall(mContext);
+
 
 		String site = link;
 		Intent intent = new Intent("android.intent.action.VIEW",
@@ -248,7 +249,8 @@ public class FriendNotificationActivity extends BaseActivity {
 
 	private void call(String phone) {
 		// Add tracing
-		TraceHelper.tracingADsCall(mContext);
+		TraceHelper.tracingADsUpsell(mContext);
+
 		Intent intent = new Intent("android.intent.action.CALL",
 				Uri.parse("tel:" + phone));
 		startActivity(intent);

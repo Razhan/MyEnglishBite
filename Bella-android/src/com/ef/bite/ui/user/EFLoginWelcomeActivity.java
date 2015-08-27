@@ -331,6 +331,12 @@ public class EFLoginWelcomeActivity extends BaseActivity {
                             AppConst.CurrUserInfo.IsLogin = true;
                             AppConst.CurrUserInfo.UserId=result.data.bella_id;
                             PreferencesUtils.putString(mContext, AppConst.CacheKeys.Facebook_Access_Token, access_token);
+
+                            if (result.data.is_new_user) {
+                                MobclickTracking.OmnitureTrack
+                                        .ActionRegisterSuccessful(ContextDataMode.ActionRegisterTypeValues.FACEBOOK);
+                            }
+
                             getUserProfile();
                         }
                     }

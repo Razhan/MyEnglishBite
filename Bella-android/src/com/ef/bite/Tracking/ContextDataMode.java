@@ -98,7 +98,7 @@ public class ContextDataMode {
 
 	public static class ActionSearchKey {
 		public final static String actionSearch = "action.search";
-        public final static String actionSearchCancel = "action.searchcancel";
+        public final static String actionSearchCancel = "action.searchCancel";
     }
 
 	public static class ActionSettingsKey {
@@ -130,7 +130,8 @@ public class ContextDataMode {
 
 	public static class ActionRecordingKey {
 		public final static String actionrecordStatus = "action.recordStatus";
-	}
+        public final static String actionrecord = "action.record";
+    }
 	
 	public static class ActionRecordingSuccessfulKey{
 		public final static String actionrecordingstatus = "action.recordStatus";
@@ -647,10 +648,10 @@ public class ContextDataMode {
 
 	public static class ActionSettingsValues {
 		public final static String actionAvatarUpdateClickValues = "1";
-		public final static String actionNotificationChoiceValues_ON = "on";
-		public final static String actionNotificationChoiceValues_OFF = "off";
-		public final static String actionSoundEffectsChoiceValues_ON = "on";
-		public final static String actionSoundEffectsChoiceValues_OFF = "off";
+		public final static String actionNotificationChoiceValues_ON = "ON";
+		public final static String actionNotificationChoiceValues_OFF = "OFF";
+		public final static String actionSoundEffectsChoiceValues_ON = "ON";
+		public final static String actionSoundEffectsChoiceValues_OFF = "OFF";
 		public final static String actionLogOutValues = "1";
 	}
 
@@ -678,6 +679,7 @@ public class ContextDataMode {
 
 	public static class ActionRecordingValues {
 		public final static String actionrecordStatus = "No audio";
+		public final static String actionrecord = "1";
 	}
 	
 	public static class ActionRecordingSuccessfulValues{

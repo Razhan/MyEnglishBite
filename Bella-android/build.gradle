@@ -47,16 +47,47 @@ android {
 
     buildTypes{
         release {
-            signingConfig  signingConfigs.myConfig
+//            signingConfig  signingConfigs.myConfig
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
     productFlavors {
 
-        wandoujia {}
-        baidu {}
-        c360 {}
+//        woo {}
+//        "91" {}
+//        anzhuo {}
+//        baidu {}
+//        wandoujia {}
+//        yingyh {}
+//        jfsc {}
+//        mmy {}
+//        ndw {}
+//        oppokksd {}
+//        azy {}
+//        lxkfpt {}
+//        yiyh {}
+//        mpw {}
+//        sgsjzs {}
+//        ucyysd {}
+//        az {}
+//        mz {}
+//        et_hk_yh {}
+//        et_hk_ggl {}
+//        et_hk_fb {}
+//        et_ee {}
+//        tcl {}
+//        "360" {}
+//        google {}
+//        wyyyzs {}
+//        xmyysd {}
+//        hwyysc {}
+//        yysc {}
+//        yyb {}
+//        et_hk_gv {}
+        snyysd {}
+
 
         productFlavors.all { flavor ->
             flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]

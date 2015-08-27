@@ -85,7 +85,7 @@ public class ZipUtil {
 				encoding = "GBK";
 			}
 			// 实例化ZipFile对象
-			ZipFile zipFile = new ZipFile(file);
+ 			ZipFile zipFile = new ZipFile(file);
 			// 获取ZipFile中的条目
 			Enumeration<ZipEntry> files = (Enumeration<ZipEntry>) zipFile
 					.entries();

@@ -179,7 +179,7 @@ public class SplashActivity extends BaseActivity {
                 File file=new File(path + "config.json");
 
                 if (!file.exists()){
-                    FileStorage.CopyAssets("resource", path, mContext);
+                    FileStorage.CopyAssets(AppConst.CacheKeys.Storage_Language, path, mContext);
                 }
                 getResourceInfo();
 //                getLanguagePack();

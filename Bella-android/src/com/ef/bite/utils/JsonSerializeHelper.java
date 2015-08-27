@@ -72,7 +72,7 @@ public class JsonSerializeHelper {
 		String item;
 		item = getLanguageFromTranslation(context, params);
 		if (StringUtils.isBlank(item)) {
-			item = getLanguageFromAssets(context, params);
+			//item = getLanguageFromAssets(context, params);
 		}
 		return StringUtils.nullStrToEmpty(item);
 	}

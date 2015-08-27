@@ -311,7 +311,7 @@ public class AudioPlayerView extends View implements View.OnClickListener {
 			}
 
 			// omniture
-			MobclickTracking.OmnitureTrack.ActionDialogue(4);
+//			MobclickTracking.OmnitureTrack.ActionDialogue(4);
 //			MobclickTracking.UmengTrack.ActionDialogue(4, mContext);
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -602,10 +602,12 @@ public class AudioPlayerView extends View implements View.OnClickListener {
 		case 0: // Ready
 			start();
 			MobclickTracking.OmnitureTrack.ActionDialogue(3);
+            MobclickTracking.OmnitureTrack.ActionDialogue(6);
 //			MobclickTracking.UmengTrack.ActionDialogue(3, mContext);
 			break;
 		case 1: // playing
 			pause();
+            MobclickTracking.OmnitureTrack.ActionDialogue(4);
 			break;
 		case 2: // paused
 			start();

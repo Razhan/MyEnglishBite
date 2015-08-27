@@ -134,6 +134,7 @@ public class RecordingActivity extends BaseChunkActivity {
         @Override
         public void onClick(View v) {
             onRecStart();
+            MobclickTracking.OmnitureTrack.ActionTrackingRecording(1);
         }
     };
 
@@ -204,7 +205,7 @@ public class RecordingActivity extends BaseChunkActivity {
         } catch (IOException e) {
             tipsView.setText(JsonSerializeHelper.JsonLanguageDeserialize(
                     mContext, "recording_view_no_sound"));
-            MobclickTracking.OmnitureTrack.ActionTrackingRecording();
+            MobclickTracking.OmnitureTrack.ActionTrackingRecording(0);
             e.printStackTrace();
         }
     }

@@ -241,6 +241,14 @@ public class MobclickTracking {
                             ContextDataMode.ActionDialogueKey.actionAudioPlayLocation,
                             actionDate);
                     break;
+                case 7:
+                    actionDate
+                            .put(ContextDataMode.ActionDialogueKey.actionAudioPlayLocation,
+                                    ContextDataMode.ActionAudioDialogueValues.audioPlayLocation_phrase);
+                    Analytics.trackAction(
+                            ContextDataMode.ActionDialogueKey.actionAudioPlayLocation,
+                            actionDate);
+                    break;
 
             }
             LogManager.definedLog(String.valueOf(i));
@@ -650,12 +658,22 @@ public class MobclickTracking {
                     ContextDataMode.ActionReviewValues.actionrate);
         }
 
-        public static void ActionTrackingRecording() {
+        public static void ActionTrackingRecording(int i) {
             HashMap<String, Object> actionData = new HashMap<String, Object>();
-            actionData.put(ContextDataMode.ActionRecordingKey.actionrecordStatus,
-                    ContextDataMode.ActionRecordingValues.actionrecordStatus);
-            Analytics.trackAction(ContextDataMode.ActionRecordingKey.actionrecordStatus,
-                    actionData);
+            switch (i) {
+                case 0:
+                actionData.put(ContextDataMode.ActionRecordingKey.actionrecordStatus,
+                        ContextDataMode.ActionRecordingValues.actionrecordStatus);
+                Analytics.trackAction(ContextDataMode.ActionRecordingKey.actionrecordStatus,
+                        actionData);
+                    break;
+                case 1:
+                    actionData.put(ContextDataMode.ActionRecordingKey.actionrecord,
+                            ContextDataMode.ActionRecordingValues.actionrecord);
+                    Analytics.trackAction(ContextDataMode.ActionRecordingKey.actionrecord,
+                            actionData);
+                    break;
+            }
         }
 
         public static void ActionTrackingRecordingSuccessful(Context context) {

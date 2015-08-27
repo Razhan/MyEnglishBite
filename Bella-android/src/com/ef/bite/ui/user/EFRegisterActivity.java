@@ -133,9 +133,13 @@ public class EFRegisterActivity extends BaseActivity {
 				R.drawable.arrow_goback_black, -1, new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						finish();
-						overridePendingTransition(R.anim.activity_in_from_left,
-								R.anim.activity_out_to_right);
+						if (step == 2) {
+							attempBack();
+						} else {
+							finish();
+							overridePendingTransition(R.anim.activity_in_from_left,
+									R.anim.activity_out_to_right);
+						}
 					}
 				}, null);
 		// 下一步设置手机号和密码

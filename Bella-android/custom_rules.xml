@@ -1,8 +1,0 @@
-<project name="Test" >
-
-	<property file="local.properties" />
-
-	<property file="ant.properties" />
-
-
-</project>

@@ -294,6 +294,9 @@ public class ChunkLearnDetailActivity extends BaseChunkActivity {
 				@Override
 				public void onClick(View v) {
 					MobclickTracking.OmnitureTrack.ActionPhrasepresentation(1);
+					MobclickTracking.OmnitureTrack.ActionDialogue(7);
+
+
 //					MobclickTracking.UmengTrack.ActionPhrasepresentation(1,	mContext);
 					// if (chunk.getIsPreinstall()) {
 					// prononcingFromAsset(chunk.getAudioFileName());

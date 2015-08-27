@@ -97,8 +97,8 @@ public class AppConst {
 		public final static String Publish_Host_CN = "42.96.250.52";// Product
 		public final static String Publish_Host_COM = "42.96.250.52";// Product
 
-		public final static String HOST_COM = "bella-live-web-lb-1387001753.us-west-2.elb.amazonaws.com";//amazon
-		public final static String HOST_CN = "42.96.250.52";//ali
+		public final static String HOST_COM = "http://bella-live-web-lb-1387001753.us-west-2.elb.amazonaws.com";//amazon
+		public final static String HOST_CN = "http://42.96.250.52";//ali
 
 		public final static String Internal_Address = "http://" + Internal_Host
 				+ "/api/bella/";
