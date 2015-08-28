@@ -1,8 +1,12 @@
 package com.ef.bite.ui.main;
 
 import android.app.AlertDialog;
+import android.app.DownloadManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,7 +21,6 @@ import com.ef.bite.AppSession;
 import com.ef.bite.R;
 import com.ef.bite.business.LocalDashboardBLL;
 import com.ef.bite.business.UserScoreBiz;
-import com.ef.bite.business.VersionUpdateBLL;
 import com.ef.bite.business.action.UserProfileOpenAction;
 import com.ef.bite.business.task.*;
 import com.ef.bite.dataacces.AchievementCache;
@@ -30,12 +33,14 @@ import com.ef.bite.ui.DashBoardFriendView;
 import com.ef.bite.ui.user.FriendNotificationActivity;
 import com.ef.bite.ui.user.LeaderBoardActivity;
 import com.ef.bite.ui.user.SettingsActivity;
+import com.ef.bite.utils.FileUtils;
 import com.ef.bite.utils.JsonSerializeHelper;
 import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.SaveCallback;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -73,7 +78,10 @@ public class MainActivity extends BaseActivity {
 		setContentView(R.layout.activity_home_screen);
 		setupViews();
 		saveUserProfileForPush();
-//		showUpdateDialog();
+
+        if (FileUtils.ExistSDCard() && (FileUtils.getSDFreeSize() >= 10)) {
+            showUpdateDialog();
+        }
 	}
 
 	private void init(){
@@ -366,11 +374,11 @@ public class MainActivity extends BaseActivity {
 
 	private void postUserAchievement() {
 		AchievementCache.getInstance().postCache(new AchievementCache.OnFinishListener() {
-			@Override
-			public void doOnfinish(boolean result) {
-				getDashboard();
-			}
-		});
+            @Override
+            public void doOnfinish(boolean result) {
+                getDashboard();
+            }
+        });
 	}
 
 
@@ -443,13 +451,10 @@ public class MainActivity extends BaseActivity {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
-				final String appName = "EnglishBite";
+				final String appName = "EnglishBite.apk";
 				final String downUrl = "http://gdown.baidu.com/data/wisegame/bd47bd249440eb5f/shenmiaotaowang2.apk";
 
-				Intent intent = new Intent(MainActivity.this,VersionUpdateBLL.class);
-				intent.putExtra("Key_App_Name",appName);
-				intent.putExtra("Key_Down_Url", downUrl);
-				startService(intent);
+                intoDownloadManager(downUrl, appName, "Download");
 			}
 		}).setNegativeButton("取消", new DialogInterface.OnClickListener() {
 
@@ -461,5 +466,38 @@ public class MainActivity extends BaseActivity {
 		});
 		builder.show();
 	}
+
+
+    private void intoDownloadManager(String url, String appName, String path) {
+
+        DownloadManager dManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+
+        Uri uri = Uri.parse(url);
+
+        File app = new File(android.os.Environment.getExternalStorageDirectory() + File.separator +
+                path + File.separator + appName);
+
+        try {
+            if (app.exists()) {
+                app.delete();
+            }
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+
+        DownloadManager.Request request = new DownloadManager.Request(uri);
+        request.setDestinationInExternalPublicDir(path, appName);
+        request.setDescription("EnglishBite新版本下载");
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        request.setMimeType("application/vnd.android.package-archive");
+        request.allowScanningByMediaScanner();
+        request.setVisibleInDownloadsUi(true);
+
+        long refernece = dManager.enqueue(request);
+
+        SharedPreferences sPreferences = getSharedPreferences("downloadAPK", 0);
+
+        sPreferences.edit().putLong("bite", refernece).commit();
+    }
 
 }
