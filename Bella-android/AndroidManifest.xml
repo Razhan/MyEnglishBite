@@ -23,6 +23,7 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
     <!-- Optional - GET_ACCOUNTS is used to pre-populate customer's email in forms. -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -66,6 +67,13 @@
         <service
             android:name=".business.VersionUpdateBLL" >
         </service>
+
+        <receiver
+            android:name="com.ef.bite.receiver.DownLoadBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
 
         <activity
             android:name=".ui.main.SplashActivity"
