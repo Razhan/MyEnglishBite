@@ -23,7 +23,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0dip"
-            android:layout_weight="0.9"
+            android:layout_weight="1"
             android:background="@color/white" />
     </LinearLayout>
 
@@ -78,8 +78,8 @@
                 android:id="@+id/profile_person_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="30dp"
-                android:text=""
+                android:paddingTop="20dp"
+                android:text="username"
                 android:textColor="@color/bella_color_black_dark"
                 android:textSize="30sp" />
 
@@ -105,7 +105,7 @@
 
                 <TextView
                         android:id="@+id/country_name"
-                        android:layout_width="70dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="26dp"
                         android:layout_marginLeft="5dp"
                         android:layout_centerVertical="true"
@@ -136,6 +136,7 @@
                     android:layout_height="35dp"
                     android:layout_centerInParent="true"
                     android:layout_marginLeft="30dp"
+                    android:layout_marginBottom="45dp"
                     android:layout_toRightOf="@+id/profile_person_avatar" />
             </RelativeLayout>
         </LinearLayout>
@@ -167,7 +168,7 @@
                         android:id="@+id/profile_level"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="10dp" />
+                        android:layout_margin="15dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -182,7 +183,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0xp"
-                        android:textSize="30sp" />
+                        android:textSize="25sp" />
 
                     <TextView
                         android:id="@+id/profile_level_up_info"
@@ -209,19 +210,19 @@
                 android:layout_weight="5" >
 
                 <LinearLayout
-                    android:id="@+id/profile_phrase_layout"
+                    android:id="@+id/profile_recordings_layout"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:visibility="gone" >
+                    >
 
                     <TextView
                         android:id="@+id/profile_chunks_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="281"
+                        android:text="10"
                         android:textColor="@color/bella_color_orange_light"
                         android:textSize="32sp" />
 
@@ -229,7 +230,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="@string/profile_phrasses" />
+                        android:text="@string/recording_key" />
                 </LinearLayout>
 
                 <LinearLayout

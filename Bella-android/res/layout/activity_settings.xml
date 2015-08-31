@@ -92,6 +92,11 @@
                     android:visibility="gone" />
 
                 <com.ef.bite.widget.SettingItemLayout
+                    android:id="@+id/settings_app_courselevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_item_height_general" />
+
+                <com.ef.bite.widget.SettingItemLayout
                     android:id="@+id/settings_app_notification"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/setting_item_height_general" />

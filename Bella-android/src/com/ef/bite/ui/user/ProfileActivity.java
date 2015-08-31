@@ -88,7 +88,7 @@ public class ProfileActivity extends BaseActivity {
 		profile_friends = (TextView) findViewById(R.id.profile_friends);
 		profile_friends.setText(JsonSerializeHelper.JsonLanguageDeserialize(
 				mContext, "profile_friends"));
-		mPharaseLayout = (LinearLayout) findViewById(R.id.profile_phrase_layout);
+		mPharaseLayout = (LinearLayout) findViewById(R.id.profile_recordings_layout);
 		mFriendLayout = (LinearLayout) findViewById(R.id.profile_friends_layout);
 		mScoreLevelInfoLayout = (LinearLayout) findViewById(R.id.profile_score_level_layout);
 		mScoreXP = (TextView) findViewById(R.id.profile_level_points);
@@ -231,7 +231,7 @@ public class ProfileActivity extends BaseActivity {
 				mLevelInfo.setVisibility(View.GONE);
 				mScoreXP.setText(profile.Score + "xp");
 				mLevel.initialize(profile.Score);
-				mPharaseLayout.setVisibility(View.GONE);
+//				mPharaseLayout.setVisibility(View.GONE);
 
 				if (profile.IsFriend) // 已经是朋友
 				{

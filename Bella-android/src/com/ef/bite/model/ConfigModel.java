@@ -32,6 +32,10 @@ public class ConfigModel extends BaseJsonModel {
 	 */
 	public boolean IsSoundEffectOn = true;
 	/**
+	 **课程难度 0 - beginner 1 - advanced
+	 **/
+	public int CourseLevel = 0;
+	/**
 	 * App多语言设置，
 	 * 0 - 随系统
 	 * 1 - 英语

@@ -70,6 +70,7 @@
                 android:layout_toRightOf="@+id/left_talk"
                 android:background="@drawable/bg_talk"
                 android:orientation="horizontal">
+
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:layout_weight="1"
@@ -80,21 +81,15 @@
                     android:layout_height="wrap_content"
                     android:textSize="17dp"/>
 
-            <ImageView
-                    android:id="@+id/imageview_more"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:src="@drawable/more"/>
-
             <TextView
                     android:id="@+id/textView_source"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:textSize="17dp"
-                    android:visibility="gone"/>
+                    android:textSize="17dp"/>
+
             </LinearLayout>
+
             <com.ef.bite.widget.GifMovieView
                     android:id="@+id/voicegifplay"
                     android:layout_width="wrap_content"

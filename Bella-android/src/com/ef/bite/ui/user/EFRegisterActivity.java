@@ -13,6 +13,7 @@ import com.ef.bite.AppConst;
 import com.ef.bite.R;
 import com.ef.bite.Tracking.ContextDataMode;
 import com.ef.bite.Tracking.MobclickTracking;
+import com.ef.bite.business.GlobalConfigBLL;
 import com.ef.bite.business.task.EFRegisterTask;
 import com.ef.bite.business.task.LoginTask;
 import com.ef.bite.business.task.PostExecuting;
@@ -20,6 +21,7 @@ import com.ef.bite.dataacces.mode.LoginMode;
 import com.ef.bite.dataacces.mode.httpMode.HttpBaseMessage;
 import com.ef.bite.dataacces.mode.httpMode.HttpCourseRequest;
 import com.ef.bite.dataacces.mode.httpMode.HttpLogin;
+import com.ef.bite.model.ConfigModel;
 import com.ef.bite.ui.BaseActivity;
 import com.ef.bite.ui.popup.TermsServicePopupWindow;
 import com.ef.bite.utils.*;
@@ -53,7 +55,18 @@ public class EFRegisterActivity extends BaseActivity {
 	TextView mNameInfo;
 	TextView mPhoneInfo;
 	ProgressDialog mProgress;
-	int curLoginTimes = 0; // 登录后直接login，最多尝试 MAX_LOGIN_TIMES 次
+
+	//level select page
+    private LinearLayout mEnterLevelLayout;
+	private Spinner level_spinner;
+	private Button next2;
+    private TextView mLevelInfo;
+    private String mLevelChoice;
+    private int mPositionLevel;
+
+
+
+    int curLoginTimes = 0; // 登录后直接login，最多尝试 MAX_LOGIN_TIMES 次
 	boolean isTermsChecked = false; // 服务条款是否勾上了
 	private List<HttpCourseRequest> httpCourseRequests = new ArrayList<HttpCourseRequest>();
 
@@ -69,185 +82,239 @@ public class EFRegisterActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_ef_register);
-		// Tracking loading
-		// TraceHelper.tracingPage(mContext, TraceHelper.PAGE_REGISTER);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ef_register);
+        // Tracking loading
+        // TraceHelper.tracingPage(mContext, TraceHelper.PAGE_REGISTER);
 
-		BI_Tracking(Enrollment_Name);
-		spinner = (Spinner) findViewById(R.id.register_age_spinner);
-		mActionbar = (ActionbarLayout) findViewById(R.id.register_ef_actionbar);
-		mEnterNameLayout = (LinearLayout) findViewById(R.id.register_ef_name_layout);
-		mEnterPhoneLayout = (LinearLayout) findViewById(R.id.register_ef_phone_layout);
-		mFirstNameInput = (LoginInputLayout) findViewById(R.id.register_ef_firstname);
-		mLastNameInput = (LoginInputLayout) findViewById(R.id.register_ef_lastname);
-		mPhoneInput = (LoginInputLayout) findViewById(R.id.register_ef_phone);
-		mPWDInput = (LoginInputLayout) findViewById(R.id.register_ef_password);
-		mConfirmPWDInput = (LoginInputLayout) findViewById(R.id.register_ef_password_confirm);
-		mPhoneInput.initialize(JsonSerializeHelper.JsonLanguageDeserialize(
-				mContext, "register_ef_phone"), InputType.TYPE_CLASS_TEXT
-				| InputType.TYPE_CLASS_NUMBER, true);
-		mPWDInput.initialize(JsonSerializeHelper.JsonLanguageDeserialize(
-				mContext, "login_ef_password_hint"), InputType.TYPE_CLASS_TEXT
-				| InputType.TYPE_TEXT_VARIATION_PASSWORD, false);
-		mConfirmPWDInput.initialize(JsonSerializeHelper
-				.JsonLanguageDeserialize(mContext,
-						"register_ef_confirm_password_hint"),
-				InputType.TYPE_CLASS_TEXT
-						| InputType.TYPE_TEXT_VARIATION_PASSWORD, false);
-		mFirstNameInput.initialize(JsonSerializeHelper.JsonLanguageDeserialize(
-				mContext, "register_ef_first_name"), InputType.TYPE_CLASS_TEXT,
-				true);
-		mLastNameInput.initialize(JsonSerializeHelper.JsonLanguageDeserialize(
-				mContext, "register_ef_last_name"), InputType.TYPE_CLASS_TEXT,
-				false);
-		mTermsLayout = (LinearLayout) findViewById(R.id.register_terms_service_layout);
-		mTermsCheckbox = (CheckBox) findViewById(R.id.register_terms_service_checkbox);
-		mIsCallLayout = (LinearLayout) findViewById(R.id.register_is_call_allowed_layout);
-		mIsCallCheckbox = (CheckBox) findViewById(R.id.register_is_call_allowed_checkbox);
-		mTermsText = (TextView) findViewById(R.id.register_terms_service_text);
-		register_is_call_allowed_text = (TextView) findViewById(R.id.register_is_call_allowed_text);
-		register_is_call_allowed_text.setText(JsonSerializeHelper
-				.JsonLanguageDeserialize(mContext, "register_ef_accept_call"));
-		mNextBtn = (Button) findViewById(R.id.register_ef_btn_next);
-		mNextBtn.setText(JsonSerializeHelper.JsonLanguageDeserialize(mContext,
-				"register_ef_next"));
-		mBackBtn = (Button) findViewById(R.id.register_ef_btn_back);
-		mBackBtn.setText(JsonSerializeHelper.JsonLanguageDeserialize(mContext,
-				"register_ef_back"));
-		mRegisterBtn = (Button) findViewById(R.id.register_ef_btn_register);
-		mRegisterBtn.setText(JsonSerializeHelper.JsonLanguageDeserialize(
-				mContext, "register_ef_sign_up_button"));
-		mNameInfo = (TextView) findViewById(R.id.register_ef_name_text_info);
-		mNameInfo.setText(JsonSerializeHelper.JsonLanguageDeserialize(mContext,
-				"register_ef_enter_your_name"));
-		mPhoneInfo = (TextView) findViewById(R.id.register_ef_phone_text_info);
-		mPhoneInfo.setText(JsonSerializeHelper.JsonLanguageDeserialize(
-				mContext, "register_ef_use_phone"));
-		// Font setting
-		FontHelper.applyFont(mContext, mNameInfo, FontHelper.FONT_OpenSans);
-		FontHelper.applyFont(mContext, mPhoneInfo, FontHelper.FONT_OpenSans);
-		// 初始化Actionbar
-		mActionbar.initiWithTitle(JsonSerializeHelper.JsonLanguageDeserialize(
-				mContext, "register_ef_register_title"),
-				R.drawable.arrow_goback_black, -1, new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						if (step == 2) {
-							attempBack();
-						} else {
-							finish();
-							overridePendingTransition(R.anim.activity_in_from_left,
-									R.anim.activity_out_to_right);
-						}
-					}
-				}, null);
-		// 下一步设置手机号和密码
-		mNextBtn.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				clearAllErrors();
-				String firstname = mFirstNameInput.getInputString();
-				String lastname = mLastNameInput.getInputString();
-				if (mPositionAge != 0) {
-					attempNext(firstname, lastname);
-				} else {
-					ToastUtils.show(mContext, JsonSerializeHelper
-							.JsonLanguageDeserialize(mContext,
-									"register_ef_empty_field"));
-				}
+        BI_Tracking(Enrollment_Name);
+        spinner = (Spinner) findViewById(R.id.register_age_spinner);
+        mActionbar = (ActionbarLayout) findViewById(R.id.register_ef_actionbar);
+        mEnterNameLayout = (LinearLayout) findViewById(R.id.register_ef_name_layout);
+        mEnterPhoneLayout = (LinearLayout) findViewById(R.id.register_ef_phone_layout);
+        mFirstNameInput = (LoginInputLayout) findViewById(R.id.register_ef_firstname);
+        mLastNameInput = (LoginInputLayout) findViewById(R.id.register_ef_lastname);
+        mPhoneInput = (LoginInputLayout) findViewById(R.id.register_ef_phone);
+        mPWDInput = (LoginInputLayout) findViewById(R.id.register_ef_password);
+        mConfirmPWDInput = (LoginInputLayout) findViewById(R.id.register_ef_password_confirm);
+        mPhoneInput.initialize(JsonSerializeHelper.JsonLanguageDeserialize(
+                mContext, "register_ef_phone"), InputType.TYPE_CLASS_TEXT
+                | InputType.TYPE_CLASS_NUMBER, true);
+        mPWDInput.initialize(JsonSerializeHelper.JsonLanguageDeserialize(
+                mContext, "login_ef_password_hint"), InputType.TYPE_CLASS_TEXT
+                | InputType.TYPE_TEXT_VARIATION_PASSWORD, false);
+        mConfirmPWDInput.initialize(JsonSerializeHelper
+                        .JsonLanguageDeserialize(mContext,
+                                "register_ef_confirm_password_hint"),
+                InputType.TYPE_CLASS_TEXT
+                        | InputType.TYPE_TEXT_VARIATION_PASSWORD, false);
+        mFirstNameInput.initialize(JsonSerializeHelper.JsonLanguageDeserialize(
+                        mContext, "register_ef_first_name"), InputType.TYPE_CLASS_TEXT,
+                true);
+        mLastNameInput.initialize(JsonSerializeHelper.JsonLanguageDeserialize(
+                        mContext, "register_ef_last_name"), InputType.TYPE_CLASS_TEXT,
+                false);
+        mTermsLayout = (LinearLayout) findViewById(R.id.register_terms_service_layout);
+        mTermsCheckbox = (CheckBox) findViewById(R.id.register_terms_service_checkbox);
+        mIsCallLayout = (LinearLayout) findViewById(R.id.register_is_call_allowed_layout);
+        mIsCallCheckbox = (CheckBox) findViewById(R.id.register_is_call_allowed_checkbox);
+        mTermsText = (TextView) findViewById(R.id.register_terms_service_text);
+        register_is_call_allowed_text = (TextView) findViewById(R.id.register_is_call_allowed_text);
+        register_is_call_allowed_text.setText(JsonSerializeHelper
+                .JsonLanguageDeserialize(mContext, "register_ef_accept_call"));
+        mNextBtn = (Button) findViewById(R.id.register_ef_btn_next);
+        mNextBtn.setText(JsonSerializeHelper.JsonLanguageDeserialize(mContext,
+                "register_ef_next"));
+        mBackBtn = (Button) findViewById(R.id.register_ef_btn_back);
+        mBackBtn.setText(JsonSerializeHelper.JsonLanguageDeserialize(mContext,
+                "register_ef_back"));
+        mRegisterBtn = (Button) findViewById(R.id.register_ef_btn_register);
+        mRegisterBtn.setText(JsonSerializeHelper.JsonLanguageDeserialize(
+                mContext, "register_ef_sign_up_button"));
+        mNameInfo = (TextView) findViewById(R.id.register_ef_name_text_info);
+        mNameInfo.setText(JsonSerializeHelper.JsonLanguageDeserialize(mContext,
+                "register_ef_enter_your_name"));
+        mPhoneInfo = (TextView) findViewById(R.id.register_ef_phone_text_info);
+        mPhoneInfo.setText(JsonSerializeHelper.JsonLanguageDeserialize(
+                mContext, "register_ef_use_phone"));
 
-				BI_Tracking(Enrollment_AccountPhone);
-			}
-		});
 
-		mTermsLayout.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				checkTermService();
-			}
-		});
-		// 返回上一步
-		mBackBtn.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				attempBack();
-			}
-		});
-		// 注册
-		mRegisterBtn.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				clearAllErrors();
-				String phone = mPhoneInput.getInputString();
-				String pwd = mPWDInput.getInputString();
-				String confirmPWD = mConfirmPWDInput.getInputString();
-				String firstname = mFirstNameInput.getInputString();
-				String lastname = mLastNameInput.getInputString();
-				if (!mTermsCheckbox.isChecked()) {
-					Toast.makeText(mContext,
-							getString(R.string.register_ef_not_accept_terms),
-							Toast.LENGTH_LONG).show();
-					return;
-				}
+        level_spinner = (Spinner) findViewById(R.id.register_level_spinner);
+        next2 = (Button) findViewById(R.id.register_ef_btn_next2);
+        mLevelInfo = (TextView) findViewById(R.id.register_ef_level_text_info);
+        mEnterLevelLayout = (LinearLayout)findViewById(R.id.register_ef_level_layout);
 
-				if(!NetworkChecker.isConnected(mContext)){
-					toast(JsonSerializeHelper.JsonLanguageDeserialize(
-							mContext, "error_check_network_available"));
-					return;
-				}
+        // Font setting
+        FontHelper.applyFont(mContext, mNameInfo, FontHelper.FONT_OpenSans);
+        FontHelper.applyFont(mContext, mPhoneInfo, FontHelper.FONT_OpenSans);
+        // 初始化Actionbar
+        mActionbar.initiWithTitle(JsonSerializeHelper.JsonLanguageDeserialize(
+                        mContext, "register_ef_register_title"),
+                R.drawable.arrow_goback_black, -1, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (step == 3) {
+                            attempBack2();
+                        } else if (step == 2) {
+                            attempBack();
+                        } else {
+                            finish();
+                            overridePendingTransition(R.anim.activity_in_from_left,
+                                    R.anim.activity_out_to_right);
+                        }
+                    }
+                }, null);
+        // 下一步设置手机号和密码
+        mNextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearAllErrors();
+                String firstname = mFirstNameInput.getInputString();
+                String lastname = mLastNameInput.getInputString();
+                if (mPositionAge != 0) {
+                    attempNext(firstname, lastname);
+                } else {
+                    ToastUtils.show(mContext, JsonSerializeHelper
+                            .JsonLanguageDeserialize(mContext,
+                                    "register_ef_empty_field"));
+                }
 
-				attempRegister(phone, pwd, confirmPWD, firstname, lastname,
-						mIsCallCheckbox.isChecked(),
-						AppUtils.getRealPhone(mContext), mindexAge);
-				// Tracking event
-				// TraceHelper.tracingAction(mContext,
-				// TraceHelper.PAGE_REGISTER,
-				// TraceHelper.ACTION_CLICK, null,
-				// TraceHelper.TARGET_REGISTER);
-			}
-		});
-		mTermsText.setText(HighLightStringHelper.getBoldString(mContext,
-				JsonSerializeHelper.JsonLanguageDeserialize(mContext,
-						"register_ef_accept_terms")));
+                BI_Tracking(Enrollment_AccountPhone);
+            }
+        });
 
-		List<String> spinnerList = new ArrayList<String>();
-		spinnerList.add(JsonSerializeHelper.JsonLanguageDeserialize(mContext,
-				"register_ef_age_group"));
-		spinnerList.add("1-10");
-		spinnerList.add("10-13");
-		spinnerList.add("14-18");
-		spinnerList.add("19-22");
-		spinnerList.add("23-26");
-		spinnerList.add("27-35");
-		spinnerList.add("36-40");
-		spinnerList.add("41-50");
-		spinnerList.add("50+");
+        mTermsLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkTermService();
+            }
+        });
+        // 返回上一步
+        mBackBtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+            public void onClick(View v) {
+                attempBack2();
+            }
+        });
+        // 注册
+        mRegisterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearAllErrors();
+                String phone = mPhoneInput.getInputString();
+                String pwd = mPWDInput.getInputString();
+                String confirmPWD = mConfirmPWDInput.getInputString();
+                String firstname = mFirstNameInput.getInputString();
+                String lastname = mLastNameInput.getInputString();
+                if (!mTermsCheckbox.isChecked()) {
+                    Toast.makeText(mContext,
+                            getString(R.string.register_ef_not_accept_terms),
+                            Toast.LENGTH_LONG).show();
+                    return;
+                }
 
-		// final ArrayAdapter<CharSequence> adapter = ArrayAdapter
-		// .createFromResource(this, R.array.array_spinner_registerage,
-		// android.R.layout.simple_spinner_item);
+                if (!NetworkChecker.isConnected(mContext)) {
+                    toast(JsonSerializeHelper.JsonLanguageDeserialize(
+                            mContext, "error_check_network_available"));
+                    return;
+                }
 
-		final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, spinnerList);
+                attempRegister(phone, pwd, confirmPWD, firstname, lastname,
+                        mIsCallCheckbox.isChecked(),
+                        AppUtils.getRealPhone(mContext), mindexAge);
+                // Tracking event
+                // TraceHelper.tracingAction(mContext,
+                // TraceHelper.PAGE_REGISTER,
+                // TraceHelper.ACTION_CLICK, null,
+                // TraceHelper.TARGET_REGISTER);
+            }
+        });
+        mTermsText.setText(HighLightStringHelper.getBoldString(mContext,
+                JsonSerializeHelper.JsonLanguageDeserialize(mContext,
+                        "register_ef_accept_terms")));
+
+        List<String> spinnerList = new ArrayList<String>();
+        spinnerList.add(JsonSerializeHelper.JsonLanguageDeserialize(mContext,
+                "register_ef_age_group"));
+        spinnerList.add("1-10");
+        spinnerList.add("10-13");
+        spinnerList.add("14-18");
+        spinnerList.add("19-22");
+        spinnerList.add("23-26");
+        spinnerList.add("27-35");
+        spinnerList.add("36-40");
+        spinnerList.add("41-50");
+        spinnerList.add("50+");
+
+        // final ArrayAdapter<CharSequence> adapter = ArrayAdapter
+        // .createFromResource(this, R.array.array_spinner_registerage,
+        // android.R.layout.simple_spinner_item);
+
+        final ArrayAdapter<String> adapter_age = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, spinnerList);
 		/* set方法是来设置spinner中每个条目的样式 */
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spinner.setAdapter(adapter);
-		spinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {
-				// TODO Auto-generated method stub
-				mindexAge = adapter.getItem(position).toString();
-				mPositionAge = position;
-			}
+        adapter_age.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter_age);
+        spinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                // TODO Auto-generated method stub
+                mindexAge = adapter_age.getItem(position).toString();
+                mPositionAge = position;
+            }
 
-			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
-				// TODO Auto-generated method stub
-			}
-		});
-	}
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+        List<String> spinnerList2 = new ArrayList<String>();
+//        spinnerList2.add(JsonSerializeHelper.JsonLanguageDeserialize(mContext, "register_ef_level_group"));
+        spinnerList2.add("Your Choice");
+        spinnerList2.add("Beginner - Elementary");
+        spinnerList2.add("Intermediate - Advance");
+
+        final ArrayAdapter<String> adapter_level = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, spinnerList2);
+		/* set方法是来设置spinner中每个条目的样式 */
+        adapter_level.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        level_spinner.setAdapter(adapter_level);
+        level_spinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                // TODO Auto-generated method stub
+                mLevelChoice = adapter_level.getItem(position).toString();
+                mPositionLevel = position - 1;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+
+        next2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearAllErrors();
+
+                if (mPositionLevel != 0) {
+                    attempNext2();
+                } else {
+                    ToastUtils.show(mContext, JsonSerializeHelper
+                            .JsonLanguageDeserialize(mContext,
+                                    "register_ef_empty_field"));
+                }
+
+                BI_Tracking(Enrollment_AccountPhone);
+            }
+
+        });
+    }
 
 	@Override
 	protected void onResume() {
@@ -297,28 +364,60 @@ public class EFRegisterActivity extends BaseActivity {
 		BI_Tracking(Enrollment_TermsAndConditions);
 	}
 
-	/** 下一步 **/
-	private void attempNext(String firstname, String lastname) {
-		if (firstname == null || firstname.isEmpty()) {
-			mFirstNameInput.setError(JsonSerializeHelper
-					.JsonLanguageDeserialize(mContext,
-							"regisetr_ef_error_firstname_null"));
-			MobclickTracking.OmnitureTrack
-					.actionFormErrorType(JsonSerializeHelper
-							.JsonLanguageDeserialize(mContext,
-									"regisetr_ef_error_firstname_null"));
-			return;
-		}
-		if (lastname == null || lastname.isEmpty()) {
-			mLastNameInput.setError(JsonSerializeHelper
-					.JsonLanguageDeserialize(mContext,
-							"register_ef_error_lastname_null"));
-			MobclickTracking.OmnitureTrack
-					.actionFormErrorType(JsonSerializeHelper
-							.JsonLanguageDeserialize(mContext,
-									"register_ef_error_lastname_null"));
-			return;
-		}
+    /** 下一步 - 1 **/
+    private void attempNext(String firstname, String lastname) {
+        if (firstname == null || firstname.isEmpty()) {
+            mFirstNameInput.setError(JsonSerializeHelper
+                    .JsonLanguageDeserialize(mContext,
+                            "regisetr_ef_error_firstname_null"));
+            MobclickTracking.OmnitureTrack
+                    .actionFormErrorType(JsonSerializeHelper
+                            .JsonLanguageDeserialize(mContext,
+                                    "regisetr_ef_error_firstname_null"));
+            return;
+        }
+        if (lastname == null || lastname.isEmpty()) {
+            mLastNameInput.setError(JsonSerializeHelper
+                    .JsonLanguageDeserialize(mContext,
+                            "register_ef_error_lastname_null"));
+            MobclickTracking.OmnitureTrack
+                    .actionFormErrorType(JsonSerializeHelper
+                            .JsonLanguageDeserialize(mContext,
+                                    "register_ef_error_lastname_null"));
+            return;
+        }
+        Animation fadeout = AnimationUtils.loadAnimation(mContext,
+                R.anim.activity_out_to_left);
+        fadeout.setDuration(200);
+        fadeout.setFillAfter(true);
+        Animation fadein = AnimationUtils.loadAnimation(mContext,
+                R.anim.activity_in_from_right);
+        fadein.setDuration(200);
+        fadein.setFillAfter(true);
+        fadein.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                mEnterLevelLayout.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                mEnterNameLayout.setVisibility(View.GONE);
+            }
+        });
+        mEnterNameLayout.startAnimation(fadeout);
+        mEnterLevelLayout.startAnimation(fadein);
+        step++;
+
+    }
+
+
+	/** 下一步 - 2 **/
+	private void attempNext2() {
 		Animation fadeout = AnimationUtils.loadAnimation(mContext,
 				R.anim.activity_out_to_left);
 		fadeout.setDuration(200);
@@ -339,17 +438,48 @@ public class EFRegisterActivity extends BaseActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                mEnterNameLayout.setVisibility(View.GONE);
+                mEnterLevelLayout.setVisibility(View.GONE);
             }
         });
-		mEnterNameLayout.startAnimation(fadeout);
+        mEnterLevelLayout.startAnimation(fadeout);
 		mEnterPhoneLayout.startAnimation(fadein);
         step++;
 
 	}
 
-	/** 上一步 **/
-	private void attempBack() {
+    /** 上一步 - 1 **/
+    private void attempBack() {
+        BI_Tracking(Enrollment_Name);
+        Animation fadeout = AnimationUtils.loadAnimation(mContext,
+                R.anim.activity_out_to_right);
+        fadeout.setDuration(200);
+        fadeout.setFillAfter(true);
+        Animation fadein = AnimationUtils.loadAnimation(mContext,
+                R.anim.activity_in_from_left);
+        fadein.setDuration(200);
+        fadein.setFillAfter(true);
+        fadein.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                mEnterLevelLayout.setVisibility(View.GONE);
+                mEnterNameLayout.setVisibility(View.VISIBLE);
+            }
+        });
+        mEnterLevelLayout.startAnimation(fadeout);
+        mEnterNameLayout.startAnimation(fadein);
+        step--;
+    }
+
+	/** 上一步 - 2 **/
+	private void attempBack2() {
 		BI_Tracking(Enrollment_Name);
 		Animation fadeout = AnimationUtils.loadAnimation(mContext,
 				R.anim.activity_out_to_right);
@@ -371,17 +501,19 @@ public class EFRegisterActivity extends BaseActivity {
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				mEnterPhoneLayout.setVisibility(View.GONE);
-				mEnterNameLayout.setVisibility(View.VISIBLE);
+				mEnterLevelLayout.setVisibility(View.VISIBLE);
 			}
 		});
 		mEnterPhoneLayout.startAnimation(fadeout);
-		mEnterNameLayout.startAnimation(fadein);
+        mEnterLevelLayout.startAnimation(fadein);
         step--;
 	}
 
 	@Override
 	public void onBackPressed() {
-        if (step == 2) {
+        if (step == 3) {
+            attempBack2();
+        } else if (step == 2) {
             attempBack();
         } else {
             super.onBackPressed();
@@ -455,6 +587,9 @@ public class EFRegisterActivity extends BaseActivity {
 										+ JsonSerializeHelper
 												.JsonLanguageDeserialize(
 														mContext, "loging"));
+
+                                setGlobleConfig();
+
 								login(phone, password);
 								MobclickTracking.OmnitureTrack
 										.ActionRegisterSuccessful(ContextDataMode.ActionRegisterTypeValues.PHONE);
@@ -469,14 +604,26 @@ public class EFRegisterActivity extends BaseActivity {
 							Toast.makeText(mContext,
 									getString(R.string.fail_to_get_result),
 									Toast.LENGTH_SHORT).show();
-						}
-					}
-				});
-		registerTask.execute(new Object[]{phone, password, firstname,
+                        }
+                    }
+                });
+        registerTask.execute(new Object[]{phone, password, firstname,
 				lastname, iscall, real_phone, indexage});
 	}
 
-	/**
+    private void setGlobleConfig() {
+        AppConst.GlobalConfig.CourseLevel = mPositionLevel;
+
+        GlobalConfigBLL configbll = new GlobalConfigBLL(mContext);
+        ConfigModel appConfig = configbll.getConfigModel();
+        if (appConfig == null) {
+            appConfig = new ConfigModel();
+        }
+        appConfig.CourseLevel = mPositionLevel;
+        configbll.setConfigModel(appConfig);
+    }
+
+    /**
 	 * 直接登陆
 	 * 
 	 * @param phone

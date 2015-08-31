@@ -162,17 +162,7 @@ public class ChunkLearnActivity extends BaseChunkActivity {
 				Integer endTime = conversation.getEndTime();
 				mDialogueAdapter.StopGif(position, true);
 
-                // is first time or not
-                int time = mDialogueAdapter.findRecord(position);
-                if (time == 1) {
-                    mDialogueAdapter.doubleClick();
-                    mWeChatPlayer.pause();
-                    return;
-                }
-
 				if (startTime != null && endTime != null) {
-					// mBottomPlayer.start(startTime);
-					// mBottomPlayer.stop(endTime);
 					mWeChatPlayer.start(startTime);
 					mWeChatPlayer.stop(endTime, new OnStopClickListener() {
 
@@ -189,7 +179,6 @@ public class ChunkLearnActivity extends BaseChunkActivity {
 				}
 
 				mDialogueAdapter.setTranslationMorn(false, position);
-//				 mDialogueAdapter.setTranslationMorn(true, position);
 			}
 		});
 

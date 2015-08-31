@@ -38,7 +38,6 @@ public class ChunkLearnListAdapter extends
 	private int mPosition;
 
     private HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-    private boolean isFirstTime = true;
 
 
     public ChunkLearnListAdapter(Context context,
@@ -61,34 +60,10 @@ public class ChunkLearnListAdapter extends
 		this.notifyDataSetChanged();
 	}
 
-    //new added
-    public int findRecord(int position) {
-        if(map.containsKey(position)) {
-            int value = map.get(position) == 0 ? 0: 1;
-            map.put(position, 1 - value);
-
-        } else {
-            map.put(position, 0);
-        }
-
-        return map.get(position);
-    }
-
-    public void doubleClick() {
-        isFirstTime = false;
-        this.notifyDataSetChanged();
-    }
-
-
-	public void setSwipSupported(boolean support) {
-		isSwipSuppported = support;
-	}
-
 	public void StopGif(int position, boolean status) {
 		this.isGifStatus = status;
 		this.mPosition = position;
-        this.closeAllGif = true;
-        this.isFirstTime = true;
+        this.closeAllGif = false;
 
         this.notifyDataSetChanged();
 	}
@@ -105,7 +80,7 @@ public class ChunkLearnListAdapter extends
 	 * true:隐藏 false:显示
 	 */
 	public void setTranslationMorn(boolean isShow, int position) {
-		this.textview_source_status = isShow;
+//		this.textview_source_status = isShow;
 		this.mPosition = position;
         this.closeAllGif = true;
 		this.notifyDataSetChanged();
@@ -127,13 +102,11 @@ public class ChunkLearnListAdapter extends
 		ImageView speakerB;
 		ImageView left_talk;
 		ImageView right_talk;
-		ImageView moreView;
 		GifMovieView voicegifplay;
 	}
 
 	@Override
-	public void getView(View layout, final int position,
-			final PresentationConversation data) {
+	public void getView(View layout, final int position,final PresentationConversation data) {
 		final ViewHolder holder;
 		if (layout.getTag() == null) {
 			holder = new ViewHolder();
@@ -148,72 +121,25 @@ public class ChunkLearnListAdapter extends
 			holder.left_talk = (ImageView) layout.findViewById(R.id.left_talk);
 			holder.right_talk = (ImageView) layout
 					.findViewById(R.id.right_talk);
-			holder.moreView = (ImageView) layout
-					.findViewById(R.id.imageview_more);
-			holder.voicegifplay = (GifMovieView) layout
-					.findViewById(R.id.voicegifplay);
+
+			holder.voicegifplay = (GifMovieView) layout.findViewById(R.id.voicegifplay);
 			layout.setTag(holder);
 		} else {
 			holder = (ViewHolder) layout.getTag();
 		}
-		//
-		// if (mPosition == position && isGifStatus) {
-		// // holder.voicegifplay.startGifFromAsset("gif/wechat_audio.gif",
-		// // true);
-		// holder.voicegifplay.setMovieResource(R.drawable.wechat_audio);
-		// }
-		//
-		// if (mPosition == position && !isGifStatus) {
-		//
-		// holder.voicegifplay = null;
-		// }
+
 		FontHelper.applyFont(mContext, holder.textview, FontHelper.FONT_OpenSans);
 
-        if (!isFirstTime) {
-            if (mPosition == position) {
-                holder.textview_source.setVisibility(View.GONE);
-                holder.moreView.setVisibility(View.VISIBLE);
-                holder.voicegifplay.setVisibility(View.INVISIBLE);
-            }
+		if (mPosition == position) {
+            holder.voicegifplay.setVisibility(View.VISIBLE);
 
-            return;
-        }
-
-
-		if (!textview_source_status && mPosition == position) {
-			holder.textview_source.setVisibility(View.VISIBLE);
-			holder.moreView.setVisibility(View.GONE);
-			holder.voicegifplay.setMovieResource(R.drawable.wechat_audio);
-//			if (mPosition != position) {
-//				holder.textview_source.setVisibility(View.GONE);
-//				holder.voicegifplay
-//						.setMovieResource(R.drawable.wechat_audio_off);
-//			}
 		} else {
-//			holder.textview_source.setVisibility(View.GONE);
-//			holder.moreView.setVisibility(View.VISIBLE);
-			holder.voicegifplay.setMovieResource(R.drawable.wechat_audio_off);
-
-
+            holder.voicegifplay.setVisibility(View.GONE);
 		}
 
-		if (!closeAllGif) {
-			holder.voicegifplay.setVisibility(View.INVISIBLE);
+		if (closeAllGif) {
+			holder.voicegifplay.setVisibility(View.GONE);
 		}
-
-		// if (position % 2 == 0) {
-		// speakerB.setVisibility(View.GONE);
-		// if (data.getCharacterAvater().equals("male.png"))
-		// speakerA.setImageResource(R.drawable.dialogue_speaker_a);
-		// else if (data.getCharacterAvater().equals("female.png"))
-		// speakerA.setImageResource(R.drawable.dialogue_speaker_b);
-		// } else {
-		// speakerA.setVisibility(View.GONE);
-		// if (data.getCharacterAvater().equals("male.png"))
-		// speakerB.setImageResource(R.drawable.dialogue_speaker_a);
-		// else if (data.getCharacterAvater().equals("female.png"))
-		// speakerB.setImageResource(R.drawable.dialogue_speaker_b);
-		// }
 
 		if (position % 2 == 0) {
 			holder.speakerA.setVisibility(View.VISIBLE);

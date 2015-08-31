@@ -97,7 +97,7 @@ public class SyncBiz {
 					traceModeDao.setSync(uid, new Date().getTime());
 				}
 			}
-			// 清理七天之前同步过的记录
+			// 清理1天之前同步过的记录
 			long sevendaysAgo = System.currentTimeMillis() - TRACE_CACHE_TIME;
 			traceModeDao.clearTrace(uid, sevendaysAgo);
 			return httpBaseMessage;

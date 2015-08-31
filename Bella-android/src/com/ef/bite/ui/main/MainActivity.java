@@ -79,9 +79,9 @@ public class MainActivity extends BaseActivity {
 		setupViews();
 		saveUserProfileForPush();
 
-        if (FileUtils.ExistSDCard() && (FileUtils.getSDFreeSize() >= 10)) {
-            showUpdateDialog();
-        }
+//        if (FileUtils.ExistSDCard() && (FileUtils.getSDFreeSize() >= 10)) {
+//            showUpdateDialog();
+//        }
 	}
 
 	private void init(){

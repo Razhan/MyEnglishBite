@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bella_chunk_background" >
+
+    <com.ef.bite.widget.ActionbarLayout
+        android:id="@+id/ThirdParty_login_ef_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ThirdParty_login_ef_actionbar"
+        >
+
+        <LinearLayout
+            android:id="@+id/ThirdParty_login_ef_level_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <Spinner
+                android:id="@+id/ThirdParty_login_level_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.ef.bite.widget.LoginInputLayout
+                android:id="@+id/ThirdParty_login_ef_phone"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/ThirdParty_login_ef_btn_next"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_message_windows_background"
+                android:text="@string/login_main_sign_up"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/ThirdParty_login_ef_level_text_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/register_ef_choose_level"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

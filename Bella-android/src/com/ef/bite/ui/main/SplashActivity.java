@@ -141,6 +141,8 @@ public class SplashActivity extends BaseActivity {
                 AppConst.GlobalConfig.Notification_Enable = appConfig.IsNotificationOn;
                 AppConst.GlobalConfig.SoundEffect_Enable = appConfig.IsSoundEffectOn;
                 AppConst.GlobalConfig.LanguageType = appConfig.MultiLanguageType;
+                AppConst.GlobalConfig.CourseLevel = appConfig.CourseLevel;
+
 
                 if (appConfig.MultiLanguageType != AppConst.MultiLanguageType.Default)
                     AppLanguageHelper.loadLanguageFirstTime(mContext,

@@ -23,7 +23,7 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
     <!-- Optional - GET_ACCOUNTS is used to pre-populate customer's email in forms. -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -60,16 +60,16 @@
             android:name="UMENG_APPKEY"
             android:value="548a9baafd98c5c91000104b" >
         </meta-data>
-        <meta-data android:name="UMENG_CHANNEL" android:value="${UMENG_CHANNEL_VALUE}"/>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
 
         <uses-library android:name="android.test.runner" />
 
-        <service
-            android:name=".business.VersionUpdateBLL" >
+        <service android:name=".business.VersionUpdateBLL" >
         </service>
 
-        <receiver
-            android:name="com.ef.bite.receiver.DownLoadBroadcastReceiver">
+        <receiver android:name=".receiver.DownLoadBroadcastReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
             </intent-filter>
@@ -86,11 +86,10 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".ui.main.MainActivity"
-                android:screenOrientation="portrait"
-                android:configChanges="orientation|keyboardHidden">
+            android:name=".ui.main.MainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" >
         </activity>
-
         <activity
             android:name=".ui.user.EFLoginActivity"
             android:screenOrientation="portrait" >
@@ -152,7 +151,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.ef.bite.ui.guide.WalkthroughActivity"
+            android:name=".ui.guide.WalkthroughActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
@@ -186,10 +185,12 @@
             android:screenOrientation="portrait" >
         </activity>
 
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-                   android:value="@string/fb_app_id" />
-        <meta-data android:name="com.facebook.sdk.ApplicationName"
-                   android:value="@string/fb_app_name" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/fb_app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationName"
+            android:value="@string/fb_app_name" />
 
         <activity
             android:name=".ui.user.VersionAboutActivity"
@@ -257,7 +258,7 @@
         <receiver android:name=".receiver.NotificationPublisher" />
 
         <activity
-            android:name="com.ef.bite.ui.user.TermConditionActivity"
+            android:name=".ui.user.TermConditionActivity"
             android:label="@string/title_activity_term_condition" >
         </activity>
 
@@ -276,7 +277,7 @@
         <activity
             android:name="com.apptentive.android.sdk.ViewActivity"
             android:theme="@style/Apptentive.Theme.Transparent" />
-        <activity android:name="com.ef.bite.apptentive.SurveyActivity" />
+        <activity android:name=".apptentive.SurveyActivity" />
         <activity
             android:name=".ui.record.RecordingActivity"
             android:screenOrientation="portrait" >
@@ -289,30 +290,28 @@
             android:name=".ui.guide.GuideReviewRecordingActivity"
             android:screenOrientation="portrait" >
         </activity>
-
         <activity
-                android:name=".ui.main.SecondSplashActivity"
-                android:screenOrientation="portrait" >
+            android:name=".ui.main.SecondSplashActivity"
+            android:screenOrientation="portrait" >
         </activity>
-
-        <activity android:name="com.facebook.FacebookActivity"
-                  android:configChanges= "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-                  android:theme="@android:style/Theme.Translucent.NoTitleBar"
-                  android:label="@string/app_name" />
-
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="7095000" />
 
-        <!--<receiver-->
-            <!--android:name="com.apsalar.sdk.ApsalarReceiver"-->
-            <!--android:exported="true" >-->
-            <!--<intent-filter>-->
-                <!--<action android:name="com.android.vending.INSTALL_REFERRER" >-->
-                <!--</action>-->
-            <!--</intent-filter>-->
-        <!--</receiver>-->
+        <!-- <receiver -->
+        <!-- android:name="com.apsalar.sdk.ApsalarReceiver" -->
+        <!-- android:exported="true" > -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.android.vending.INSTALL_REFERRER" > -->
+        <!-- </action> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
 
         <service android:name="com.parse.PushService" />
 
@@ -342,6 +341,10 @@
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name=".ui.user.ThirdPartyLogInActivity"
+            android:label="@string/title_activity_third_party_log_in" >
+        </activity>
     </application>
 
 </manifest>

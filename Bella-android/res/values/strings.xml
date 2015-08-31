@@ -61,6 +61,7 @@
     <string name="register_ef_last_name">Last Name</string>
     <string name="register_ef_phone">Mobile Number</string>
     <string name="register_ef_enter_your_name">Enter your first name \n and last name so people can find you.</string>
+    <string name="register_ef_choose_level">What level would you like to start?</string>
     <string name="register_ef_use_phone">To create an account or sign in, \n use your mobile number.</string>
     <string name="register_ef_next">Next</string>
     <string name="register_ef_back">Back</string>
@@ -341,5 +342,7 @@
         <item>41&#8211;50</item>
         <item>50&#8211;</item>
     </string-array>
+    <string name="title_activity_third_party_log_in">ThirdPartyLogInActivity</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

@@ -74,6 +74,8 @@ public class AppConst {
 		public static boolean TutorialConfig = false;
 		/**是否显示忘记密码**/
 		public static boolean ForgetPassWord = false;
+        /**课程难度 0 - beginner 1 - advanced**/
+		public static int CourseLevel = 0;
 
 	}
 

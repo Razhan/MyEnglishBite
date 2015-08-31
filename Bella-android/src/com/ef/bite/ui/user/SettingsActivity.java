@@ -1,6 +1,8 @@
 package com.ef.bite.ui.user;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -59,6 +61,7 @@ public class SettingsActivity extends BaseActivity {
 	SettingItemLayout mLocationItem;
 	// App设置
 	SettingItemLayout mLanugageItem;
+	SettingItemLayout mCourseLevel;
 	SettingItemLayout mNotificationItem;
 	SettingItemLayout mSoundItem;
 	SettingItemLayout mResetItem;
@@ -97,6 +100,7 @@ public class SettingsActivity extends BaseActivity {
 		this.mLocationItem = (SettingItemLayout) findViewById(R.id.settings_person_location);
 		// App信息
 		this.mLanugageItem = (SettingItemLayout) findViewById(R.id.settings_app_language);
+		this.mCourseLevel = (SettingItemLayout) findViewById(R.id.settings_app_courselevel);
 		this.mNotificationItem = (SettingItemLayout) findViewById(R.id.settings_app_notification);
 		this.mSoundItem = (SettingItemLayout) findViewById(R.id.settings_app_sound_effect);
 		this.mResetItem = (SettingItemLayout) findViewById(R.id.settings_app_reset);
@@ -203,11 +207,11 @@ public class SettingsActivity extends BaseActivity {
 			mItemClick = new ItemClickListener();
 		mLogout.setOnClickListener(mItemClick);
 		mAvatarItem.initiWithAvatar(JsonSerializeHelper
-				.JsonLanguageDeserialize(mContext, "settings_picture"),
+						.JsonLanguageDeserialize(mContext, "settings_picture"),
 				AppConst.CurrUserInfo.UserId, AppConst.CurrUserInfo.Avatar,
 				true, mItemClick);
 		mUseridItem.initiWithText(JsonSerializeHelper.JsonLanguageDeserialize(
-				mContext, "settings_user_id"), AppConst.CurrUserInfo.Alias,
+						mContext, "settings_user_id"), AppConst.CurrUserInfo.Alias,
 				false, null);
 		mNicknameItem.initiWithText(JsonSerializeHelper
 				.JsonLanguageDeserialize(mContext, "settings_nickname"),
@@ -219,14 +223,14 @@ public class SettingsActivity extends BaseActivity {
 				.JsonLanguageDeserialize(mContext, "settings_lastname"),
 				AppConst.CurrUserInfo.LastName, true, mItemClick);
 		mPhoneItem.initiWithText(JsonSerializeHelper.JsonLanguageDeserialize(
-				mContext, "settings_phone_number"),
+						mContext, "settings_phone_number"),
 				AppConst.CurrUserInfo.Phone, false, null);
 		mPasswordItem.initiWithText(JsonSerializeHelper
 				.JsonLanguageDeserialize(mContext, "settings_password"),
 				"**********", false, mItemClick);
 		mPasswordItem.showBottomLine(false);
 		mEmailItem.initiWithText(JsonSerializeHelper.JsonLanguageDeserialize(
-				mContext, "settings_email"), AppConst.CurrUserInfo.Email,
+						mContext, "settings_email"), AppConst.CurrUserInfo.Email,
 				false, null);
 		mLocationItem.initiWithText(JsonSerializeHelper
 				.JsonLanguageDeserialize(mContext, "settings_location"),
@@ -236,9 +240,11 @@ public class SettingsActivity extends BaseActivity {
 				mItemClick);
 		mLocationItem.showBottomLine(false);
 		mLanugageItem.initiWithText(JsonSerializeHelper
-				.JsonLanguageDeserialize(mContext, "settings_language"),
+						.JsonLanguageDeserialize(mContext, "settings_language"),
 				AppLanguageHelper.getLanguageDisplayByType(mContext,
 						AppConst.GlobalConfig.LanguageType), true, mItemClick);
+		mCourseLevel.initiWithText("Course", "Easy English",
+				false, mItemClick);
 		mNotificationItem.initWithSwitch(JsonSerializeHelper
 				.JsonLanguageDeserialize(mContext, "settings_notification"),
 				AppConst.GlobalConfig.Notification_Enable,
@@ -310,6 +316,10 @@ public class SettingsActivity extends BaseActivity {
 	 * 设置项点击
 	 **/
 	public class ItemClickListener implements View.OnClickListener {
+        final String[] course = {"Beginner to Elementary", "Intermediate to Advance"};
+        private String selectedcourse = null;
+
+
 		@Override
 		public void onClick(View v) {
 			if (v.getId() == mLogout.getId()) { // 退出
@@ -440,7 +450,38 @@ public class SettingsActivity extends BaseActivity {
 						LanguageSettingActivity.class));
 				overridePendingTransition(R.anim.activity_in_from_right,
 						R.anim.activity_out_to_left);
-			} else if (v.getId() == mResetItem.getId()) { // 教程模式
+			} else if (v.getId() == mCourseLevel.getId()) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
+                builder.setTitle("Change Course");
+
+                builder.setSingleChoiceItems(course, -1, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        selectedcourse = course[which];
+                    }
+                });
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        if (selectedcourse != null) {
+                            mCourseLevel.initiWithText("Course", selectedcourse, false, mItemClick);
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                    }
+                });
+                builder.show();
+
+            } else if (v.getId() == mResetItem.getId()) { // 教程模式
 				Intent intent = new Intent(mContext, WalkthroughActivity.class);
 				intent.putExtra(AppConst.BundleKeys.Reset_Tutorial_Mode, true);
 				startActivity(intent);

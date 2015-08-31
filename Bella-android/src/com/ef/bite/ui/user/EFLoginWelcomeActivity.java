@@ -79,7 +79,8 @@ public class EFLoginWelcomeActivity extends BaseActivity {
             public void onSuccess(LoginResult loginResult) {
                 Log.i("onSuccess", "onSuccess");
                 String token = loginResult.getAccessToken().getToken();
-                attemp2Login(token);
+                startActivity(new Intent(mContext, ThirdPartyLogInActivity.class).putExtra("token", token));
+//                attemp2Login(token);
             }
 
             @Override
