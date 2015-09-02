@@ -22,9 +22,9 @@ import com.ef.bite.AppConst;
 
 /**
  * App当前语言工具类
- * 
+ *
  * @author Allen.Zhu
- * 
+ *
  */
 public class AppLanguageHelper {
 
@@ -37,7 +37,7 @@ public class AppLanguageHelper {
 
 	/**
 	 * 获得App当前的语言
-	 * 
+	 *
 	 * @param context
 	 * @return
 	 */
@@ -53,7 +53,7 @@ public class AppLanguageHelper {
 
 	/**
 	 * 细分获得App系统的语言
-	 * 
+	 *
 	 * @param context
 	 * @return
 	 */
@@ -74,7 +74,7 @@ public class AppLanguageHelper {
 
 	/**
 	 * 第一次打开应用程序从设置中加载App语言
-	 * 
+	 *
 	 * @param context
 	 */
 	public static void loadLanguageFirstTime(Context context, int multiLangType) {
@@ -98,7 +98,7 @@ public class AppLanguageHelper {
 
 	/**
 	 * 更改App当前的语言
-	 * 
+	 *
 	 * @param context
 	 * @param targetLang
 	 */
@@ -130,7 +130,7 @@ public class AppLanguageHelper {
 
 	/**
 	 * 根据多语言类型获得语言文本显示
-	 * 
+	 *
 	 * @param context
 	 * @param multiLangType
 	 * @return
@@ -148,7 +148,7 @@ public class AppLanguageHelper {
 	}
 
 	/**
-	 * 
+	 *
 	 * @return
 	 */
 	public static String getSystemLanguage() {
@@ -163,7 +163,7 @@ public class AppLanguageHelper {
 
 	/**
 	 * 从本地存储加载language
-	 * 
+	 *
 	 * @param context
 	 * @param languagePath
 	 */

@@ -1,7 +1,5 @@
 package com.ef.bite.adapters;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import android.content.Context;
@@ -33,22 +31,18 @@ public class ChunkLearnListAdapter extends
 	private List<PresentationConversation> mdataList;
 	boolean isSwipSuppported = false; // 是否支持来回的分段切换播放音频
 	private boolean textview_source_status = true;
-	private boolean isGifStatus;
 	private boolean closeAllGif = true;
 	private int mPosition;
 
-    private HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-
-
-    public ChunkLearnListAdapter(Context context,
-			List<PresentationConversation> dataList, Chunk chunk) {
+	public ChunkLearnListAdapter(Context context,
+								 List<PresentationConversation> dataList, Chunk chunk) {
 		super(context, R.layout.chunk_learn_dialogue_list_item, dataList);
 		mChunk = chunk;
 		this.mdataList = dataList;
 	}
 
 	public ChunkLearnListAdapter(Context context, AudioPlayerView audioView,
-			List<PresentationConversation> dataList, Chunk chunk) {
+								 List<PresentationConversation> dataList, Chunk chunk) {
 		super(context, R.layout.chunk_learn_dialogue_list_item, dataList);
 		mChunk = chunk;
 		mAudioView = audioView;
@@ -60,12 +54,14 @@ public class ChunkLearnListAdapter extends
 		this.notifyDataSetChanged();
 	}
 
-	public void StopGif(int position, boolean status) {
-		this.isGifStatus = status;
-		this.mPosition = position;
-        this.closeAllGif = false;
+	public void setSwipSupported(boolean support) {
+		isSwipSuppported = support;
+	}
 
-        this.notifyDataSetChanged();
+	public void initGif(int position) {
+        this.closeAllGif = false;
+		this.mPosition = position;
+		this.notifyDataSetChanged();
 	}
 
 	private Bitmap getBitmapAvater(int position) {
@@ -76,23 +72,19 @@ public class ChunkLearnListAdapter extends
 
 	/**
 	 * 更多显示隐藏
-	 * 
+	 *
 	 * true:隐藏 false:显示
 	 */
 	public void setTranslationMorn(boolean isShow, int position) {
-//		this.textview_source_status = isShow;
+		this.textview_source_status = isShow;
 		this.mPosition = position;
-        this.closeAllGif = true;
+		this.closeAllGif = true;
 		this.notifyDataSetChanged();
 	}
 
 	public void closeTranslationGif(boolean isShow) {
 		this.closeAllGif = isShow;
 		this.notifyDataSetChanged();
-	}
-
-	public boolean getTranslationMornStatus() {
-		return this.textview_source_status;
 	}
 
 	private static class ViewHolder {
@@ -106,7 +98,8 @@ public class ChunkLearnListAdapter extends
 	}
 
 	@Override
-	public void getView(View layout, final int position,final PresentationConversation data) {
+	public void getView(View layout, final int position,
+						final PresentationConversation data) {
 		final ViewHolder holder;
 		if (layout.getTag() == null) {
 			holder = new ViewHolder();
@@ -121,8 +114,8 @@ public class ChunkLearnListAdapter extends
 			holder.left_talk = (ImageView) layout.findViewById(R.id.left_talk);
 			holder.right_talk = (ImageView) layout
 					.findViewById(R.id.right_talk);
-
-			holder.voicegifplay = (GifMovieView) layout.findViewById(R.id.voicegifplay);
+			holder.voicegifplay = (GifMovieView) layout
+					.findViewById(R.id.voicegifplay);
 			layout.setTag(holder);
 		} else {
 			holder = (ViewHolder) layout.getTag();
@@ -131,15 +124,18 @@ public class ChunkLearnListAdapter extends
 		FontHelper.applyFont(mContext, holder.textview, FontHelper.FONT_OpenSans);
 
 		if (mPosition == position) {
-            holder.voicegifplay.setVisibility(View.VISIBLE);
-
+			holder.voicegifplay.setMovieResource(R.drawable.wechat_audio);
+			if (mPosition != position) {
+				holder.voicegifplay.setMovieResource(R.drawable.wechat_audio_off);
+			}
 		} else {
-            holder.voicegifplay.setVisibility(View.GONE);
+			holder.voicegifplay.setMovieResource(R.drawable.wechat_audio_off);
 		}
 
 		if (closeAllGif) {
-			holder.voicegifplay.setVisibility(View.GONE);
+            holder.voicegifplay.setMovieResource(R.drawable.wechat_audio_off);
 		}
+
 
 		if (position % 2 == 0) {
 			holder.speakerA.setVisibility(View.VISIBLE);

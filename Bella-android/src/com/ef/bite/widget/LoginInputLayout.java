@@ -77,6 +77,44 @@ public class LoginInputLayout extends LinearLayout {
 			}
 		});
 	}
+
+    public void initializeWithFriend(String hint, int inputType, boolean isFocus, final View view){
+        mEdit.setHint(hint);
+        mEdit.setInputType(inputType);
+        if(isFocus)
+            mEdit.requestFocus();
+        mCancel.setVisibility(View.GONE);
+        mEdit.addTextChangedListener(new TextWatcher(){
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String input = s.toString();
+                if(input==null || input.isEmpty()) {
+                    mCancel.setVisibility(View.GONE);
+                    view.setClickable(true);
+                }
+                else{
+                    mCancel.setVisibility(View.VISIBLE);
+                    cleanError();
+                }
+            }
+        });
+        mCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mEdit.setText("");
+                mCancel.setVisibility(View.GONE);
+                mEdit.requestFocus();
+            }
+        });
+    }
 	
 	/**
 	 * 获得输入的文本
@@ -110,4 +148,5 @@ public class LoginInputLayout extends LinearLayout {
 	public void cleanError(){
 		mError.setVisibility(View.INVISIBLE);
 	}
+
 }

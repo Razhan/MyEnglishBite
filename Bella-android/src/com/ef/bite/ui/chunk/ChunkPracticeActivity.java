@@ -262,55 +262,55 @@ public class ChunkPracticeActivity extends BaseMultiChoiceActivity {
 				ChunkDonePopWindow donDialog = new ChunkDonePopWindow(
 						ChunkPracticeActivity.this, mChunkModel.getChunkText(),
 						mChunkModel.getChunkCode(), mContext);
-				donDialog
-						.setOnCloseListener(new BasePopupWindow.OnCloseListener() {
-							@Override
-							public void onClose() {
-								// 积分增加dialog
-								ScoresUpDialogFragment scoreUpDilaog = new ScoresUpDialogFragment(
-										ChunkPracticeActivity.this,
-										ScoreLevelHelper
-												.getDisplayLevel(userScore),
-										ScoreLevelHelper
-												.getCurrentLevelScore(userScore),
-										ScoreLevelHelper
-												.getCurrentLevelExistedScore(userScore),
-										totalScoreForPractice, mContext);
-								// 检查是否levelup
-								final int up2Level = totalScoreForPractice > ScoreLevelHelper
-										.getLevelUpScore(userScore) ? ScoreLevelHelper
-										.getDisplayLevel(userScore
-												+ totalScoreForPractice) : 0;
-								scoreUpDilaog
-										.setOnDismissListener(new OnDismissListener() {
-											@Override
-											public void onDismiss(
-													DialogInterface dialog) {
-												if (up2Level <= 0) {
+				donDialog.setOnCloseListener(new BasePopupWindow.OnCloseListener() {
+					@Override
+					public void onClose() {
+						// 积分增加dialog
+						ScoresUpDialogFragment scoreUpDilaog = new ScoresUpDialogFragment(
+								ChunkPracticeActivity.this,
+								ScoreLevelHelper
+										.getDisplayLevel(userScore),
+								ScoreLevelHelper
+										.getCurrentLevelScore(userScore),
+								ScoreLevelHelper
+										.getCurrentLevelExistedScore(userScore),
+								totalScoreForPractice, mContext);
+						// 检查是否levelup
+						final int up2Level = totalScoreForPractice > ScoreLevelHelper
+								.getLevelUpScore(userScore) ? ScoreLevelHelper
+								.getDisplayLevel(userScore
+										+ totalScoreForPractice) : 0;
+						scoreUpDilaog
+								.setOnDismissListener(new OnDismissListener() {
+									@Override
+									public void onDismiss(
+											DialogInterface dialog) {
+										if (up2Level <= 0) {
+											openMainActivity();
+										} else {
+											LevelUpPopWindow levelUp = new LevelUpPopWindow(
+													ChunkPracticeActivity.this,
+													up2Level);
+											levelUp.setOnDismissListener(new LevelUpPopWindow.OnDismissListener() {
+												@Override
+												public void onDismiss() {
 													openMainActivity();
-												} else {
-													LevelUpPopWindow levelUp = new LevelUpPopWindow(
-															ChunkPracticeActivity.this,
-															up2Level);
-													levelUp.setOnDismissListener(new LevelUpPopWindow.OnDismissListener() {
-														@Override
-														public void onDismiss() {
-															openMainActivity();
-														}
-													});
-													levelUp.open();
-													lvl = String
-															.valueOf(up2Level);
-													BI_Tracking(LevelUpMessageValues);
-
 												}
-											}
-										});
-								scoreUpDilaog.show(getSupportFragmentManager(),
-										"scores up");
-							}
-						});
+											});
+											levelUp.open();
+											lvl = String
+													.valueOf(up2Level);
+											BI_Tracking(LevelUpMessageValues);
+
+										}
+									}
+								});
+						scoreUpDilaog.show(getSupportFragmentManager(),
+								"scores up");
+					}
+				});
 				donDialog.open();
+				MobclickTracking.OmnitureTrack.ActionTrackingLearned();
 				BI_Tracking(PhraseLearnedMessageValues);
 
 			}

@@ -77,8 +77,10 @@ public class SettingsActivity extends BaseActivity {
 	final static int AVATAR_HEIGHT = 512; // 头像截图的高
 	Uri mImageCaptureUri; // 照相照片临时存储的地方
 	GlobalConfigBLL configbll;
+    final String[] course = {"Beginner to Elementary", "Intermediate to Advance"};
 
-	@Override
+
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
@@ -243,8 +245,9 @@ public class SettingsActivity extends BaseActivity {
 						.JsonLanguageDeserialize(mContext, "settings_language"),
 				AppLanguageHelper.getLanguageDisplayByType(mContext,
 						AppConst.GlobalConfig.LanguageType), true, mItemClick);
-		mCourseLevel.initiWithText("Course", "Easy English",
-				false, mItemClick);
+
+		mCourseLevel.initiWithText("Course", course[AppConst.GlobalConfig.CourseLevel], true, mItemClick);
+
 		mNotificationItem.initWithSwitch(JsonSerializeHelper
 				.JsonLanguageDeserialize(mContext, "settings_notification"),
 				AppConst.GlobalConfig.Notification_Enable,
@@ -318,6 +321,7 @@ public class SettingsActivity extends BaseActivity {
 	public class ItemClickListener implements View.OnClickListener {
         final String[] course = {"Beginner to Elementary", "Intermediate to Advance"};
         private String selectedcourse = null;
+		private int courseindex = -1;
 
 
 		@Override
@@ -450,35 +454,39 @@ public class SettingsActivity extends BaseActivity {
 						LanguageSettingActivity.class));
 				overridePendingTransition(R.anim.activity_in_from_right,
 						R.anim.activity_out_to_left);
-			} else if (v.getId() == mCourseLevel.getId()) {
+			} else if (v.getId() == mCourseLevel.getId()) { //更新课程难度
                 AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
                 builder.setTitle("Change Course");
 
-                builder.setSingleChoiceItems(course, -1, new DialogInterface.OnClickListener()
-                {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
-                        selectedcourse = course[which];
-                    }
-                });
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener()
-                {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
-                        if (selectedcourse != null) {
-                            mCourseLevel.initiWithText("Course", selectedcourse, false, mItemClick);
-                        }
-                    }
-                });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener()
-                {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
-                    }
-                });
+                builder.setSingleChoiceItems(course, -1, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						selectedcourse = course[which];
+						courseindex = which;
+					}
+				});
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						if (selectedcourse != null && courseindex != -1) {
+                            AppConst.GlobalConfig.CourseLevel = courseindex;
+
+                            ConfigModel appConfig = configbll.getConfigModel();
+                            if (appConfig == null) {
+                                appConfig = new ConfigModel();
+                            }
+                            appConfig.CourseLevel = courseindex;
+                            configbll.setConfigModel(appConfig);
+
+							mCourseLevel.initiWithText("Course", selectedcourse, true, mItemClick);
+						}
+					}
+			});
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+					}
+				});
                 builder.show();
 
             } else if (v.getId() == mResetItem.getId()) { // 教程模式

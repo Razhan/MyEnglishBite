@@ -288,6 +288,12 @@ public class EFRegisterActivity extends BaseActivity {
                 // TODO Auto-generated method stub
                 mLevelChoice = adapter_level.getItem(position).toString();
                 mPositionLevel = position - 1;
+
+                if (position != 0) {
+                    next2.setClickable(true);
+                } else {
+                    next2.setClickable(false);
+                }
             }
 
             @Override
@@ -301,14 +307,7 @@ public class EFRegisterActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 clearAllErrors();
-
-                if (mPositionLevel != 0) {
-                    attempNext2();
-                } else {
-                    ToastUtils.show(mContext, JsonSerializeHelper
-                            .JsonLanguageDeserialize(mContext,
-                                    "register_ef_empty_field"));
-                }
+                attempNext2();
 
                 BI_Tracking(Enrollment_AccountPhone);
             }
@@ -407,6 +406,7 @@ public class EFRegisterActivity extends BaseActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 mEnterNameLayout.setVisibility(View.GONE);
+                next2.setClickable(false);
             }
         });
         mEnterNameLayout.startAnimation(fadeout);

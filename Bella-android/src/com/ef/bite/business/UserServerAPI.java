@@ -59,6 +59,24 @@ public class UserServerAPI extends BaseServerAPI {
 		}
 	}
 
+	// update用户的 profile *
+	public HttpBaseMessage updateUserProfile(JSONObject profileData) {
+		try {
+			String dataString = profileData.toString();
+			String userProfile = HttpRestfulClient.JsonPost(
+					AppConst.EFAPIs.BaseAddress + "/profile/save", dataString,
+					headerMap);
+			HttpBaseMessage user = (HttpBaseMessage) JsonSerializeHelper
+					.JsonDeserialize(userProfile, HttpBaseMessage.class);
+			return user;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			TraceHelper.tracingErrorLog(context, ex.getMessage());
+			return null;
+		}
+	}
+
+
 	// 3.1.2 获取自己的friends profile friendsView *
 	public HttpGetFriends GetAllFiendsProfile(String id) {
 		try {

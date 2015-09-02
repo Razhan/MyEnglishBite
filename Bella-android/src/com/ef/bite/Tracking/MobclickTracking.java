@@ -712,7 +712,15 @@ public class MobclickTracking {
                     actionData);
         }
 
-
+        public static void ActionTrackingLearned() {
+            HashMap<String, Object> actionData = new HashMap<String, Object>();
+            actionData.put(
+                    ContextDataMode.ActionLearnedKey.actionlearnedkey,
+                    ContextDataMode.ActionLearnedValue.actionlearnedvalue);
+            Analytics.trackAction(
+                    ContextDataMode.ActionLearnedKey.actionlearnedkey,
+                    actionData);
+        }
 
         public static void actionFormErrorType(String ErrorType) {
             HashMap<String, Object> actionData = new HashMap<String, Object>();
@@ -720,6 +728,8 @@ public class MobclickTracking {
             Analytics.trackAction("action.formErrorType", actionData);
         }
     }
+
+}
 
 //    public static class UmengTrack {
 //        static DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -1059,4 +1069,4 @@ public class MobclickTracking {
 //        }
 //    }
 
-}
+//}

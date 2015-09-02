@@ -60,7 +60,6 @@ public class BaseActivity extends FragmentActivity {
 		// TODO Auto-generated method stub
 		super.onResume();
 		MobclickTracking.OmnitureTrack.ResumeCollectingLifecycleData();
-//		MobclickTracking.UmengTrack.setResume(mContext);
 	}
 
 	@Override

@@ -181,6 +181,8 @@ public class ProfileActivity extends BaseActivity {
 			mName.setText(profile.Alias == null ? "" : profile.Alias);
 			mFriendNum.setText(Integer.toString(profile.FriendsNum));
 			friendNum = profile.FriendsNum;
+
+			mChunksNum.setText(String.valueOf(profile.ChunkNum));
 			// 重新获得好友数量
 			if (profile.FriendsNum <= 0) {
 				getFriendCount(profile.UID, mFriendNum);

@@ -151,8 +151,7 @@ public class ChunkLearnActivity extends BaseChunkActivity {
 		mDialogueListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
-					final int position, long id) {
-
+									final int position, long id) {
 				// made in Alan
 				mposition = position;
 				PresentationConversation conversation = mChunkModel
@@ -160,9 +159,10 @@ public class ChunkLearnActivity extends BaseChunkActivity {
 						.get(position);
 				Integer startTime = conversation.getStartTime();
 				Integer endTime = conversation.getEndTime();
-				mDialogueAdapter.StopGif(position, true);
-
+				mDialogueAdapter.initGif(position);
 				if (startTime != null && endTime != null) {
+					// mBottomPlayer.start(startTime);
+					// mBottomPlayer.stop(endTime);
 					mWeChatPlayer.start(startTime);
 					mWeChatPlayer.stop(endTime, new OnStopClickListener() {
 
@@ -170,7 +170,7 @@ public class ChunkLearnActivity extends BaseChunkActivity {
 						public void OnStop() {
 							// TODO Auto-generated method stub
 							// mDialogueAdapter.StopGif(position, false);
-							//mDialogueAdapter.closeTranslationGif(false);
+							mDialogueAdapter.closeTranslationGif(true);
 						}
 					});
 
@@ -178,7 +178,8 @@ public class ChunkLearnActivity extends BaseChunkActivity {
 					mBottomPlayer.pause();
 				}
 
-				mDialogueAdapter.setTranslationMorn(false, position);
+//				mDialogueAdapter.closeGif();
+				// mDialogueAdapter.setTranslationMorn(true, position);
 			}
 		});
 
@@ -256,7 +257,7 @@ public class ChunkLearnActivity extends BaseChunkActivity {
 					public void OnClose() {
 						// TODO Auto-generated method stub
 						mWeChatPlayer.pause();
-						mDialogueAdapter.closeTranslationGif(false);
+						mDialogueAdapter.closeTranslationGif(true);
 					}
 				});
 

@@ -40,6 +40,10 @@ public class ContextDataMode {
 	/**
 	 * Custom Action_Key
 	 */
+    public static class ActionLearnedKey{
+        public final static String actionlearnedkey = "action.learned";
+    }
+
 	public static class ActionDialogueKey {
 
 		public final static String actionParagraphOpen = "action.paragraphOpen";
@@ -152,6 +156,9 @@ public class ContextDataMode {
 	/**
 	 * contextdata Value
 	 */
+    public static class ActionLearnedValue{
+        public final static String actionlearnedvalue = "1";
+    }
 
 	public static class SplashValues {
 		public final static String pageNameValue = "Splash:splash 1";
