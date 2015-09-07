@@ -20,12 +20,14 @@ import com.ef.bite.AppConst;
 import com.ef.bite.R;
 import com.ef.bite.Tracking.ContextDataMode;
 import com.ef.bite.Tracking.MobclickTracking;
+import com.ef.bite.business.GlobalConfigBLL;
 import com.ef.bite.business.task.LoginTask;
 import com.ef.bite.business.task.PostExecuting;
 import com.ef.bite.business.task.UpdateUserProfile;
 import com.ef.bite.dataacces.mode.LoginMode;
 import com.ef.bite.dataacces.mode.httpMode.HttpBaseMessage;
 import com.ef.bite.dataacces.mode.httpMode.HttpLogin;
+import com.ef.bite.model.ConfigModel;
 import com.ef.bite.ui.BaseActivity;
 import com.ef.bite.utils.JsonSerializeHelper;
 import com.ef.bite.widget.ActionbarLayout;
@@ -108,14 +110,14 @@ public class ThirdPartyLogInActivity extends BaseActivity {
             public void onClick(View v) {
 
                 String phoneNum = mPhoneInput.getText().toString();
-                updateProfile(token, phoneNum);
+                updateProfile(mLevelChoice, mPhoneInput.getText().toString());
             }
         });
 
         mSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateProfile(token, null);
+                updateProfile(mLevelChoice, "");
             }
         });
 
@@ -193,13 +195,7 @@ public class ThirdPartyLogInActivity extends BaseActivity {
     }
 
     private void SetupSpinner() {
-        List<String> spinnerList = new ArrayList<String>();
-//        spinnerList2.add(JsonSerializeHelper.JsonLanguageDeserialize(mContext, "register_ef_level_group"));
-        spinnerList.add("Your Choice");
-        spinnerList.add("Beginner - Elementary");
-        spinnerList.add("Intermediate - Advance");
-
-        final ArrayAdapter<String> adapter_level = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerList);
+        final ArrayAdapter<String> adapter_level = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, AppConst.GlobalConfig.StudyPlans);
         adapter_level.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         level_spinner.setAdapter(adapter_level);
         level_spinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
@@ -207,13 +203,7 @@ public class ThirdPartyLogInActivity extends BaseActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // TODO Auto-generated method stub
                 mLevelChoice = adapter_level.getItem(position).toString();
-                mPositionLevel = position - 1;
-
-                if (position != 0) {
-                    mNextBtn.setClickable(true);
-                } else {
-                    mNextBtn.setClickable(false);
-                }
+                mPositionLevel = position;
             }
 
             @Override
@@ -223,12 +213,22 @@ public class ThirdPartyLogInActivity extends BaseActivity {
         });
     }
 
-    private void updateProfile(final String access_token, String phoneNum) {
+    private void updateProfile(String level, String phoneNum) {
         UpdateUserProfile updateTask = new UpdateUserProfile(mContext,
                 new PostExecuting<HttpBaseMessage>() {
                     @Override
                     public void executing(HttpBaseMessage result) {
                         if (result != null && "0".equals(result.status)) {
+                            AppConst.GlobalConfig.CourseLevel = mPositionLevel;
+
+                            GlobalConfigBLL configbll = new GlobalConfigBLL(mContext);
+                            ConfigModel appConfig = configbll.getConfigModel();
+                            if (appConfig == null) {
+                                appConfig = new ConfigModel();
+                            }
+                            appConfig.CourseLevel = mPositionLevel;
+                            configbll.setConfigModel(appConfig);
+
                             getUserProfile();
                         } else {
                             Log.e("ThirdPartyLogin", "updateProfile error");
@@ -239,8 +239,10 @@ public class ThirdPartyLogInActivity extends BaseActivity {
 
         try{
             JSONObject jsonObj = new JSONObject();
+            jsonObj.put("bella_id", AppConst.CurrUserInfo.UserId);
+            jsonObj.put("plan_id", level);
             jsonObj.put("phone", phoneNum);
-            updateTask.execute();
+            updateTask.execute(jsonObj);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

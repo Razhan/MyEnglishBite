@@ -6,6 +6,8 @@ import android.util.Log;
 import com.ef.bite.lang.Closure;
 import com.ef.bite.utils.StringUtils;
 
+import java.util.List;
+
 public class GetServerAddressTask {
     private Context context;
     private Closure callback;
@@ -25,17 +27,17 @@ public class GetServerAddressTask {
         HostCompetition competition = new HostCompetition(context);
         competition.setOnFinishListener(new HostCompetition.onFinishListener() {
             @Override
-            public void onFinish(String host) {
+            public void onFinish(String host, boolean password, List<String> studyplans) {
                 if (StringUtils.isBlank(host)) {
                     if(count<2){
 //                        Log.v("EF_HOST","try :"+count);
                         count++;
                         getHostURL();
                     }else {
-                        doOnFinish(getDefaultHost());
+                        doOnFinish(getDefaultHost(), false, null);
                     }
                 }else {
-                    doOnFinish(host);
+                    doOnFinish(host, password, studyplans);
 //                    Log.v("EF_HOST", "getHostFromServer:"+host);
                 }
             }
@@ -43,8 +45,8 @@ public class GetServerAddressTask {
         competition.start();
     }
 
-    private void doOnFinish(String host){
-        setServerAddress(host);
+    private void doOnFinish(String host, boolean password, List<String> studyplans){
+        setServerAddress(host, password, studyplans);
         callback.execute(null);
     }
 
@@ -59,11 +61,13 @@ public class GetServerAddressTask {
         }
     }
 
-    private void setServerAddress(String host) {
+    private void setServerAddress(String host, boolean password, List<String> studyplans) {
 //        Log.v("EF_HOST","setServerAddress:"+host);
 //        AppConst.EFAPIs.BaseHost = "http://" + host;
         AppConst.EFAPIs.BaseHost = host;
         AppConst.EFAPIs.BaseAddress = AppConst.EFAPIs.BaseHost + "/api/bella/";
+        AppConst.GlobalConfig.ForgetPassWord = password;
+        AppConst.GlobalConfig.StudyPlans = studyplans;
 
 //        Log.v("EF_HOST", "BaseAddress :" + AppConst.EFAPIs.BaseAddress);
     }

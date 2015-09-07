@@ -22,6 +22,7 @@ import com.ef.bite.Tracking.MobclickTracking;
 import com.ef.bite.business.GlobalConfigBLL;
 import com.ef.bite.business.task.PostAvatarTask;
 import com.ef.bite.business.task.PostExecuting;
+import com.ef.bite.business.task.UpdateUserProfile;
 import com.ef.bite.dataacces.mode.httpMode.HttpBaseMessage;
 import com.ef.bite.model.ConfigModel;
 import com.ef.bite.ui.BaseActivity;
@@ -38,6 +39,8 @@ import com.ef.bite.widget.SettingItemLayout;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.soundcloud.android.crop.Crop;
+
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -77,7 +80,6 @@ public class SettingsActivity extends BaseActivity {
 	final static int AVATAR_HEIGHT = 512; // 头像截图的高
 	Uri mImageCaptureUri; // 照相照片临时存储的地方
 	GlobalConfigBLL configbll;
-    final String[] course = {"Beginner to Elementary", "Intermediate to Advance"};
 
 
     @Override
@@ -246,7 +248,7 @@ public class SettingsActivity extends BaseActivity {
 				AppLanguageHelper.getLanguageDisplayByType(mContext,
 						AppConst.GlobalConfig.LanguageType), true, mItemClick);
 
-		mCourseLevel.initiWithText("Course", course[AppConst.GlobalConfig.CourseLevel], true, mItemClick);
+		mCourseLevel.initiWithText("Course", AppConst.GlobalConfig.StudyPlans.get(AppConst.GlobalConfig.CourseLevel), true, mItemClick);
 
 		mNotificationItem.initWithSwitch(JsonSerializeHelper
 				.JsonLanguageDeserialize(mContext, "settings_notification"),
@@ -319,7 +321,6 @@ public class SettingsActivity extends BaseActivity {
 	 * 设置项点击
 	 **/
 	public class ItemClickListener implements View.OnClickListener {
-        final String[] course = {"Beginner to Elementary", "Intermediate to Advance"};
         private String selectedcourse = null;
 		private int courseindex = -1;
 
@@ -458,10 +459,11 @@ public class SettingsActivity extends BaseActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
                 builder.setTitle("Change Course");
 
-                builder.setSingleChoiceItems(course, -1, new DialogInterface.OnClickListener() {
+                builder.setSingleChoiceItems(AppConst.GlobalConfig.StudyPlans.toArray(new CharSequence[AppConst.GlobalConfig.StudyPlans.size()]),
+											-1, new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						selectedcourse = course[which];
+						selectedcourse = AppConst.GlobalConfig.StudyPlans.get(which);
 						courseindex = which;
 					}
 				});
@@ -469,16 +471,10 @@ public class SettingsActivity extends BaseActivity {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						if (selectedcourse != null && courseindex != -1) {
-                            AppConst.GlobalConfig.CourseLevel = courseindex;
 
-                            ConfigModel appConfig = configbll.getConfigModel();
-                            if (appConfig == null) {
-                                appConfig = new ConfigModel();
-                            }
-                            appConfig.CourseLevel = courseindex;
-                            configbll.setConfigModel(appConfig);
+                            updateProfile(selectedcourse, courseindex);
 
-							mCourseLevel.initiWithText("Course", selectedcourse, true, mItemClick);
+
 						}
 					}
 			});
@@ -514,6 +510,45 @@ public class SettingsActivity extends BaseActivity {
 			}
 		}
 	}
+
+
+    private void updateProfile(final String courselevel, final int index) {
+        UpdateUserProfile updateTask = new UpdateUserProfile(mContext,
+                new PostExecuting<HttpBaseMessage>() {
+                    @Override
+                    public void executing(HttpBaseMessage result) {
+                        if (result != null && "0".equals(result.status)) {
+
+                            AppConst.GlobalConfig.CourseLevel = index;
+
+                            ConfigModel appConfig = configbll.getConfigModel();
+                            if (appConfig == null) {
+                                appConfig = new ConfigModel();
+                            }
+                            appConfig.CourseLevel = index;
+                            configbll.setConfigModel(appConfig);
+
+                            mCourseLevel.initiWithText("Course", courselevel, true, mItemClick);
+
+
+                        } else {
+                            Log.e("ThirdPartyLogin", "updateProfile error");
+                            finish();
+                        }
+                    }
+                });
+
+        try{
+            JSONObject jsonObj = new JSONObject();
+            jsonObj.put("bella_id", AppConst.CurrUserInfo.UserId);
+            jsonObj.put("plan_id", courselevel);
+            updateTask.execute(jsonObj);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
 
 	AvataEditorPopupWindow avatarEditPopup = null;
 

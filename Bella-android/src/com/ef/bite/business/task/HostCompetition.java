@@ -21,7 +21,10 @@ import java.util.List;
  */
 public class HostCompetition {
 	private final static String TAG = "EF_HOST";
-	private String address;
+	private String address = "";
+    private List<String> studyplans = new ArrayList<String>();
+    private boolean password = false;
+
 	private onFinishListener onFinishListener;
 	private List<AsyncTask> taskList = new LinkedList<AsyncTask>();
 	private Context context;
@@ -37,9 +40,11 @@ public class HostCompetition {
 //		SimpleTask<?> task2 = getTask(AppConst.EFAPIs.HK_ETHost + "android/"
 //				+ AppUtils.getVersion(context));
 
-        SimpleTask<?> task1 = getTask("http://bella-live-web-lb-1387001753.us-west-2.elb.amazonaws.com/api/bella/2/config");
-        SimpleTask<?> task2 = getTask("http://42.96.250.52/api/bella/2/config");
+//        SimpleTask<?> task1 = getTask("http://bella-live-web-lb-1387001753.us-west-2.elb.amazonaws.com/api/bella/2/config");
+//        SimpleTask<?> task2 = getTask("http://42.96.250.52/api/bella/2/config");
 
+        SimpleTask<?> task1 = getTask("http://10.128.34.182/api/bella/2/config");
+        SimpleTask<?> task2 = getTask("http://10.128.34.182/api/bella/2/config");
 
 		taskList.add(task1);
 		taskList.add(task2);
@@ -55,7 +60,7 @@ public class HostCompetition {
 				if (onFinishListener == null) {
 					return;
 				}
-				onFinishListener.onFinish(address);
+				onFinishListener.onFinish(address, password, studyplans);
 //				 Log.v(TAG,"---onFinish return:"+address);
 			}
 		};
@@ -76,11 +81,12 @@ public class HostCompetition {
 					return;
 				}
 				if (StringUtils.isEquals(serverAddress.status, "0")
-						&& !StringUtils.isBlank(serverAddress.data.domain)) {
-					address = serverAddress.data.domain;
+						&& !StringUtils.isBlank(serverAddress.getData().getDomain())) {
+					address = serverAddress.getData().getDomain();
+                    studyplans =getStudyPlans(serverAddress.getData().getStudy_plans());
+                    password = serverAddress.getData().isEnable_forget_password();
 
 					//设置全局变量 判断是否显示忘记密码
-					AppConst.GlobalConfig.ForgetPassWord = serverAddress.data.enable_forget_password;
 //					 Log.v(TAG, "---return URL:"+url);
 					cancelTaskList();
 				}
@@ -106,11 +112,26 @@ public class HostCompetition {
 	}
 
 	public interface onFinishListener {
-		void onFinish(String host);
+		void onFinish(String host, boolean password, List<String> StudyPlans);
 	}
 
 	public void setOnFinishListener(
 			HostCompetition.onFinishListener onFinishListener) {
 		this.onFinishListener = onFinishListener;
 	}
+
+
+    private List<String> getStudyPlans(List<HttpServerAddress.DataEntity.Study_plansEntity> list) {
+        if (list.size() <= 0) {
+            return null;
+        }
+
+        List<String> result = new ArrayList<String>();
+        for (int i = 0; i < list.size(); i++) {
+            result.add(list.get(i).getPlan_id());
+        }
+
+        return result;
+    }
+
 }

@@ -78,7 +78,6 @@
 
             <Button
                 android:id="@+id/register_ef_btn_next2"
-                android:clickable="false"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/button_height"
                 android:layout_gravity="center_horizontal"

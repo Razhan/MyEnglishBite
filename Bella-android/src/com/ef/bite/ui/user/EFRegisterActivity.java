@@ -221,7 +221,7 @@ public class EFRegisterActivity extends BaseActivity {
 
                 attempRegister(phone, pwd, confirmPWD, firstname, lastname,
                         mIsCallCheckbox.isChecked(),
-                        AppUtils.getRealPhone(mContext), mindexAge);
+                        AppUtils.getRealPhone(mContext), mindexAge, mLevelChoice);
                 // Tracking event
                 // TraceHelper.tracingAction(mContext,
                 // TraceHelper.PAGE_REGISTER,
@@ -270,14 +270,9 @@ public class EFRegisterActivity extends BaseActivity {
             }
         });
 
-        List<String> spinnerList2 = new ArrayList<String>();
-//        spinnerList2.add(JsonSerializeHelper.JsonLanguageDeserialize(mContext, "register_ef_level_group"));
-        spinnerList2.add("Your Choice");
-        spinnerList2.add("Beginner - Elementary");
-        spinnerList2.add("Intermediate - Advance");
 
         final ArrayAdapter<String> adapter_level = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, spinnerList2);
+                android.R.layout.simple_spinner_item, AppConst.GlobalConfig.StudyPlans);
 		/* set方法是来设置spinner中每个条目的样式 */
         adapter_level.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         level_spinner.setAdapter(adapter_level);
@@ -287,13 +282,7 @@ public class EFRegisterActivity extends BaseActivity {
                                        int position, long id) {
                 // TODO Auto-generated method stub
                 mLevelChoice = adapter_level.getItem(position).toString();
-                mPositionLevel = position - 1;
-
-                if (position != 0) {
-                    next2.setClickable(true);
-                } else {
-                    next2.setClickable(false);
-                }
+                mPositionLevel = position;
             }
 
             @Override
@@ -406,7 +395,6 @@ public class EFRegisterActivity extends BaseActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 mEnterNameLayout.setVisibility(View.GONE);
-                next2.setClickable(false);
             }
         });
         mEnterNameLayout.startAnimation(fadeout);
@@ -414,7 +402,6 @@ public class EFRegisterActivity extends BaseActivity {
         step++;
 
     }
-
 
 	/** 下一步 - 2 **/
 	private void attempNext2() {
@@ -523,35 +510,35 @@ public class EFRegisterActivity extends BaseActivity {
 	/** 注册 **/
 	private void attempRegister(final String phone, final String password,
 			String confirmPWD, String firstname, String lastname,
-			boolean iscall, String real_phone, String indexage) {
+			boolean iscall, String real_phone, String indexage, String mlevelchoice) {
 		// 判断输入
 		if (phone == null || phone.isEmpty()) {
 			mPhoneInput.setError(JsonSerializeHelper.JsonLanguageDeserialize(
 					mContext, "login_error_username_empty"));
 			MobclickTracking.OmnitureTrack
 					.actionFormErrorType(JsonSerializeHelper
-							.JsonLanguageDeserialize(mContext,
-									"register_ef_error_username_null"));
+                            .JsonLanguageDeserialize(mContext,
+                                    "register_ef_error_username_null"));
 			return;
 		}
 
 		if (phone.length() < 10) {
 			mPhoneInput.setError(JsonSerializeHelper.JsonLanguageDeserialize(
-					mContext, "regisetr_ef_error_username_length"));
+                    mContext, "regisetr_ef_error_username_length"));
 		}
 
 		if (!isNumeric(phone)) {
 			mPhoneInput.setError(JsonSerializeHelper.JsonLanguageDeserialize(
-					mContext, "regisetr_ef_error_username_invalid"));
+                    mContext, "regisetr_ef_error_username_invalid"));
 		}
 
 		if (password == null || password.isEmpty()) {
 			mPWDInput.setError(JsonSerializeHelper.JsonLanguageDeserialize(
-					mContext, "register_ef_error_password_null"));
+                    mContext, "register_ef_error_password_null"));
 			MobclickTracking.OmnitureTrack
 					.actionFormErrorType(JsonSerializeHelper
-							.JsonLanguageDeserialize(mContext,
-									"register_ef_error_password_null"));
+                            .JsonLanguageDeserialize(mContext,
+                                    "register_ef_error_password_null"));
 			return;
 		}
 		if (confirmPWD == null || confirmPWD.isEmpty()) {
@@ -568,6 +555,8 @@ public class EFRegisterActivity extends BaseActivity {
 					.actionFormErrorType(getString(R.string.register_ef_error_password_not_match));
 			return;
 		}
+
+
 		SoftInputHelper.hideTemporarily(EFRegisterActivity.this);
 		mProgress = new ProgressDialog(EFRegisterActivity.this);
 		mProgress.setMessage(JsonSerializeHelper.JsonLanguageDeserialize(
@@ -608,7 +597,7 @@ public class EFRegisterActivity extends BaseActivity {
                     }
                 });
         registerTask.execute(new Object[]{phone, password, firstname,
-				lastname, iscall, real_phone, indexage});
+				lastname, iscall, real_phone, indexage, mlevelchoice});
 	}
 
     private void setGlobleConfig() {

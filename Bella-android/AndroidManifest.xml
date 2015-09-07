@@ -66,9 +66,6 @@
 
         <uses-library android:name="android.test.runner" />
 
-        <service android:name=".business.VersionUpdateBLL" >
-        </service>
-
         <receiver android:name=".receiver.DownLoadBroadcastReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />

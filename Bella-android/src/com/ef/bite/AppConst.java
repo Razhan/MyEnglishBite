@@ -1,5 +1,8 @@
 package com.ef.bite;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 系统变量
  * 
@@ -76,6 +79,8 @@ public class AppConst {
 		public static boolean ForgetPassWord = false;
         /**课程难度 0 - beginner 1 - advanced**/
 		public static int CourseLevel = 0;
+        /**课程难度列表**/
+		public static List<String> StudyPlans = new ArrayList<String>();
 
 	}
 

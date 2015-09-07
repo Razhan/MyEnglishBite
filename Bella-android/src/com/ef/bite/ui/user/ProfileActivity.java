@@ -296,7 +296,7 @@ public class ProfileActivity extends BaseActivity {
                 new PostExecuting<HttpProfile>() {
                     @Override
                     public void executing(HttpProfile result) {
-                        if (result != null && result.status != null && result.status.equals("0") && result.data != null) {
+                        if (result != null && result.status != null && result.status.equals("0") && result.data != null && result.data.market_code != null) {
                             country = result.data.market_code;
 
                             String path = android.os.Environment.getExternalStorageDirectory()

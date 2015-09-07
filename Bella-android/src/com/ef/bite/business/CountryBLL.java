@@ -55,8 +55,7 @@ public class CountryBLL {
     public static String getLocalCountry(String countrykey, String path, Context mContext) {
         String sys_language = AppLanguageHelper.getSystemLaunguage(mContext);
         sys_language = CountryBLL.countryMapping(sys_language);
-        JSONObject obj = JsonSerializeHelper.getJSONObjectFromSD(path + sys_language + ".json"
-        );
+        JSONObject obj = JsonSerializeHelper.getJSONObjectFromSD(path + sys_language + ".json");
 
         String countryvalue = obj.optString(countrykey);
 

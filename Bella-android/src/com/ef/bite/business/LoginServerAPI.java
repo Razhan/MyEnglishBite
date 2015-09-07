@@ -61,7 +61,7 @@ public class LoginServerAPI extends BaseServerAPI {
 	 */
 	public HttpBaseMessage registerUser(Object phone, Object password,
 			Object firstname, Object lastname, Object is_call_allowed,
-			Object real_phone, Object ageindex) {
+			Object real_phone, Object ageindex, Object courselevel) {
 		try {
 			JSONObject jsonObj = new JSONObject();
 			jsonObj.put("username", phone);
@@ -73,6 +73,8 @@ public class LoginServerAPI extends BaseServerAPI {
 			jsonObj.put("is_call_allowed", is_call_allowed);
 			jsonObj.put("real_phone", real_phone);
 			jsonObj.put("age", ageindex);
+			jsonObj.put("plan_id", courselevel);
+
 			String registInfoMessage = HttpRestfulClient.JsonPost(
 					AppConst.EFAPIs.BaseAddress + "register",
 					jsonObj.toString(), headerMap);
