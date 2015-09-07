@@ -213,20 +213,20 @@ public class ThirdPartyLogInActivity extends BaseActivity {
         });
     }
 
-    private void updateProfile(String level, String phoneNum) {
+    private void updateProfile(final String level, String phoneNum) {
         UpdateUserProfile updateTask = new UpdateUserProfile(mContext,
                 new PostExecuting<HttpBaseMessage>() {
                     @Override
                     public void executing(HttpBaseMessage result) {
                         if (result != null && "0".equals(result.status)) {
-                            AppConst.GlobalConfig.CourseLevel = mPositionLevel;
+                            AppConst.CurrUserInfo.CourseLevel = level;
 
                             GlobalConfigBLL configbll = new GlobalConfigBLL(mContext);
                             ConfigModel appConfig = configbll.getConfigModel();
                             if (appConfig == null) {
                                 appConfig = new ConfigModel();
                             }
-                            appConfig.CourseLevel = mPositionLevel;
+                            appConfig.CourseLevel = level;
                             configbll.setConfigModel(appConfig);
 
                             getUserProfile();

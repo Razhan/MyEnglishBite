@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import com.apptentive.android.sdk.Apptentive;
 import com.ef.bite.AppSession;
 import com.ef.bite.Tracking.MobclickTracking;
+import com.ef.bite.business.GlobalConfigBLL;
 import com.ef.bite.business.TutorialConfigBiz;
 import com.ef.bite.business.UserScoreBiz;
 import com.ef.bite.business.task.GetProfileTask;
@@ -27,6 +28,7 @@ import com.ef.bite.dataacces.ProfileCache;
 import com.ef.bite.dataacces.TutorialConfigSharedStorage;
 import com.ef.bite.dataacces.mode.PushData;
 import com.ef.bite.dataacces.mode.httpMode.HttpProfile;
+import com.ef.bite.model.ConfigModel;
 import com.ef.bite.model.TutorialConfig;
 import com.ef.bite.ui.main.MainActivity;
 import com.ef.bite.ui.user.EFLoginWelcomeActivity;
@@ -178,6 +180,17 @@ public class BaseActivity extends FragmentActivity {
 								&& result.status.equals("0")
 								&& result.data != null) {
 							profileCache.setUserProfile(result);
+
+                            AppConst.CurrUserInfo.CourseLevel = result.data.plan_id;
+
+                            GlobalConfigBLL configbll = new GlobalConfigBLL(mContext);
+                            ConfigModel appConfig = configbll.getConfigModel();
+                            if (appConfig == null) {
+                                appConfig = new ConfigModel();
+                            }
+                            appConfig.CourseLevel = result.data.plan_id;
+                            configbll.setConfigModel(appConfig);
+
 
 							startActivity(new Intent(mContext, MainActivity.class).putExtra("com.parse.Data", getStringExtra("com.parse.Data")));
 							finish();

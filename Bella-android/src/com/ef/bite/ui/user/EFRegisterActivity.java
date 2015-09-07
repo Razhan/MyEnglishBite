@@ -601,14 +601,14 @@ public class EFRegisterActivity extends BaseActivity {
 	}
 
     private void setGlobleConfig() {
-        AppConst.GlobalConfig.CourseLevel = mPositionLevel;
+        AppConst.CurrUserInfo.CourseLevel = mLevelChoice;
 
         GlobalConfigBLL configbll = new GlobalConfigBLL(mContext);
         ConfigModel appConfig = configbll.getConfigModel();
         if (appConfig == null) {
             appConfig = new ConfigModel();
         }
-        appConfig.CourseLevel = mPositionLevel;
+        appConfig.CourseLevel = mLevelChoice;
         configbll.setConfigModel(appConfig);
     }
 

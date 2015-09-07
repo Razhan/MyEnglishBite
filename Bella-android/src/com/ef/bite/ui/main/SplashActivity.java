@@ -141,17 +141,14 @@ public class SplashActivity extends BaseActivity {
                 AppConst.GlobalConfig.Notification_Enable = appConfig.IsNotificationOn;
                 AppConst.GlobalConfig.SoundEffect_Enable = appConfig.IsSoundEffectOn;
                 AppConst.GlobalConfig.LanguageType = appConfig.MultiLanguageType;
-                AppConst.GlobalConfig.CourseLevel = appConfig.CourseLevel;
-
+                AppConst.CurrUserInfo.CourseLevel = appConfig.CourseLevel;
 
                 if (appConfig.MultiLanguageType != AppConst.MultiLanguageType.Default)
                     AppLanguageHelper.loadLanguageFirstTime(mContext,
                             appConfig.MultiLanguageType);
-                AppConst.GlobalConfig.Language = AppLanguageHelper
-                        .getSystemLaunguage(mContext);
+                AppConst.GlobalConfig.Language = AppLanguageHelper.getSystemLaunguage(mContext);
             } else
-                AppConst.GlobalConfig.Language = AppLanguageHelper
-                        .getSystemLaunguage(mContext);
+                AppConst.GlobalConfig.Language = AppLanguageHelper.getSystemLaunguage(mContext);
 
             profileCache.loadUserProfile();
 

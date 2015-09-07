@@ -32,6 +32,8 @@ public class ProfileCache {
         AppConst.CurrUserInfo.Phone = profile.data.phone;
         AppConst.CurrUserInfo.Score = profile.data.score;
         AppConst.CurrUserInfo.Level = profile.data.Level;
+        AppConst.CurrUserInfo.CourseLevel = profile.data.plan_id;
+
         save();
     }
 
@@ -49,6 +51,8 @@ public class ProfileCache {
             AppConst.CurrUserInfo.Score = existedLogin.Score;
             AppConst.CurrUserInfo.Level = existedLogin.Level;
             AppConst.CurrUserInfo.Location = existedLogin.Location;
+            AppConst.CurrUserInfo.CourseLevel = existedLogin.Plan_ID;
+
         }
     }
 
@@ -65,6 +69,8 @@ public class ProfileCache {
         existedLogin.Score = AppConst.CurrUserInfo.Score;
         existedLogin.Level = AppConst.CurrUserInfo.Level;
         existedLogin.Location = AppConst.CurrUserInfo.Location;
+        existedLogin.Plan_ID = AppConst.CurrUserInfo.CourseLevel;
+
         PreferencesUtils.putString(context, AppConst.CacheKeys.CACHE_DASHBOARD, JsonSerializeHelper.JsonSerializer(existedLogin));
     }
 }

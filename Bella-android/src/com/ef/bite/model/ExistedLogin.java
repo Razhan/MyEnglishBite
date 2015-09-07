@@ -34,6 +34,8 @@ public class ExistedLogin extends BaseJsonModel {
 
 	public int Level;
 
+    public String Plan_ID;
+
 
 	@Override
 	public void parse(String json) {
@@ -53,6 +55,7 @@ public class ExistedLogin extends BaseJsonModel {
 			this.Email = login.Email;
 			this.Location = login.Location;
 			this.RegisterDate = login.RegisterDate;
+            this.Plan_ID = login.Plan_ID;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

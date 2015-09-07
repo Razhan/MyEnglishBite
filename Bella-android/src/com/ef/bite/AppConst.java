@@ -31,6 +31,8 @@ public class AppConst {
 		public static int Score ;
 		public static int Level ;
 		public static String RegisterDate = null;
+		/**课程难度 0 - beginner 1 - advanced**/
+		public static String CourseLevel = "";
 	}
 
 	/**
@@ -77,8 +79,6 @@ public class AppConst {
 		public static boolean TutorialConfig = false;
 		/**是否显示忘记密码**/
 		public static boolean ForgetPassWord = false;
-        /**课程难度 0 - beginner 1 - advanced**/
-		public static int CourseLevel = 0;
         /**课程难度列表**/
 		public static List<String> StudyPlans = new ArrayList<String>();
 

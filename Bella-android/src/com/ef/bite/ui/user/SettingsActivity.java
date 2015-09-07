@@ -248,7 +248,7 @@ public class SettingsActivity extends BaseActivity {
 				AppLanguageHelper.getLanguageDisplayByType(mContext,
 						AppConst.GlobalConfig.LanguageType), true, mItemClick);
 
-		mCourseLevel.initiWithText("Course", AppConst.GlobalConfig.StudyPlans.get(AppConst.GlobalConfig.CourseLevel), true, mItemClick);
+		mCourseLevel.initiWithText("Course", AppConst.CurrUserInfo.CourseLevel, true, mItemClick);
 
 		mNotificationItem.initWithSwitch(JsonSerializeHelper
 				.JsonLanguageDeserialize(mContext, "settings_notification"),
@@ -519,13 +519,13 @@ public class SettingsActivity extends BaseActivity {
                     public void executing(HttpBaseMessage result) {
                         if (result != null && "0".equals(result.status)) {
 
-                            AppConst.GlobalConfig.CourseLevel = index;
+                            AppConst.CurrUserInfo.CourseLevel = courselevel;
 
                             ConfigModel appConfig = configbll.getConfigModel();
                             if (appConfig == null) {
                                 appConfig = new ConfigModel();
                             }
-                            appConfig.CourseLevel = index;
+                            appConfig.CourseLevel = courselevel;
                             configbll.setConfigModel(appConfig);
 
                             mCourseLevel.initiWithText("Course", courselevel, true, mItemClick);

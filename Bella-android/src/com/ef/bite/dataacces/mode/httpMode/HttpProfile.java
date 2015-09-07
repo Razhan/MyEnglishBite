@@ -16,6 +16,7 @@ public class HttpProfile extends HttpBaseMessage {
 		public String phone;
 		public int score;
 		public int Level;
+		public String plan_id;
 		public int remaining_score_to_next_level;
 		public int recording_count;
 		public int recording_like_count;
