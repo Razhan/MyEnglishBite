@@ -28,9 +28,11 @@ import com.ef.bite.Tracking.ContextDataMode;
 import com.ef.bite.Tracking.MobclickTracking;
 import com.ef.bite.adapters.SearchUserListAdapter;
 import com.ef.bite.business.action.UserProfileOpenAction;
+import com.ef.bite.business.task.GetFBImageTask;
 import com.ef.bite.business.task.GetShareFriendLinkTask;
 import com.ef.bite.business.task.PostExecuting;
 import com.ef.bite.business.task.SearchUserTask;
+import com.ef.bite.dataacces.mode.httpMode.HttpGetFBImageResponse;
 import com.ef.bite.dataacces.mode.httpMode.HttpGetFriendData;
 import com.ef.bite.dataacces.mode.httpMode.HttpGetFriends;
 import com.ef.bite.dataacces.mode.httpMode.HttpShareLink;
@@ -111,9 +113,9 @@ public class AddFriendActivity extends BaseActivity {
                         searchType = SearchType.Wechat;
 
                         if (AppConst.CurrUserInfo.Location.equals("cn")) {
-                            wechatInvite();
+                            getFBImageUrl();
                         } else {
-                            wechatInvite();
+                            getFBImageUrl();
                         }
 
                         mSelectSwitcher.selectRight();
@@ -293,11 +295,11 @@ public class AddFriendActivity extends BaseActivity {
     }
 
 
-    private void facebookInvite() {
+    private void facebookInvite(String url) {
         String appLinkUrl, previewImageUrl;
 
         appLinkUrl = "https://fb.me/1603425726573202";
-        previewImageUrl = null;
+        previewImageUrl = url;
 
         if (AppInviteDialog.canShow()) {
             AppInviteContent content = new AppInviteContent.Builder()
@@ -307,4 +309,18 @@ public class AddFriendActivity extends BaseActivity {
             AppInviteDialog.show(this, content);
         }
     }
+
+    private void getFBImageUrl() {
+        GetFBImageTask task = new GetFBImageTask(mContext,
+                new PostExecuting<HttpGetFBImageResponse>() {
+                    @Override
+                    public void executing(HttpGetFBImageResponse result) {
+                        if (result != null && result.status != null && result.status.equals("0")) {
+//                            facebookInvite(result.getData().getImage_url());
+                        }
+                    }
+                });
+        task.execute();
+    }
+
 }

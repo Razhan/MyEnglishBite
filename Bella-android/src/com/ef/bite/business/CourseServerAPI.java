@@ -107,7 +107,7 @@ public class CourseServerAPI extends BaseServerAPI {
 		try {
 			JSONObject params = new JSONObject();
 			params.put("bella_id", uid);
-			params.put("plan_id", "");
+			params.put("plan_id", AppConst.CurrUserInfo.CourseLevel);
 			params.put("unlock_count", "1");
 			String jsonString = HttpRestfulClient.JsonPost(
 					AppConst.EFAPIs.BaseAddress + "2/learn/unlock",params.toString(),

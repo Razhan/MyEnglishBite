@@ -262,6 +262,20 @@ public class SplashActivity extends BaseActivity {
         String sys_language = AppLanguageHelper.getSystemLaunguage(mContext);
         sys_language = CountryBLL.countryMapping(sys_language);
         AppLanguageHelper.loadLanguageFromStorage(mContext, languageStorage.getStorageFolder() + "/system_text/", sys_language);
+
+        initStudyPlanMap();
+    }
+
+
+    private void initStudyPlanMap() {
+        if (AppConst.GlobalConfig.StudyPlans != null && AppConst.GlobalConfig.StudyPlansMap != null && AppConst.GlobalConfig.StudyPlansMap.size() <= 0) {
+
+            for (int i = 0; i < AppConst.GlobalConfig.StudyPlans.size(); i++) {
+                String studyplan = AppConst.GlobalConfig.StudyPlans.get(i);
+                String temp = JsonSerializeHelper.JsonLanguageDeserialize(mContext, studyplan);
+                AppConst.GlobalConfig.StudyPlansMap.put(studyplan, temp);
+            }
+        }
     }
 
     private String getTranslationVersion(){

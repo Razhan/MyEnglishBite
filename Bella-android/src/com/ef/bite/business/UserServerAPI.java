@@ -684,6 +684,8 @@ public class UserServerAPI extends BaseServerAPI {
 		try {
 			JSONObject param = new JSONObject();
 			param.put("bella_id", AppConst.CurrUserInfo.UserId);
+            param.put("plan_id", AppConst.CurrUserInfo.CourseLevel);
+
 //			param.put("new_lesson_max_count", 5);
 //			param.put("new_rehearsal_max_count", 10);
 //			param.put("rank_friend_max_count", 4);
@@ -739,4 +741,22 @@ public class UserServerAPI extends BaseServerAPI {
 			return null;
 		}
 	}
+
+	//获取fb图片
+    public HttpGetFBImageResponse getFBImage() {
+        try {
+            JSONObject param = new JSONObject();
+            String result = HttpRestfulClient.JsonPost(
+                    AppConst.EFAPIs.BaseAddress + "banner/facebook_invite_image/", param.toString(),
+                    headerMap);
+            HttpGetFBImageResponse fbImageResponse = (HttpGetFBImageResponse) JsonSerializeHelper
+                    .JsonDeserialize(result, HttpGetFBImageResponse.class);
+            return fbImageResponse;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            TraceHelper.tracingErrorLog(context, ex.getMessage());
+            return null;
+        }
+    }
+
 }

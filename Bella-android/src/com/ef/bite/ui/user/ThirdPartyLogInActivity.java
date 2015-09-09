@@ -30,6 +30,7 @@ import com.ef.bite.dataacces.mode.httpMode.HttpLogin;
 import com.ef.bite.model.ConfigModel;
 import com.ef.bite.ui.BaseActivity;
 import com.ef.bite.utils.JsonSerializeHelper;
+import com.ef.bite.utils.ListUtils;
 import com.ef.bite.widget.ActionbarLayout;
 import com.ef.bite.widget.LoginInputLayout;
 
@@ -195,14 +196,18 @@ public class ThirdPartyLogInActivity extends BaseActivity {
     }
 
     private void SetupSpinner() {
-        final ArrayAdapter<String> adapter_level = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, AppConst.GlobalConfig.StudyPlans);
+
+        List<String> valueset = new ArrayList<String>();
+        valueset = ListUtils.getValues(AppConst.GlobalConfig.StudyPlansMap);
+
+        final ArrayAdapter<String> adapter_level = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, valueset);
         adapter_level.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         level_spinner.setAdapter(adapter_level);
         level_spinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // TODO Auto-generated method stub
-                mLevelChoice = adapter_level.getItem(position).toString();
+                mLevelChoice = AppConst.GlobalConfig.StudyPlans.get(position);
                 mPositionLevel = position;
             }
 

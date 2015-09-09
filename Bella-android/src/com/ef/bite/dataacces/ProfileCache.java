@@ -51,7 +51,7 @@ public class ProfileCache {
             AppConst.CurrUserInfo.Score = existedLogin.Score;
             AppConst.CurrUserInfo.Level = existedLogin.Level;
             AppConst.CurrUserInfo.Location = existedLogin.Location;
-            AppConst.CurrUserInfo.CourseLevel = existedLogin.Plan_ID;
+//            AppConst.CurrUserInfo.CourseLevel = existedLogin.Plan_ID;
 
         }
     }

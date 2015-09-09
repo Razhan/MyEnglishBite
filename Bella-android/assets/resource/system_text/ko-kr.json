@@ -18,6 +18,8 @@
     "balloon_drag_start": "Start",
     "balloon_good_job": "잘하셨어요!",
     "balloon_tips": "이해하기 쉽거나 논리적이 됩니다.",
+    "beginner": "기초",
+    "sequence": "중급",
     "change_pwd_ef_change_button": "암호 변경",
     "change_pwd_ef_changing_pwd": "암호 변경…",
     "change_pwd_ef_confirm_new_pwd_hint": "암호 확인",

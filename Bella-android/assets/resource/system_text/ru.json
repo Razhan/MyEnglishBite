@@ -18,6 +18,8 @@
     "balloon_drag_start": "Start",
     "balloon_good_job": "Прекрасно!",
     "balloon_tips": "Быть легким для понимания или логичным.",
+    "beginner": "Начинающий",
+    "sequence": "Средний",
     "change_pwd_ef_change_button": "Изменить пароль",
     "change_pwd_ef_changing_pwd": "Изменение пароля...",
     "change_pwd_ef_confirm_new_pwd_hint": "Подтверждение пароля",

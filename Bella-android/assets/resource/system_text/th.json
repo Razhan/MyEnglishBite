@@ -18,6 +18,8 @@
     "balloon_drag_start": "Start",
     "balloon_good_job": "ทำได้ดี!",
     "balloon_tips": "เพื่อให้ง่ายในการทำความเข้าใจหรือเป็นเหตุเป็นผล",
+    "beginner": "ระดับเริ่มต้น",
+    "sequence": "ระดับกลาง",
     "change_pwd_ef_change_button": "เปลี่ยนรหัสผ่าน",
     "change_pwd_ef_changing_pwd": "กำลังเปลี่ยนรหัสผ่าน...",
     "change_pwd_ef_confirm_new_pwd_hint": "ยืนยันรหัสผ่าน",

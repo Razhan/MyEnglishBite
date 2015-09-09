@@ -18,6 +18,8 @@
     "balloon_drag_start": "Start",
     "balloon_good_job": "¡Buen trabajo!",
     "balloon_tips": "Para que sea lógico o fácil de entender.",
+    "beginner": "Principiante",
+    "sequence": "Intermedio",
     "change_pwd_ef_change_button": "Cambiar contraseña",
     "change_pwd_ef_changing_pwd": "Cambiando contraseña...",
     "change_pwd_ef_confirm_new_pwd_hint": "Confirmar contraseña",

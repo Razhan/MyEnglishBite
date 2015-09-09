@@ -1,7 +1,10 @@
 package com.ef.bite.utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.text.TextUtils;
 
@@ -250,4 +253,21 @@ public class ListUtils {
         }
         return invertList;
     }
+
+    public static List<String> getValues(HashMap<String, String> map) {
+        if (map.equals(null)) {
+            return null;
+        }
+
+        List<String> result = new ArrayList<String>();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+
+            result.add(entry.getValue());
+        }
+        ArrayList<String> rlist = new ArrayList<String>(result);
+
+        Collections.reverse(rlist);
+        return rlist;
+    }
+
 }

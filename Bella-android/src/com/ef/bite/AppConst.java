@@ -1,6 +1,7 @@
 package com.ef.bite;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -81,6 +82,7 @@ public class AppConst {
 		public static boolean ForgetPassWord = false;
         /**课程难度列表**/
 		public static List<String> StudyPlans = new ArrayList<String>();
+		public static HashMap<String , String> StudyPlansMap = new HashMap<String , String>();
 
 	}
 

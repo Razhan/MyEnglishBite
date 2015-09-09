@@ -6,6 +6,7 @@ import com.ef.bite.AppConst;
 import com.ef.bite.dataacces.mode.httpMode.HttpServerAddress;
 import com.ef.bite.utils.AppUtils;
 import com.ef.bite.utils.HttpRestfulClient;
+import com.ef.bite.utils.JsonSerializeHelper;
 import com.ef.bite.utils.StringUtils;
 import com.litesuits.android.async.AsyncTask;
 import com.litesuits.android.async.SimpleTask;
@@ -122,7 +123,7 @@ public class HostCompetition {
 
 
     private List<String> getStudyPlans(List<HttpServerAddress.DataEntity.Study_plansEntity> list) {
-        if (list.size() <= 0) {
+        if (list != null && list.size() <= 0) {
             return null;
         }
 

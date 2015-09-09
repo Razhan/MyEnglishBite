@@ -270,10 +270,12 @@ public class EFRegisterActivity extends BaseActivity {
             }
         });
 
+        List<String> valueset = new ArrayList<String>();
+        valueset = ListUtils.getValues(AppConst.GlobalConfig.StudyPlansMap);
 
         final ArrayAdapter<String> adapter_level = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, AppConst.GlobalConfig.StudyPlans);
-		/* set方法是来设置spinner中每个条目的样式 */
+                android.R.layout.simple_spinner_item, valueset);
+
         adapter_level.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         level_spinner.setAdapter(adapter_level);
         level_spinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
@@ -281,7 +283,7 @@ public class EFRegisterActivity extends BaseActivity {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
                 // TODO Auto-generated method stub
-                mLevelChoice = adapter_level.getItem(position).toString();
+                mLevelChoice = AppConst.GlobalConfig.StudyPlans.get(position);
                 mPositionLevel = position;
             }
 
@@ -601,7 +603,7 @@ public class EFRegisterActivity extends BaseActivity {
 	}
 
     private void setGlobleConfig() {
-        AppConst.CurrUserInfo.CourseLevel = mLevelChoice;
+        AppConst.CurrUserInfo.CourseLevel = JsonSerializeHelper.JsonLanguageDeserialize(mContext, mLevelChoice);
 
         GlobalConfigBLL configbll = new GlobalConfigBLL(mContext);
         ConfigModel appConfig = configbll.getConfigModel();

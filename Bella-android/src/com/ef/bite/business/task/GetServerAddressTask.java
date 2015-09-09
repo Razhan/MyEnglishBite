@@ -29,7 +29,7 @@ public class GetServerAddressTask {
             @Override
             public void onFinish(String host, boolean password, List<String> studyplans) {
                 if (StringUtils.isBlank(host)) {
-                    if(count<2){
+                    if(count<3){
 //                        Log.v("EF_HOST","try :"+count);
                         count++;
                         getHostURL();
